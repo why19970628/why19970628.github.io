@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>scala 环境搭建&amp;基本语法 - Carson&#39;s Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="keywords" content="Scala">
+<meta property="og:type" content="article">
+<meta property="og:title" content="scala 环境搭建&amp;基本语法">
+<meta property="og:url" content="http://yoursite.com/2019/06/23/scala基本语法/index.html">
+<meta property="og:site_name" content="Carson&#39;s Blog">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="og:updated_time" content="2019-06-24T03:17:28.598Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="scala 环境搭建&amp;基本语法">
+<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+	<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="scala 环境搭建&amp;基本语法" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">主页</a>
+                
+                <a class="navbar-item" href="/archives">归纳</a>
+                
+                <a class="navbar-item" href="/categories">分类</a>
+                
+                <a class="navbar-item" href="/tags">标签</a>
+                
+                <a class="navbar-item" href="/about">关于我</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/aaaTao66">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+	
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-06-22T16:00:00.000Z">2019-06-23</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Scala/">Scala</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    33 分钟 读完 (大约 4925 个字)
+                </span>
+                
+                
+                阅读次数:
+				<span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+				
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                scala 环境搭建&amp;基本语法
+            
+        </h1>
+        <div class="content">
+            <p><img src="/2019/06/23/scala基本语法/1.png" alt="Scala"></p>
+<a id="more"></a>
+<hr>
+<h1 id="0x00开始安装"><a href="#0x00开始安装" class="headerlink" title="0x00开始安装"></a>0x00开始安装</h1><h3 id="1-JVM"><a href="#1-JVM" class="headerlink" title="1. JVM"></a>1. JVM</h3><p>Scala是运行在JVM平台上的,所以你需要有JDK环境</p>
+<h3 id="2-安装Scala"><a href="#2-安装Scala" class="headerlink" title="2.安装Scala"></a>2.安装Scala</h3><h5 id="Windows安装Scala编译器"><a href="#Windows安装Scala编译器" class="headerlink" title="Windows安装Scala编译器"></a>Windows安装Scala编译器</h5><ol>
+<li><p><a href="https://www.scala-lang.org/download/all.html" target="_blank" rel="noopener">点此下载</a></p>
+<p>访问Scala官网<a href="http://www.scala-lang.org/下载Scala编译器安装包，目前最新版本是2.12.x" target="_blank" rel="noopener">http://www.scala-lang.org/下载Scala编译器安装包，目前最新版本是2.12.x</a></p>
+<p>下载scala-2.11.8.msi后点击下一步就可以了（一般会自动配置上环境变量）。也可以下载<a href="https://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.zip" target="_blank" rel="noopener">scala-2.11.8.zip</a>解压即可</p>
+</li>
+<li><p>检查环境变量是否成功,打开CMD(也可以去path里看有没有$SCALA_HONE$)输入scala</p>
+<p><img src="/2019/06/23/scala基本语法/2.png" alt="cmd"></p>
+</li>
+</ol>
+<h5 id="Linux安装Scala编译器"><a href="#Linux安装Scala编译器" class="headerlink" title="Linux安装Scala编译器"></a>Linux安装Scala编译器</h5><p>下载Scala地址<a href="https://www.scala-lang.org/download/2.11.8.html" target="_blank" rel="noopener">https://www.scala-lang.org/download/2.11.8.html</a></p>
+<p>然后解压Scala到指定目录</p>
+<p>tar -zxvf scala-2.11.8.tgz -C /opt/soft</p>
+<p>配置环境变量，将scala加入到PATH中</p>
+<ul>
+<li>vim /etc/profile</li>
+</ul>
+<blockquote>
+<p>export JAVA_HOME=/opt/soft/jdk1.8</p>
+</blockquote>
+<blockquote>
+<p>export PATH=$PATH:$JAVA_HOME/bin:/opt/soft/scala-2.11.8/bin</p>
+</blockquote>
+<h5 id="Idea安装"><a href="#Idea安装" class="headerlink" title="Idea安装"></a>Idea安装</h5><p>目前Scala的开发工具主要有两种：Eclipse和IDEA，这两个开发工具都有相应的Scala插件，如果使用Eclipse，直接到Scala官网下载即可<a href="http://scala-ide.org/download/sdk.html。" target="_blank" rel="noopener">http://scala-ide.org/download/sdk.html。</a></p>
+<p>由于IDEA的Scala插件更优秀，大多数Scala程序员都选择IDEA，可以到<a href="http://www.jetbrains.com/idea/download/下载，点击下一步安装即可，安装时如果有网络可以选择在线安装Scala插件。" target="_blank" rel="noopener">http://www.jetbrains.com/idea/download/下载，点击下一步安装即可，安装时如果有网络可以选择在线安装Scala插件。</a></p>
+<p><strong>离线安装Scala插件：</strong></p>
+<blockquote>
+<p>1.安装IDEA，点击下一步即可。</p>
+<p>2.下载IEDA的scala插件</p>
+<p>插件地址： <a href="https://plugins.jetbrains.com/plugin/1347-scala" target="_blank" rel="noopener">https://plugins.jetbrains.com/plugin/1347-scala</a></p>
+<p>3.安装Scala插件：Configure -&gt; Plugins -&gt; Install plugin from disk -&gt; 选择Scala插件 -&gt; OK -&gt; 重启IDEA</p>
+</blockquote>
+<p><strong>在线安装Scala插件：</strong></p>
+<p>idea打开: Settings -&gt; Plugins -&gt; 搜索Scala -&gt; lnstall -&gt;重启idea</p>
+<p><strong>记得设置补全变量类型</strong>: </p>
+<p><img src="/2019/06/23/scala基本语法/3.png" alt="idea"></p>
+<hr>
+<p>0x01基本语法</p>
+<ul>
+<li>Scala代码</li>
+</ul>
+<figure class="highlight scala hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">HelloScala</span> </span>&#123;</span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = &#123;</span><br><span class="line">    println(<span class="hljs-string">"hello scala"</span>)</span><br><span class="line">    <span class="hljs-type">System</span>.out.println(<span class="hljs-string">"hello java"</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>对比Java代码</li>
+</ul>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloJava</span> </span>&#123;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>&#123;</span><br><span class="line">      System.out.println(<span class="hljs-string">"hello java"</span>);</span><br><span class="line">      Console.print(<span class="hljs-string">"hello scala"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.yiibai.com/scala" target="_blank" rel="noopener">Scala易百教程</a></p>
+<p><a href="http://www.runoob.com/scala/scala-tutorial.html" target="_blank" rel="noopener">Scala菜鸟教程</a></p>
+<hr>
+<h2 id="0x01变量、类型、操作符"><a href="#0x01变量、类型、操作符" class="headerlink" title="0x01变量、类型、操作符"></a>0x01变量、类型、操作符</h2><h3 id="1-变量声明"><a href="#1-变量声明" class="headerlink" title="1.变量声明"></a>1.变量声明</h3><p>Scala声明变量有两种方式，一个用val，一个用var。</p>
+<p>val/var  变量名 : 变量类型 = 变量值。</p>
+<p>val和var声明变量时都必须初始化。</p>
+<p>val定义的值是不可变的，它不是一个常量，是不可变量，或称之为只读变量。相当于java里用final修饰的变量</p>
+<p>val定义的变量虽然不能改变其引用的内存地址，但是可以改变其引用的对象的内部的其他属性值。</p>
+<p>为了减少可变性引起的bug，应该尽可能地使用不可变变量。</p>
+<p>变量类型可以省略，解析器会根据值进行推断。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">关键字</th>
+<th style="text-align:center">是否可以更改</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">var 声明变量</td>
+<td style="text-align:center">可以</td>
+</tr>
+<tr>
+<td style="text-align:center">val 声明常量</td>
+<td style="text-align:center">不可以</td>
+</tr>
+</tbody>
+</table>
+<p>Scala 语言鼓励程序员使用 val 来声明,因为Scala语言设计哲学中,认为流程中修改变量值,会造成程序逻辑复杂,不易维护,不易并行计算</p>
+<figure class="highlight scala hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">VariableDemo</span> </span>&#123;</span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]) &#123;</span><br><span class="line">    <span class="hljs-comment">//使用val定义的变量值是不可变的，相当于java里用final修饰的变量</span></span><br><span class="line">    <span class="hljs-keyword">val</span> i:<span class="hljs-type">Int</span> = <span class="hljs-number">1</span></span><br><span class="line">    <span class="hljs-comment">//使用var定义的变量是可变得，在Scala中鼓励使用val</span></span><br><span class="line">    <span class="hljs-keyword">var</span> s1 = <span class="hljs-string">"hello"</span></span><br><span class="line">    <span class="hljs-keyword">var</span> s2 = <span class="hljs-string">"hello"</span></span><br><span class="line">    <span class="hljs-comment">//Scala编译器会自动推断变量的类型，必要的时候可以指定类型</span></span><br><span class="line">    <span class="hljs-comment">//变量名在前，类型在后</span></span><br><span class="line">    <span class="hljs-comment">//import java.lang._</span></span><br><span class="line">    <span class="hljs-keyword">val</span> s3:<span class="hljs-type">String</span> = <span class="hljs-string">"bigdata"</span></span><br><span class="line">    <span class="hljs-keyword">val</span> s4:java.lang.<span class="hljs-type">String</span> = <span class="hljs-string">"bigdata"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-常用数据类型"><a href="#2-常用数据类型" class="headerlink" title="2.常用数据类型"></a>2.常用数据类型</h3><p>Scala和Java一样，有多种数值类型Byte、Char、Short、Int、Long、Float、Double类型和1个Boolean类型。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Boolean</th>
+<th>true   或者 false</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Byte</td>
+<td>8位, 有符号</td>
+</tr>
+<tr>
+<td style="text-align:left">Short</td>
+<td>16位, 有符号</td>
+</tr>
+<tr>
+<td style="text-align:left">Int</td>
+<td>32位, 有符号</td>
+</tr>
+<tr>
+<td style="text-align:left">Long</td>
+<td>64位, 有符号</td>
+</tr>
+<tr>
+<td style="text-align:left">Char</td>
+<td>16位, 无符号</td>
+</tr>
+<tr>
+<td style="text-align:left">Float</td>
+<td>32位, 单精度浮点数</td>
+</tr>
+<tr>
+<td style="text-align:left">Double</td>
+<td>64位, 双精度浮点数</td>
+</tr>
+<tr>
+<td style="text-align:left">String</td>
+<td>其实就是由Char数组组成</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Scala继承层级</li>
+</ul>
+<p>统一类型，是Scala的又一大特点。</p>
+<ul>
+<li>Any</li>
+</ul>
+<p>在scala中，所有的类，包括值类型，都最终继承自一个统一的根类型Any，Any类是跟节点</p>
+<p>Any中定义了isInstanceOf、asInstanceOf方法，以及哈希方法等。AnyVal和AnyRef都扩展自Any类。</p>
+<ul>
+<li>AnyVal</li>
+</ul>
+<p>所有的值都是类类型都是AnyVal的子类，</p>
+<ul>
+<li>AnyRef</li>
+</ul>
+<p>所有其他类都是AnyRef的子类，类似Java的Object。</p>
+<p>更特别的是，Scala中还定义了几个底层类（Bottom Class），比如Null和Nothing。</p>
+<ul>
+<li>Null</li>
+</ul>
+<p>是所有引用类型的子类型，Null类只有一个实例对象，null，类似于Java中的null引用。null可以赋值给任意引用类型，但是不能赋值给值类型。</p>
+<ul>
+<li>Nothing</li>
+</ul>
+<p>是所有类型的子类型。Nothing类型没有实例。它对于泛型结构是有用处的，举例：</p>
+<p>空列表Nil的类型是List[Nothing]，它是List[T]的子类型，T可以是任何类。</p>
+<p>Nothing可以作为没有正常返回值的方法的返回类型，非常直观的告诉你这个方法不会正常返回，而且由于Nothing是其他任意类型的子类，他还能跟要求返回值的方法兼容。</p>
+<ul>
+<li>Unit</li>
+</ul>
+<p>用来标识过程，也就是没有明确返回值的函数。由此可见，Unit类似于Java里的void。Unit只有一个</p>
+<p>对象实例，()，这个实例也没有实质的意义。</p>
+<p><img src="/2019/06/23/scala基本语法/4.png" alt="继承关系"></p>
+<ul>
+<li>Any</li>
+</ul>
+<p>在scala中，Any类是所有类的超类，Any有两个子类：AnyVal和AnyRef</p>
+<ul>
+<li>AnyVal- 所有值类型的基类， 它描述的是值，而不是代表一个对象。 </li>
+</ul>
+<p>它包括 9个AnyVal 子类型：</p>
+<blockquote>
+<p>  - scala.Double </p>
+<p>  - scala.Float </p>
+<p>  - scala.Long </p>
+<p>  - scala.Int </p>
+<p>  - scala.Char </p>
+<p>  - scala.Short </p>
+<p>  - scala.Byte </p>
+</blockquote>
+<p>上面是数字类型。</p>
+<p>还包括scala.Unit 和 scala.Boolean 是非数字类型。</p>
+<ul>
+<li>AnyRef- 是所有引用类型的基类。除了值类型，所有类型都继承自AnyRef 。</li>
+</ul>
+<ul>
+<li>注意:</li>
+</ul>
+<p>与Java中的数据类型不同，Scala并不刻意区分基本类型和引用类型，所以这些类型都是对象，可以调用相对应的方法。</p>
+<p>String直接使用的是java.lang.String. 不过，由于String实际是一系列Char的不可变的集合，Scala中大部分针对集合的操作，都可以用于String.</p>
+<p>具体来说，String的这些方法存在于类scala.collection.immutable.StringOps中。</p>
+<p>由于String在需要时能隐式转换为StringOps，因此不需要任何额外的转换，String就可以使用这些方法。</p>
+<p>每一种数据类型都有对应的Rich* 类型，如RichInt、RichChar等，为基本类型提供了更多的有用操作。</p>
+<hr>
+<h3 id="3-操作符重载"><a href="#3-操作符重载" class="headerlink" title="3.操作符重载"></a>3.操作符重载</h3><p>Scala中的+ - * / %等操作符的作用与Java一样，位操作符 &amp; | ^ &gt;&gt; &lt;&lt;也一样。但是有一点区别，这些操作符实际上是方法。</p>
+<p>那么既然+ - * / %是方法,那么就可以进行操作符重载,完成特殊的运算</p>
+<p>你几乎可以用任何符号来为方法命名。</p>
+<p>注意：Scala中没有++、–操作符，需要通过+=、-=来实现同样的效果。</p>
+<ul>
+<li>举例</li>
+</ul>
+<figure class="highlight scala hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">package</span> com.bigdata.basic</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">OperationDemo</span> </span>&#123;</span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = &#123;</span><br><span class="line">    <span class="hljs-keyword">var</span> a = <span class="hljs-number">1</span> + <span class="hljs-number">2</span></span><br><span class="line">    <span class="hljs-keyword">var</span> b = <span class="hljs-number">1.</span>+(<span class="hljs-number">2</span>)</span><br><span class="line">    println(a)<span class="hljs-comment">//3</span></span><br><span class="line">    println(b)<span class="hljs-comment">//3.0</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">//var c = a++ //错误</span></span><br><span class="line">    a += <span class="hljs-number">1</span></span><br><span class="line">    a.+=(<span class="hljs-number">1</span>)</span><br><span class="line">    println(a)<span class="hljs-comment">//5</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>运算符重载 伪代码</li>
+</ul>
+<p><img src="/2019/06/23/scala基本语法/5.png" alt="scala"></p>
+<ul>
+<li>操作符总结</li>
+</ul>
+<p>1)  如果想在变量名、类名等定义中使用语法关键字（保留字），可以配合反引号反引号：</p>
+<figure class="highlight scala hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">val</span> `<span class="hljs-keyword">val</span>` = <span class="hljs-number">123</span></span><br></pre></td></tr></table></figure>
+<p>2)  中置操作符，A操作符B等同于A.操作符(B) ==&gt;    a + b    ==&gt; a.+(b)</p>
+<p>3)  后置操作符，A操作符等同于A.操作符，如果操作符定义的时候不带()则调用时不能加括号</p>
+<p>4)  前置操作符，+、-、！、~等操作符A等同于A.unary_操作符。</p>
+<p>5)  赋值操作符，A操作符=B等同于A=A操作符B</p>
+<hr>
+<h2 id="0x02判断和循环"><a href="#0x02判断和循环" class="headerlink" title="0x02判断和循环"></a>0x02判断和循环</h2><h3 id="1-条件表达式"><a href="#1-条件表达式" class="headerlink" title="1.条件表达式"></a>1.条件表达式</h3><p>Scala的的条件表达式比较简洁,且Scala中if else表达式是有返回值的，如果if或者else返回的类型不一样，就返回Any类型（所有类型的公共超类型）。</p>
+<p>如果缺少一个判断，什么都没有返回，但是Scala认为任何表达式都会有值，对于没有返回值的，使用Unit类，写做()，叫做无用占位符，相当于java中的void</p>
+<figure class="highlight scala hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">package</span> com.bigdata.basic</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">ConditionDemo</span> </span>&#123;</span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]) &#123;</span><br><span class="line">    <span class="hljs-keyword">val</span> x = <span class="hljs-number">1</span></span><br><span class="line">    <span class="hljs-comment">//判断x的值，将结果赋给y</span></span><br><span class="line">    <span class="hljs-keyword">val</span> y = <span class="hljs-keyword">if</span> (x &gt; <span class="hljs-number">0</span>) <span class="hljs-number">1</span> <span class="hljs-keyword">else</span> <span class="hljs-number">-1</span></span><br><span class="line">    <span class="hljs-comment">//打印y的值</span></span><br><span class="line">    println(y)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">//支持混合类型表达式</span></span><br><span class="line">    <span class="hljs-keyword">val</span> z: <span class="hljs-type">Any</span> = <span class="hljs-keyword">if</span> (x &gt; <span class="hljs-number">1</span>) <span class="hljs-number">1</span> <span class="hljs-keyword">else</span> <span class="hljs-string">"error"</span></span><br><span class="line">    <span class="hljs-comment">//打印z的值</span></span><br><span class="line">    println(z)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">//如果缺失else，相当于if (x &gt; 2) 1 else ()</span></span><br><span class="line">    <span class="hljs-keyword">val</span> m = <span class="hljs-keyword">if</span> (x &gt; <span class="hljs-number">2</span>) <span class="hljs-number">1</span></span><br><span class="line">    println(m)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">//在scala中每个表达式都有值，scala中有个Unit类，用作不返回任何结果的方法的结果类型,相当于Java中的void，Unit只有一个实例值，写成()。</span></span><br><span class="line">    <span class="hljs-keyword">val</span> n = <span class="hljs-keyword">if</span> (x &gt; <span class="hljs-number">2</span>) <span class="hljs-number">1</span> <span class="hljs-keyword">else</span> ()</span><br><span class="line">    println(n)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">//if和else if</span></span><br><span class="line">    <span class="hljs-keyword">val</span> k = <span class="hljs-keyword">if</span> (x &lt; <span class="hljs-number">0</span>) <span class="hljs-number">0</span></span><br><span class="line">    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (x &gt;= <span class="hljs-number">1</span>) <span class="hljs-number">1</span> <span class="hljs-keyword">else</span> <span class="hljs-number">-1</span></span><br><span class="line">    println(k)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-块表达式"><a href="#2-块表达式" class="headerlink" title="2.块表达式"></a>2.块表达式</h3><p>定义变量时用{} 包含一系列表达式，其中块的最后一个表达式的值就是块的值。</p>
+<figure class="highlight scala hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">package</span> com.bigdata.basic</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">BlockExpressionDemo</span> </span>&#123;</span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]) &#123;</span><br><span class="line">    <span class="hljs-keyword">val</span> x = <span class="hljs-number">0</span></span><br><span class="line">    <span class="hljs-comment">//在scala中&#123;&#125;中包含一系列表达式，块中最后一个表达式的值就是块的值</span></span><br><span class="line">    <span class="hljs-keyword">val</span> result : <span class="hljs-type">Any</span>= &#123;</span><br><span class="line">      <span class="hljs-keyword">if</span> (x &lt; <span class="hljs-number">0</span>)&#123;</span><br><span class="line">        <span class="hljs-number">-1</span></span><br><span class="line">      &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(x &gt;= <span class="hljs-number">1</span>) &#123;</span><br><span class="line">        <span class="hljs-number">1</span></span><br><span class="line">      &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">        <span class="hljs-string">"error"</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-comment">//result的值就是块表达式的结果</span></span><br><span class="line">    println(result)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight scala hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">package</span> com.bigdata.basic</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">BlockExpressionDemo2</span> </span>&#123;</span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = &#123;</span><br><span class="line">    <span class="hljs-keyword">val</span> a = <span class="hljs-number">1</span></span><br><span class="line">    <span class="hljs-keyword">val</span> b = <span class="hljs-number">2</span></span><br><span class="line">    <span class="hljs-keyword">val</span> result = &#123;</span><br><span class="line">      <span class="hljs-keyword">val</span> c = a + b</span><br><span class="line">      <span class="hljs-keyword">val</span> d = c + a</span><br><span class="line">      d</span><br><span class="line">    &#125;</span><br><span class="line">    println(result)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-循环"><a href="#3-循环" class="headerlink" title="3.循环"></a>3.循环</h3><p>在scala中有for循环和while循环，用for循环比较多</p>
+<ul>
+<li>while</li>
+</ul>
+<figure class="highlight scala hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">package</span> com.bigdata.basic</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">WhileDemo</span> </span>&#123;</span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = &#123;</span><br><span class="line">    <span class="hljs-keyword">var</span> n = <span class="hljs-number">1</span>;</span><br><span class="line">    <span class="hljs-keyword">val</span> while1 = <span class="hljs-keyword">while</span>(n &lt;= <span class="hljs-number">10</span>)&#123;</span><br><span class="line">      n += <span class="hljs-number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    println(while1)</span><br><span class="line">    println(n)</span><br><span class="line">    </span><br><span class="line">    println(<span class="hljs-string">"==============="</span>)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">import</span> scala.util.control.<span class="hljs-type">Breaks</span></span><br><span class="line">    <span class="hljs-keyword">val</span> loop = <span class="hljs-keyword">new</span> <span class="hljs-type">Breaks</span></span><br><span class="line">    loop.breakable&#123;</span><br><span class="line">      <span class="hljs-keyword">while</span>(n &lt;= <span class="hljs-number">20</span>)&#123;</span><br><span class="line">        n += <span class="hljs-number">1</span>;</span><br><span class="line">        <span class="hljs-keyword">if</span>(n == <span class="hljs-number">18</span>)&#123;</span><br><span class="line">          loop.<span class="hljs-keyword">break</span>()</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    println(n)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong></p>
+<p>与If语句不同，While语句本身没有值，即整个While语句的结果是Unit类型的()</p>
+<p>scala并没有提供break和continue语句来退出循环，如果需要break，可以通过几种方法来做</p>
+<p>1、使用Boolean型的控制变量 </p>
+<p>2、使用嵌套函数，从函数中return </p>
+<p>3、使用Breaks对象的break方法。</p>
+<ul>
+<li>for</li>
+</ul>
+<p>for循环语法结构：</p>
+<p>for (变量 &lt;- 表达式/数组/集合)</p>
+<figure class="highlight scala hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">package</span> com.bigdata.basic</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">ForDemo</span> </span>&#123;</span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]) &#123;</span><br><span class="line">    <span class="hljs-comment">//1.for(i &lt;- 表达式),表达式1 to 10返回一个Range []</span></span><br><span class="line">    <span class="hljs-comment">//to为[]  until 为 [)</span></span><br><span class="line">    <span class="hljs-comment">//每次循环将区间中的一个值赋给i</span></span><br><span class="line">    <span class="hljs-keyword">for</span> (i &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">10</span>)<span class="hljs-comment">//[1,10]</span></span><br><span class="line">      println(i)</span><br><span class="line"></span><br><span class="line">    println(<span class="hljs-string">"=========="</span>)</span><br><span class="line">    <span class="hljs-keyword">for</span> (i &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">10</span> by <span class="hljs-number">2</span>)<span class="hljs-comment">//[1,10]步长为2</span></span><br><span class="line">      println(i)</span><br><span class="line"></span><br><span class="line">    println(<span class="hljs-string">"=========="</span>)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">for</span> (i &lt;- <span class="hljs-number">1</span> until <span class="hljs-number">10</span>)<span class="hljs-comment">//[1,10)</span></span><br><span class="line">      println(i)</span><br><span class="line"></span><br><span class="line">    println(<span class="hljs-string">"=========="</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">//2.for(i &lt;- 数组)</span></span><br><span class="line">    <span class="hljs-keyword">val</span> arr = <span class="hljs-type">Array</span>(<span class="hljs-string">"a"</span>, <span class="hljs-string">"b"</span>, <span class="hljs-string">"c"</span>)</span><br><span class="line">    <span class="hljs-keyword">for</span> (i &lt;- arr)</span><br><span class="line">      println(i)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">//总结:</span></span><br><span class="line">    <span class="hljs-comment">/*for(变量名 &lt;- 集合)&#123;</span></span><br><span class="line"><span class="hljs-comment">      循环体</span></span><br><span class="line"><span class="hljs-comment">    &#125;*/</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">//3.高级for循环</span></span><br><span class="line">    <span class="hljs-comment">//每个生成器都可以带一个条件，注意：if前面没有分号</span></span><br><span class="line">    <span class="hljs-keyword">for</span>(i &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">3</span>; j &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">3</span> <span class="hljs-keyword">if</span> i != j)</span><br><span class="line">      print((<span class="hljs-number">10</span> * i + j) + <span class="hljs-string">" "</span>)</span><br><span class="line">    println()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">//4.for推导式：如果for循环的循环体以yield开始，则该循环会构建出一个集合</span></span><br><span class="line">    <span class="hljs-comment">//即将遍历过程中处理的结果返回到一个变量</span></span><br><span class="line">    <span class="hljs-comment">//每次迭代生成集合中的一个值</span></span><br><span class="line">    <span class="hljs-keyword">val</span> v = <span class="hljs-keyword">for</span> (i &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">10</span>) <span class="hljs-keyword">yield</span> i * <span class="hljs-number">10</span></span><br><span class="line">    println(v) <span class="hljs-comment">// 10,20,30..100</span></span><br><span class="line">    <span class="hljs-comment">//也就是说:如果for循环的循环体以yield开始,for循环会返回一个集合</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">//5.&#123;&#125;和 ()都可以</span></span><br><span class="line">    <span class="hljs-comment">//当for 推导式仅包含单一表达式时使用()括号，当其包含多个表达式时使用&#123;&#125;括号</span></span><br><span class="line">    <span class="hljs-keyword">for</span>(</span><br><span class="line">      i &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">3</span>; <span class="hljs-comment">//[1,3]</span></span><br><span class="line">      j = <span class="hljs-number">4</span> - i<span class="hljs-comment">//[3,1]</span></span><br><span class="line">    )</span><br><span class="line">      print(i * j + <span class="hljs-string">" "</span>)</span><br><span class="line">    println()</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">for</span> &#123;</span><br><span class="line">      i &lt;- <span class="hljs-number">1</span> to <span class="hljs-number">3</span>;</span><br><span class="line">      j = <span class="hljs-number">4</span> - i</span><br><span class="line">    &#125;</span><br><span class="line">      print(i * j + <span class="hljs-string">" "</span>)</span><br><span class="line">    println()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="0x03-方法和函数"><a href="#0x03-方法和函数" class="headerlink" title="0x03 方法和函数"></a>0x03 方法和函数</h2><h3 id="1-调用方法和函数"><a href="#1-调用方法和函数" class="headerlink" title="1.调用方法和函数"></a>1.调用方法和函数</h3><p>在scala中，函数与方法是不同的东西。后面我们再详细探讨。首先我们要学会使用scala来调用函数与方法。</p>
+<figure class="highlight scala hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">MethodAndFunctionDemo</span> </span>&#123;</span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = &#123;</span><br><span class="line">    <span class="hljs-comment">//1.静态方法（scala中没有静态方法这个概念，需要通过伴生类对象来实现）</span></span><br><span class="line">    <span class="hljs-keyword">val</span> a: <span class="hljs-type">Double</span> = math.sqrt(<span class="hljs-number">100</span>)<span class="hljs-comment">//对象名.方法名</span></span><br><span class="line">    println(a)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">//2.非静态方法，使用对象调用</span></span><br><span class="line">    <span class="hljs-keyword">val</span> s = <span class="hljs-string">"HelloWorld"</span></span><br><span class="line">    <span class="hljs-keyword">val</span> len: <span class="hljs-type">Int</span> = s.length</span><br><span class="line">    println(len)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">//3.apply方法是调用时可以省略方法名的方法。用于构造和获取元素：</span></span><br><span class="line">    <span class="hljs-comment">//Array(1,2,3) 等同于 Array.apply(1,2,3)</span></span><br><span class="line">    <span class="hljs-keyword">val</span> arr1 = <span class="hljs-type">Array</span>(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>)</span><br><span class="line">    println(arr1.mkString(<span class="hljs-string">","</span>))</span><br><span class="line">    <span class="hljs-keyword">val</span> arr2 = <span class="hljs-type">Array</span>.apply(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>)</span><br><span class="line">    println(arr2.mkString(<span class="hljs-string">","</span>))</span><br><span class="line">    </span><br><span class="line">    <span class="hljs-comment">//"Hello"(1)  等同于  "Hello".apply(1)    //输出e</span></span><br><span class="line">    <span class="hljs-keyword">val</span> c1: <span class="hljs-type">Char</span> = <span class="hljs-string">"Hello"</span>(<span class="hljs-number">1</span>)</span><br><span class="line">    println(c1)</span><br><span class="line">    <span class="hljs-keyword">val</span> c2 = <span class="hljs-string">"Hello"</span>.apply(<span class="hljs-number">1</span>)</span><br><span class="line">    println(c2)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">//4.update方法也是调用时可以省略方法名的方法，用于元素的更新</span></span><br><span class="line">    <span class="hljs-comment">//arr1(1) = 5  等同于  arr2.update(1,5)</span></span><br><span class="line">    arr1(<span class="hljs-number">1</span>) = <span class="hljs-number">5</span></span><br><span class="line">    println(arr1.mkString(<span class="hljs-string">","</span>))</span><br><span class="line">    arr2.update(<span class="hljs-number">1</span>,<span class="hljs-number">5</span>)</span><br><span class="line">    println(arr2.mkString(<span class="hljs-string">","</span>))</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">//5.定义并调用函数</span></span><br><span class="line">    <span class="hljs-keyword">val</span> fun = (x:<span class="hljs-type">Int</span>) =&gt; x * <span class="hljs-number">10</span></span><br><span class="line">    <span class="hljs-keyword">val</span> arr3: <span class="hljs-type">Array</span>[<span class="hljs-type">Int</span>] = arr1.map(fun)</span><br><span class="line">    println(arr3.mkString(<span class="hljs-string">","</span>))</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-定义方法"><a href="#2-定义方法" class="headerlink" title="2.定义方法"></a>2.定义方法</h3><p>def 方法名(参数名1: 参数类型1, 参数名2: 参数类型2) : 返回类型 = {方法体}</p>
+<p><img src="/2019/06/23/scala基本语法/6.png" alt="scala"></p>
+<p><img src="/2019/06/23/scala基本语法/7.png" alt="scala"></p>
+<figure class="highlight scala hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">MethodAndFunctionDemo2</span> </span>&#123;</span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = &#123;</span><br><span class="line">    <span class="hljs-keyword">val</span> a = m1(<span class="hljs-number">2</span>,<span class="hljs-number">3</span>)</span><br><span class="line">    println(a)</span><br><span class="line">    <span class="hljs-keyword">val</span> b = factorial(<span class="hljs-number">4</span>)</span><br><span class="line">    println(b)<span class="hljs-comment">//4*3*2*1==24</span></span><br><span class="line">    shout4(<span class="hljs-string">"abc"</span>) <span class="hljs-comment">//"abc4"</span></span><br><span class="line">    shout4(content=<span class="hljs-string">"abc"</span>)<span class="hljs-comment">//"abc4"</span></span><br><span class="line">    shout4(content=<span class="hljs-string">"abc"</span>,leg=<span class="hljs-number">3</span>)<span class="hljs-comment">//"abc3"</span></span><br><span class="line">    shout4(leg=<span class="hljs-number">3</span>,content=<span class="hljs-string">"abc"</span>)<span class="hljs-comment">//"abc3"</span></span><br><span class="line">    <span class="hljs-keyword">val</span> s1: <span class="hljs-type">Int</span> = sum(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>)</span><br><span class="line">    println(s1)</span><br><span class="line">    <span class="hljs-keyword">val</span> s2: <span class="hljs-type">Int</span> = sum(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>)</span><br><span class="line">    println(s2)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="hljs-comment">//1.方法的返回值类型和return可以不写，编译器可以自动推断出来</span></span><br><span class="line">  <span class="hljs-comment">//def 方法名(参数名:参数类型,参数名:参数类型):返回值类型=&#123;方法体&#125;</span></span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">m1</span></span>(x:<span class="hljs-type">Int</span>,y:<span class="hljs-type">Int</span>):<span class="hljs-type">Int</span> = &#123;</span><br><span class="line">    x*y</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">//2.对于递归方法，必须指定返回类型</span></span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">factorial</span></span>(n: <span class="hljs-type">Int</span>): <span class="hljs-type">Int</span> = &#123;</span><br><span class="line">    <span class="hljs-keyword">if</span>(n &lt;= <span class="hljs-number">0</span>)</span><br><span class="line">      <span class="hljs-number">1</span></span><br><span class="line">    <span class="hljs-keyword">else</span></span><br><span class="line">      n * factorial(n - <span class="hljs-number">1</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="hljs-comment">//f(3) --&gt; 3*f(2) --&gt;3*2*f(1) --&gt;3*2*1*f(0) --&gt;3*2*1*1 ==&gt; 6</span></span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">//3.如果方法没有返回值,返回Unit类型(返回值为Unit的方法也叫过程)</span></span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">shout1</span></span>(content: <span class="hljs-type">String</span>) : <span class="hljs-type">Unit</span> = &#123;</span><br><span class="line">    println(content)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">//4.返回Unit类型，类型也可以省略</span></span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">shout2</span></span>(content: <span class="hljs-type">String</span>) = &#123;</span><br><span class="line">    println(content)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">//5.返回值类型有多种可能，此时为Any</span></span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">shout3</span></span>(content: <span class="hljs-type">String</span>):<span class="hljs-type">Any</span> = &#123;</span><br><span class="line">    <span class="hljs-keyword">if</span>(content.length &gt;= <span class="hljs-number">3</span>)</span><br><span class="line">      content + <span class="hljs-string">"喵喵喵~"</span></span><br><span class="line">    <span class="hljs-keyword">else</span></span><br><span class="line">      <span class="hljs-number">3</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">//6.带有默认值参数的方法，调用时，可以只给无默认值的参数传递值，也可以都传递，新值会覆盖默认值；</span></span><br><span class="line">  <span class="hljs-comment">//传递参数时如果不按照定义顺序，则可以通过参数名来指定</span></span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">shout4</span></span>(content: <span class="hljs-type">String</span>, leg: <span class="hljs-type">Int</span> = <span class="hljs-number">4</span>) = &#123;</span><br><span class="line">    println(content + <span class="hljs-string">","</span> + leg)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">//7.可变参使用 变量名:类型* （类似Java的...）</span></span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sum</span></span>(args: <span class="hljs-type">Int</span>*) = &#123;</span><br><span class="line">    <span class="hljs-keyword">var</span> result = <span class="hljs-number">0</span></span><br><span class="line">    <span class="hljs-keyword">for</span>(arg &lt;- args)</span><br><span class="line">      result += arg</span><br><span class="line">    result</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-定义函数"><a href="#3-定义函数" class="headerlink" title="3.定义函数"></a>3.定义函数</h3><p>val函数名称 :(参数类型)=&gt;函数返回值类型 = (参数名称:参数类型)=&gt;函数体</p>
+<p>或者简写</p>
+<p>val函数名名称 = (参数名称:参数类型) =&gt; 函数体</p>
+<p>带有一个参数的函数的类型是function1，带有两个是function2，以此类推</p>
+<figure class="highlight scala hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">FunctionDemo</span> </span>&#123;</span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = &#123;</span><br><span class="line">    <span class="hljs-comment">//定义函数方式1:</span></span><br><span class="line">    <span class="hljs-comment">//函数名称= (参数名:参数类型) =&gt; 函数体</span></span><br><span class="line">    <span class="hljs-keyword">val</span> f1 = (x:<span class="hljs-type">Int</span>,y:<span class="hljs-type">Int</span>) =&gt; x + y</span><br><span class="line">    <span class="hljs-keyword">val</span> i1 = f1(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>)<span class="hljs-comment">//3</span></span><br><span class="line">    println(i1)</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">//定义函数方式2:(了解)</span></span><br><span class="line">    <span class="hljs-comment">//函数名称:(参数类型) =&gt;函数返回值类型= (参数名称:参数类型) =&gt;函数体</span></span><br><span class="line">    <span class="hljs-keyword">val</span> f2:(<span class="hljs-type">Int</span>,<span class="hljs-type">Int</span>) =&gt; <span class="hljs-type">Int</span> = (x,y) =&gt; x + y</span><br><span class="line">    <span class="hljs-keyword">val</span> i2 = f2(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>);</span><br><span class="line">    println(i2)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-方法和函数的区别"><a href="#4-方法和函数的区别" class="headerlink" title="4.方法和函数的区别"></a>4.方法和函数的区别</h3><p>方法:和之前理解的方法一样,是封装了完成某些功能的代码块,所属于某一个类或对象</p>
+<p><strong>函数:在Scala中,函数一个对象,那么既然是对象的话,函数就可以当作参数被传递,还可以使用函数打点调用方法</strong></p>
+<p>在函数式编程语言中，函数是“头等公民”，函数是一个对象，继承自FuctionN。它可以像任何其他数据类型一样被传递和操作</p>
+<figure class="highlight scala hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = &#123;</span><br><span class="line">  <span class="hljs-keyword">val</span> f1 = (x:<span class="hljs-type">Int</span>) =&gt; x</span><br><span class="line">  <span class="hljs-keyword">val</span> f2 = (x:<span class="hljs-type">Int</span>,y:<span class="hljs-type">Int</span>) =&gt; x + y</span><br><span class="line">  <span class="hljs-keyword">val</span> f3 = (x:<span class="hljs-type">Int</span>,y:<span class="hljs-type">Int</span>,z:<span class="hljs-type">Int</span>) =&gt; x + y + z</span><br><span class="line">  println(f1)</span><br><span class="line">  println(f2)</span><br><span class="line">  println(f3)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/06/23/scala基本语法/11.png" alt="scala"></p>
+<p>函数对象有<code>apply</code>、<code>curried</code>、<code>toString</code>、<code>tupled</code>这些方法。而方法不具有这些特性。</p>
+<ul>
+<li>案例：首先定义一个方法，再定义一个函数，然后将函数传递到方法里面</li>
+</ul>
+<figure class="highlight scala hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">MethodAndFunctionDemo3</span>  </span>&#123;</span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = &#123;</span><br><span class="line">    <span class="hljs-comment">//定义了一个函数,参数是2个Int,返回值是</span></span><br><span class="line">    <span class="hljs-keyword">val</span> f1 = (x:<span class="hljs-type">Int</span>,y:<span class="hljs-type">Int</span>) =&gt; x + y</span><br><span class="line">    <span class="hljs-comment">//或者这样定义:</span></span><br><span class="line">    <span class="hljs-comment">//函数名称:(参数类型) =&gt;函数返回值类型=(参数引用)=&gt;函数体</span></span><br><span class="line">    <span class="hljs-comment">//val f1:(Int,Int)=&gt;Int=(x,y)=&gt;x+y</span></span><br><span class="line">    <span class="hljs-keyword">val</span> f2 = (x:<span class="hljs-type">Int</span>,y:<span class="hljs-type">Int</span>) =&gt; x * y</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">//调用方法,并把函数作为参数传递给方法</span></span><br><span class="line">    <span class="hljs-keyword">val</span> r1 = m1(f1)</span><br><span class="line">    <span class="hljs-keyword">val</span> r2 = m1(f2)</span><br><span class="line"></span><br><span class="line">    println(r1)<span class="hljs-comment">//8</span></span><br><span class="line">    println(r2)<span class="hljs-comment">//12</span></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">//定义了一个方法,参数是函数类型,方法的返回值是Int,而函数的参数是2个Int,返回值是Int</span></span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">m1</span> </span>(f:(<span class="hljs-type">Int</span>,<span class="hljs-type">Int</span>)=&gt;<span class="hljs-type">Int</span>):<span class="hljs-type">Int</span>=&#123;</span><br><span class="line">    <span class="hljs-comment">//方法体中调用了函数,并传递了2个参数给函数,</span></span><br><span class="line">    <span class="hljs-comment">//并把函数的返回值,当作方法的返回值给方法的调用者返回</span></span><br><span class="line">    f(<span class="hljs-number">2</span>,<span class="hljs-number">6</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5-将方法转换成函数（神奇的下划线"><a href="#5-将方法转换成函数（神奇的下划线" class="headerlink" title="5.将方法转换成函数（神奇的下划线)"></a>5.将方法转换成函数（神奇的下划线)</h3><p>将方法转换成函数，只需要在方法的后面加上一个下划线</p>
+<figure class="highlight scala hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = &#123;</span><br><span class="line">  <span class="hljs-keyword">val</span> f1 = m1 _</span><br><span class="line">  println(f1)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">m1</span> </span>(f:(<span class="hljs-type">Int</span>,<span class="hljs-type">Int</span>)=&gt;<span class="hljs-type">Int</span>):<span class="hljs-type">Int</span>=&#123;</span><br><span class="line">  f(<span class="hljs-number">2</span>,<span class="hljs-number">6</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="/2019/06/23/scala基本语法/12.png" alt="scala"></p>
+<h3 id="6-总结"><a href="#6-总结" class="headerlink" title="6.总结"></a>6.总结</h3><p><img src="/2019/06/23/scala基本语法/13.png" alt="scala"></p>
+<figure class="highlight scala hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">FunctionDemo</span> </span>&#123;</span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = &#123;</span><br><span class="line">    <span class="hljs-comment">//定义函数方式1:</span></span><br><span class="line">    <span class="hljs-comment">//函数名称=(参数名称:类型)=&gt;函数体</span></span><br><span class="line">    <span class="hljs-keyword">val</span> f1 = (x:<span class="hljs-type">Int</span>,y:<span class="hljs-type">Int</span>) =&gt; x + y</span><br><span class="line">    <span class="hljs-comment">//定义函数方式2:(了解)</span></span><br><span class="line">    <span class="hljs-comment">//函数名称:(参数类型)=&gt;返回值类型 = (参数列表)=&gt;函数体</span></span><br><span class="line">    <span class="hljs-keyword">val</span> f2:(<span class="hljs-type">Int</span>,<span class="hljs-type">Int</span>)=&gt;<span class="hljs-type">Int</span>=(x,y)=&gt;x - y</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">val</span> r1 = m1(f1);</span><br><span class="line">    println(r1)<span class="hljs-comment">//4</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">val</span> r2 = m1(f2);</span><br><span class="line">    println(r2)<span class="hljs-comment">//2</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">val</span> r3 = m1((x:<span class="hljs-type">Int</span>,y:<span class="hljs-type">Int</span>)=&gt;x*y)</span><br><span class="line">    println(r3)<span class="hljs-comment">//3</span></span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-comment">//定义一个方法,方法的参数接收一个函数</span></span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">m1</span></span>(f:(<span class="hljs-type">Int</span>,<span class="hljs-type">Int</span>)=&gt;<span class="hljs-type">Int</span>): <span class="hljs-type">Int</span> =&#123;</span><br><span class="line">    f(<span class="hljs-number">3</span>,<span class="hljs-number">1</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="0x04其他"><a href="#0x04其他" class="headerlink" title="0x04其他"></a>0x04其他</h2><h3 id="1-懒值"><a href="#1-懒值" class="headerlink" title="1.懒值"></a>1.懒值</h3><p>当val被声明为lazy时，初始化将被推迟，直到我们首次对此取值，适用于初始化开销较大的场景。</p>
+<figure class="highlight scala hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">LazyDemo</span> </span>&#123;</span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = &#123;</span><br><span class="line">    <span class="hljs-comment">//使用lazy修饰变量,只有当这个变量被使用到的时候,变量的赋值代码才会真正的执行</span></span><br><span class="line">    <span class="hljs-keyword">lazy</span> <span class="hljs-keyword">val</span> msg = init()</span><br><span class="line">    println(<span class="hljs-string">"init方法调用了,但是没有执行"</span>)</span><br><span class="line">    println(msg)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">init</span></span>(): <span class="hljs-type">String</span> = &#123;</span><br><span class="line">    println(<span class="hljs-string">"init方法执行"</span>)</span><br><span class="line">    <span class="hljs-string">"嘿嘿嘿，我来了~"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-异常处理"><a href="#2-异常处理" class="headerlink" title="2.异常处理"></a>2.异常处理</h3><p>Scala的异常的工作机制和Java一样，但是Scala没有“checked”受检异常，你不需要声明函数或者方法可能会抛出某种异常。</p>
+<p>(受检异常在编译器被检查，java必须声明方法所会抛出的异常类型)</p>
+<p><strong>抛出异常</strong>：用throw关键字，抛出一个异常对象。所有异常都是Throwable的子类型。throw表达式是有类型的，就是Nothing，因为Nothing是所有类型的子类型，所以throw表达式可以用在需要类型的地方。</p>
+<p><strong>捕捉异常：</strong>在catch的代码里，使用一系列case子句(借用了模式匹配的思想来做异常的匹配)</p>
+<p>异常捕捉的机制与其他语言中一样，如果有异常发生，catch字句是按次序捕捉的。因此，在catch字句中，越具体的异常越要靠前，越普遍的异常越靠后。</p>
+<p>如果抛出的异常不在catch字句中，该异常则无法处理，会被升级到调用者处。</p>
+<p>finally字句用于执行不管是正常处理还是有异常发生时都需要执行的步骤，一般用于对象的清理工作。</p>
+<figure class="highlight scala hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">object</span> <span class="hljs-title">ExceptionDemo</span> </span>&#123;</span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span></span>(args: <span class="hljs-type">Array</span>[<span class="hljs-type">String</span>]): <span class="hljs-type">Unit</span> = &#123;</span><br><span class="line">    <span class="hljs-keyword">try</span> &#123;</span><br><span class="line">      println(divider(<span class="hljs-number">10</span>, <span class="hljs-number">0</span>))</span><br><span class="line">    &#125; <span class="hljs-keyword">catch</span> &#123;</span><br><span class="line">      <span class="hljs-keyword">case</span> ex: <span class="hljs-type">Exception</span> =&gt; println(<span class="hljs-string">"捕获了异常："</span> + ex)</span><br><span class="line">    &#125; <span class="hljs-keyword">finally</span> &#123;</span><br><span class="line">      println(<span class="hljs-string">"释放资源"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">divider</span></span>(x: <span class="hljs-type">Int</span>, y: <span class="hljs-type">Int</span>): <span class="hljs-type">Float</span> = &#123;</span><br><span class="line">    <span class="hljs-keyword">if</span> (y == <span class="hljs-number">0</span>) <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-type">Exception</span>(<span class="hljs-string">"0作为了除数"</span>)</span><br><span class="line">    <span class="hljs-keyword">else</span> x / y</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Scala/">Scala</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/zhifubao.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/weixin.jpg" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/06/24/dahua1/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">《大话数据结构》学习笔记-day01-数据结构</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/06/22/scala1/">
+                <span class="level-item">scala 入门</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/images/1.png" alt="Yu Xiantao">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Yu Xiantao
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        热心的学习者 狂热的数码迷
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Beijing, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        22
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        11
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        16
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://www.zhihu.com/people/san-ji-nei-ku/activities" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/aaaTao66">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="https://twitter.com/iloveueason">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#0x00开始安装">
+        <span class="has-mr-6">1</span>
+        <span>0x00开始安装</span>
+        </a><ul class="menu-list"><ul class="menu-list"><li>
+        <a class="is-flex" href="#1-JVM">
+        <span class="has-mr-6">1.1.1</span>
+        <span>1. JVM</span>
+        </a></li><li>
+        <a class="is-flex" href="#2-安装Scala">
+        <span class="has-mr-6">1.1.2</span>
+        <span>2.安装Scala</span>
+        </a></li></ul><li>
+        <a class="is-flex" href="#0x01变量、类型、操作符">
+        <span class="has-mr-6">1.2</span>
+        <span>0x01变量、类型、操作符</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#1-变量声明">
+        <span class="has-mr-6">1.2.1</span>
+        <span>1.变量声明</span>
+        </a></li><li>
+        <a class="is-flex" href="#2-常用数据类型">
+        <span class="has-mr-6">1.2.2</span>
+        <span>2.常用数据类型</span>
+        </a></li><li>
+        <a class="is-flex" href="#3-操作符重载">
+        <span class="has-mr-6">1.2.3</span>
+        <span>3.操作符重载</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#0x02判断和循环">
+        <span class="has-mr-6">1.3</span>
+        <span>0x02判断和循环</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#1-条件表达式">
+        <span class="has-mr-6">1.3.1</span>
+        <span>1.条件表达式</span>
+        </a></li><li>
+        <a class="is-flex" href="#2-块表达式">
+        <span class="has-mr-6">1.3.2</span>
+        <span>2.块表达式</span>
+        </a></li><li>
+        <a class="is-flex" href="#3-循环">
+        <span class="has-mr-6">1.3.3</span>
+        <span>3.循环</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#0x03-方法和函数">
+        <span class="has-mr-6">1.4</span>
+        <span>0x03 方法和函数</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#1-调用方法和函数">
+        <span class="has-mr-6">1.4.1</span>
+        <span>1.调用方法和函数</span>
+        </a></li><li>
+        <a class="is-flex" href="#2-定义方法">
+        <span class="has-mr-6">1.4.2</span>
+        <span>2.定义方法</span>
+        </a></li><li>
+        <a class="is-flex" href="#3-定义函数">
+        <span class="has-mr-6">1.4.3</span>
+        <span>3.定义函数</span>
+        </a></li><li>
+        <a class="is-flex" href="#4-方法和函数的区别">
+        <span class="has-mr-6">1.4.4</span>
+        <span>4.方法和函数的区别</span>
+        </a></li><li>
+        <a class="is-flex" href="#5-将方法转换成函数（神奇的下划线">
+        <span class="has-mr-6">1.4.5</span>
+        <span>5.将方法转换成函数（神奇的下划线)</span>
+        </a></li><li>
+        <a class="is-flex" href="#6-总结">
+        <span class="has-mr-6">1.4.6</span>
+        <span>6.总结</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#0x04其他">
+        <span class="has-mr-6">1.5</span>
+        <span>0x04其他</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#1-懒值">
+        <span class="has-mr-6">1.5.1</span>
+        <span>1.懒值</span>
+        </a></li><li>
+        <a class="is-flex" href="#2-异常处理">
+        <span class="has-mr-6">1.5.2</span>
+        <span>2.异常处理</span>
+        </a></li></ul></li></ul></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://www.zhihu.com/people/san-ji-nei-ku/activities" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">知乎</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.zhihu.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Dubbo/">
+            <span class="level-start">
+                <span class="level-item">Dubbo</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Hadoop生态圈/">
+            <span class="level-start">
+                <span class="level-item">Hadoop生态圈</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/SSM整合/">
+            <span class="level-start">
+                <span class="level-item">SSM整合</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Scala/">
+            <span class="level-start">
+                <span class="level-item">Scala</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Spring/">
+            <span class="level-start">
+                <span class="level-item">Spring</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Spring-Boot/">
+            <span class="level-start">
+                <span class="level-item">Spring Boot</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/SpringMVC/">
+            <span class="level-start">
+                <span class="level-item">SpringMVC</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/《大话数据结构》/">
+            <span class="level-start">
+                <span class="level-item">《大话数据结构》</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/博客搭建/">
+            <span class="level-start">
+                <span class="level-item">博客搭建</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/浅谈ios-Android-非技术/">
+            <span class="level-start">
+                <span class="level-item">浅谈ios/Android(非技术)</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/黑科技/">
+            <span class="level-start">
+                <span class="level-item">黑科技</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/Druid/" style="font-size: 10px;">Druid</a> <a href="/tags/Hadoop/" style="font-size: 10px;">Hadoop</a> <a href="/tags/Hbase/" style="font-size: 10px;">Hbase</a> <a href="/tags/Interceptor/" style="font-size: 10px;">Interceptor</a> <a href="/tags/SSM/" style="font-size: 10px;">SSM</a> <a href="/tags/Scala/" style="font-size: 15px;">Scala</a> <a href="/tags/Servlet/" style="font-size: 10px;">Servlet</a> <a href="/tags/Spring-Boot/" style="font-size: 20px;">Spring Boot</a> <a href="/tags/Thymeleaf/" style="font-size: 15px;">Thymeleaf</a> <a href="/tags/WebFlow/" style="font-size: 10px;">WebFlow</a> <a href="/tags/微服务/" style="font-size: 10px;">微服务</a> <a href="/tags/我的博客搭建过程/" style="font-size: 10px;">我的博客搭建过程</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/闲聊/" style="font-size: 10px;">闲聊</a> <a href="/tags/黑科技/" style="font-size: 10px;">黑科技</a>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/10/17/dubbo/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot-整合Dubbo">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-16T16:00:00.000Z">2019-10-17</time></div>
+                    <a href="/2019/10/17/dubbo/" class="has-link-black-ter is-size-6">Spring Boot-整合Dubbo</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Dubbo/">Dubbo</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/08/springmvclogin/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="SpringMVC-拦截器-判断用户登录状态">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T16:00:00.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/springmvclogin/" class="has-link-black-ter is-size-6">SpringMVC-拦截器-判断用户登录状态</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/SpringMVC/">SpringMVC</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/01/btmybatis/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot-甜蜜的整合MyBatis&amp;注解方式&amp;配置方式">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-31T16:00:00.000Z">2019-08-01</time></div>
+                    <a href="/2019/08/01/btmybatis/" class="has-link-black-ter is-size-6">Spring Boot-甜蜜的整合MyBatis&amp;注解方式&amp;配置方式</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring-Boot/">Spring Boot</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/30/bootdruid/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot数据库-整合Druid数据源&amp;Druid监控">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-29T16:00:00.000Z">2019-07-30</time></div>
+                    <a href="/2019/07/30/bootdruid/" class="has-link-black-ter is-size-6">Spring Boot数据库-整合Druid数据源&amp;Druid监控</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring-Boot/">Spring Boot</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/23/SpringWebFlow/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Web Flow">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-22T16:00:00.000Z">2019-07-23</time></div>
+                    <a href="/2019/07/23/SpringWebFlow/" class="has-link-black-ter is-size-6">Spring Web Flow</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Druid/">
+                        <span class="tag">Druid</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hadoop/">
+                        <span class="tag">Hadoop</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hbase/">
+                        <span class="tag">Hbase</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Interceptor/">
+                        <span class="tag">Interceptor</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SSM/">
+                        <span class="tag">SSM</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Servlet/">
+                        <span class="tag">Servlet</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-Boot/">
+                        <span class="tag">Spring Boot</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Thymeleaf/">
+                        <span class="tag">Thymeleaf</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/WebFlow/">
+                        <span class="tag">WebFlow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微服务/">
+                        <span class="tag">微服务</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/我的博客搭建过程/">
+                        <span class="tag">我的博客搭建过程</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数据结构/">
+                        <span class="tag">数据结构</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/算法/">
+                        <span class="tag">算法</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/闲聊/">
+                        <span class="tag">闲聊</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/黑科技/">
+                        <span class="tag">黑科技</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/10/17/dubbo/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot-整合Dubbo">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-16T16:00:00.000Z">2019-10-17</time></div>
+                    <a href="/2019/10/17/dubbo/" class="has-link-black-ter is-size-6">Spring Boot-整合Dubbo</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Dubbo/">Dubbo</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/08/springmvclogin/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="SpringMVC-拦截器-判断用户登录状态">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T16:00:00.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/springmvclogin/" class="has-link-black-ter is-size-6">SpringMVC-拦截器-判断用户登录状态</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/SpringMVC/">SpringMVC</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/01/btmybatis/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot-甜蜜的整合MyBatis&amp;注解方式&amp;配置方式">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-31T16:00:00.000Z">2019-08-01</time></div>
+                    <a href="/2019/08/01/btmybatis/" class="has-link-black-ter is-size-6">Spring Boot-甜蜜的整合MyBatis&amp;注解方式&amp;配置方式</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring-Boot/">Spring Boot</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/30/bootdruid/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot数据库-整合Druid数据源&amp;Druid监控">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-29T16:00:00.000Z">2019-07-30</time></div>
+                    <a href="/2019/07/30/bootdruid/" class="has-link-black-ter is-size-6">Spring Boot数据库-整合Druid数据源&amp;Druid监控</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring-Boot/">Spring Boot</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/23/SpringWebFlow/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Web Flow">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-22T16:00:00.000Z">2019-07-23</time></div>
+                    <a href="/2019/07/23/SpringWebFlow/" class="has-link-black-ter is-size-6">Spring Web Flow</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Druid/">
+                        <span class="tag">Druid</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hadoop/">
+                        <span class="tag">Hadoop</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hbase/">
+                        <span class="tag">Hbase</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Interceptor/">
+                        <span class="tag">Interceptor</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SSM/">
+                        <span class="tag">SSM</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Servlet/">
+                        <span class="tag">Servlet</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-Boot/">
+                        <span class="tag">Spring Boot</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Thymeleaf/">
+                        <span class="tag">Thymeleaf</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/WebFlow/">
+                        <span class="tag">WebFlow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微服务/">
+                        <span class="tag">微服务</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/我的博客搭建过程/">
+                        <span class="tag">我的博客搭建过程</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数据结构/">
+                        <span class="tag">数据结构</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/算法/">
+                        <span class="tag">算法</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/闲聊/">
+                        <span class="tag">闲聊</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/黑科技/">
+                        <span class="tag">黑科技</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+	<div id="vcomments"></div>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="scala 环境搭建&amp;基本语法" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Yu Xiantao&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+    
+
+
+<script src="/js/main.js" defer></script>
+	
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+	
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'K2pfcRNJyLhhJISc7BaeYA88-gzGzoHsz',
+            appKey: 'gHHPTdGOoXqqMFw6YdRml785'
+        })
+    </script>
+</body>
+</html>

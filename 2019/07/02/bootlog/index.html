@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>Spring Boot--日志框架的学习 - Carson&#39;s Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="keywords" content="Spring Boot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Boot--日志框架的学习">
+<meta property="og:url" content="http://yoursite.com/2019/07/02/bootlog/index.html">
+<meta property="og:site_name" content="Carson&#39;s Blog">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="og:updated_time" content="2019-07-02T13:28:05.231Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring Boot--日志框架的学习">
+<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+	<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="Spring Boot--日志框架的学习" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">主页</a>
+                
+                <a class="navbar-item" href="/archives">归纳</a>
+                
+                <a class="navbar-item" href="/categories">分类</a>
+                
+                <a class="navbar-item" href="/tags">标签</a>
+                
+                <a class="navbar-item" href="/about">关于我</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/aaaTao66">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+	
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-07-01T16:00:00.000Z">2019-07-02</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Spring-Boot/">Spring Boot</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    20 分钟 读完 (大约 3016 个字)
+                </span>
+                
+                
+                阅读次数:
+				<span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+				
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Spring Boot--日志框架的学习
+            
+        </h1>
+        <div class="content">
+            <p><img src="/2019/07/02/bootlog/6c89969a1bc601606cd7b039f686cf6e.jpg" alt="每日一图"></p>
+<a id="more"></a>
+<h1 id="版本"><a href="#版本" class="headerlink" title="版本:"></a>版本:</h1><ul>
+<li><p>Spring Boot 2.1.5.RELEASE</p>
+</li>
+<li><p>maven 3.2.5</p>
+</li>
+<li><p>jdk1.8</p>
+</li>
+</ul>
+<h3 id="1-我选用的日志框架"><a href="#1-我选用的日志框架" class="headerlink" title="1.我选用的日志框架:"></a>1.我选用的日志框架:</h3><ul>
+<li>日志门面(抽象层): SLF4J</li>
+<li>日志实现: Logback</li>
+</ul>
+<blockquote>
+<p>Spring Boot: 底层是Spring框架,Spring框架默认是JCL;</p>
+<p>而Spring Boot选用 SLF4j和Logback</p>
+</blockquote>
+<hr>
+<h3 id="2-SLF4j使用"><a href="#2-SLF4j使用" class="headerlink" title="2. SLF4j使用"></a>2. SLF4j使用</h3><h4 id="1-如何在系统中使用SLF4j"><a href="#1-如何在系统中使用SLF4j" class="headerlink" title="1) 如何在系统中使用SLF4j"></a>1) 如何在系统中使用SLF4j</h4><p><a href="https://www.slf4j.org/manual.html" target="_blank" rel="noopener">SLF4j的官方手册</a></p>
+<p>开发的时候,日志记录方法的调用,不用改直接调用日志的实现类,而是调用日志抽象层里的方法;</p>
+<ul>
+<li>导入slf4j的jar和 logback的实现jar</li>
+</ul>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> org.slf4j.Logger;</span><br><span class="line"><span class="hljs-keyword">import</span> org.slf4j.LoggerFactory;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloWorld</span> </span>&#123;</span><br><span class="line">  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Logger logger = LoggerFactory.getLogger(HelloWorld.class);</span><br><span class="line">    logger.info(<span class="hljs-string">"Hello World"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>SLF4j与其他日志框架结合示意图:</p>
+<p><img src="/2019/07/02/bootlog/concrete-bindings.png" alt="SLF4j与其他日志框架结合示意图"></p>
+<h4 id="2-遗留问题"><a href="#2-遗留问题" class="headerlink" title="2) 遗留问题"></a>2) 遗留问题</h4><p>虽然我使用的是(slf4j &amp; logback),但是其他的比如Spring框架用的<code>commons-logging</code>日志框架, Hibernate用的是<code>jboss-logging</code>日志框架,等等,太乱了了,所以我们要 <strong>统一日志记录,即使别的框架也要和我一起统一使用slf4j进行输出</strong>;</p>
+<p>官方给出的示意图:</p>
+<p><img src="/2019/07/02/bootlog/legacy2.png" alt="官方说明统一示意图"></p>
+<p>逻辑:</p>
+<ul>
+<li>1.将系统其他的日志框架排除;</li>
+<li>2.用中间包来替换原有的日志框架(红色框起来的就是中间包);</li>
+<li>3.导入slf4j其他的实现</li>
+</ul>
+<hr>
+<h3 id="3-Spring-Boot日志关系"><a href="#3-Spring-Boot日志关系" class="headerlink" title="3. Spring Boot日志关系"></a>3. Spring Boot日志关系</h3><p>其实是这个依赖的这个包:</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span></span><br><span class="line">     <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span></span><br><span class="line">     <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-logging<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span></span><br><span class="line">     <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.1.5.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span></span><br><span class="line">     <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>compile<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span></span><br><span class="line">   <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在 <strong>pom文件下</strong>鼠标右键点击:</p>
+<p><img src="/2019/07/02/bootlog/kan.png" alt></p>
+<p>SpringBoot所有依赖关系图,我们只看logging相关的:</p>
+<p><img src="/2019/07/02/bootlog/tutu.png" alt="SpringBoot底层的包依赖关系图"></p>
+<blockquote>
+<p>我用的是2.1.5版本的Spring Boot, 笔者在学习过程中发现我看的老师视频里跟我的版本不一样,</p>
+</blockquote>
+<p><strong>这是那位老师的版本:</strong></p>
+<p><img src="/2019/07/02/bootlog/1.png" alt="这是那位老师的版本图"></p>
+<p>很明显跟我不一样,不过Spring肯定对自己的底层进行了升级;</p>
+<p><strong>确切的说不是升级,而是剔除掉了jcl框架的转换,因为jcl框架最后更新日期是2014年,明显已经过时</strong></p>
+<p>但是基本推理的出来,slf4j的官网图确实是对SpringBoot1.x版本的示意,但是对我的2.x版本不符, 不过根据我的包名来看,他们的功能是差不多的,都是转成slf4j;</p>
+<p><strong>小总结</strong>: </p>
+<ul>
+<li>1.SpringBoot底层也是 slf4j+logback的方式j进行日志记录;</li>
+<li>2.SpringBoot也把其他日志都替换成了slf4j;</li>
+<li>3.中间替换包;</li>
+</ul>
+<p>中间替换包图示:</p>
+<p><img src="/2019/07/02/bootlog/2.png" alt="中间替换包 log4j to slf4j "></p>
+<h4 id="4-如果我们要引入其他的框架-一定要把这个框架默认日志依赖移除掉"><a href="#4-如果我们要引入其他的框架-一定要把这个框架默认日志依赖移除掉" class="headerlink" title="4)  如果我们要引入其他的框架,一定要把这个框架默认日志依赖移除掉!"></a>4)  如果我们要引入其他的框架,一定要把这个框架默认日志依赖移除掉!</h4><p>Spring框架默认的日志框架是: commons-logging;</p>
+<p>但是Spring Boot引入spring核心jar包的时候去除了 日志jar包;</p>
+<p><strong>Spring Boot能自动适配所有的日志,而且底层使用 slf4j+logback的方式记录日志,引入其他框架的时候,只需要把这个框架依赖的日志排除掉</strong></p>
+<hr>
+<h3 id="4-日志使用"><a href="#4-日志使用" class="headerlink" title="4. 日志使用"></a>4. 日志使用</h3><p>测试类:</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> org.junit.Test;</span><br><span class="line"><span class="hljs-keyword">import</span> org.junit.runner.RunWith;</span><br><span class="line"><span class="hljs-keyword">import</span> org.slf4j.Logger;</span><br><span class="line"><span class="hljs-keyword">import</span> org.slf4j.LoggerFactory;</span><br><span class="line"><span class="hljs-keyword">import</span> org.springframework.boot.test.context.SpringBootTest;</span><br><span class="line"><span class="hljs-keyword">import</span> org.springframework.test.context.junit4.SpringRunner;</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">@RunWith</span>(SpringRunner.class)</span><br><span class="line"><span class="hljs-meta">@SpringBootTest</span></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SpringBootLoggingApplicationTests</span> </span>&#123;</span><br><span class="line">    <span class="hljs-comment">// 日志记录器记录器</span></span><br><span class="line">    Logger logger = LoggerFactory.getLogger(getClass());</span><br><span class="line">    <span class="hljs-meta">@Test</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">contextLoads</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-comment">// 日志的级别</span></span><br><span class="line">        <span class="hljs-comment">// 由低到高 trace &lt; debug &lt; info &lt; warn &lt; error</span></span><br><span class="line"></span><br><span class="line">        logger.trace(<span class="hljs-string">"这是trace日志.."</span>);</span><br><span class="line">        logger.debug(<span class="hljs-string">"这是debug调试日志.."</span>);</span><br><span class="line">        logger.info(<span class="hljs-string">"这是info日志.."</span>);</span><br><span class="line">        logger.warn(<span class="hljs-string">"这是warn日志..."</span>);</span><br><span class="line">        logger.error(<span class="hljs-string">"这是error错误日志"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行输出结果:</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-number">2019</span>-<span class="hljs-number">07</span>-<span class="hljs-number">02</span> <span class="hljs-number">19</span>:<span class="hljs-number">22</span>:<span class="hljs-number">35.980</span>  INFO <span class="hljs-number">8404</span> --- [           main] c.c.s.SpringBootLoggingApplicationTests  : 这是info日志..</span><br><span class="line"><span class="hljs-number">2019</span>-<span class="hljs-number">07</span>-<span class="hljs-number">02</span> <span class="hljs-number">19</span>:<span class="hljs-number">22</span>:<span class="hljs-number">35.981</span>  WARN <span class="hljs-number">8404</span> --- [           main] c.c.s.SpringBootLoggingApplicationTests  : 这是warn日志...</span><br><span class="line"><span class="hljs-number">2019</span>-<span class="hljs-number">07</span>-<span class="hljs-number">02</span> <span class="hljs-number">19</span>:<span class="hljs-number">22</span>:<span class="hljs-number">35.981</span> ERROR <span class="hljs-number">8404</span> --- [           main] c.c.s.SpringBootLoggingApplicationTests  : 这是error错误日志</span><br></pre></td></tr></table></figure>
+<p>也就是说 SpringBoot默认的日志级别是  <strong>info</strong>,所以只输出了info 和 比info级别大的日志;</p>
+<p>打开我的yml配置文件:</p>
+<figure class="highlight yaml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-attr">logging:</span></span><br><span class="line"><span class="hljs-attr">  level:</span></span><br><span class="line">    <span class="hljs-string">com.carson:</span> <span class="hljs-string">trace</span></span><br></pre></td></tr></table></figure>
+<p>意思是把我 com.carson下的所有包都设置为 trace 日志级别 </p>
+<p>输出结果:</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2019-07-02 19:29:17.406 TRACE 7076 --- [           main] c.c.s.SpringBootLoggingApplicationTests  : 这是trace日志..</span><br><span class="line">2019-07-02 19:29:17.407 DEBUG 7076 --- [           main] c.c.s.SpringBootLoggingApplicationTests  : 这是debug调试日志..</span><br><span class="line">2019-07-02 19:29:17.407  INFO 7076 --- [           main] c.c.s.SpringBootLoggingApplicationTests  : 这是info日志..</span><br><span class="line">2019-07-02 19:29:17.408  WARN 7076 --- [           main] c.c.s.SpringBootLoggingApplicationTests  : 这是warn日志...</span><br><span class="line">2019-07-02 19:29:17.408 ERROR 7076 --- [           main] c.c.s.SpringBootLoggingApplicationTests  : 这是error错误日志</span><br></pre></td></tr></table></figure>
+<h4 id="4-1-配置文件详解"><a href="#4-1-配置文件详解" class="headerlink" title="4.1 配置文件详解:"></a>4.1 配置文件详解:</h4><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">logging.level.com.carson= trace</span><br><span class="line"># path: 只创建任意一个文件夹, SpringBoot会默认生成一个 spring.log 作为日志文件</span><br><span class="line">logging.path= F:/spring/log</span><br><span class="line"># file: 指定一个路径和文件把 日志输出到 指定文件里</span><br><span class="line">logging.file= F:/springboot.log</span><br><span class="line"># pattern.console: 控制台输出的日志格式</span><br><span class="line">logging.pattern.console= %d&#123;yyyy‐MM‐dd&#125; === [%thread] === %‐5level === %logger&#123;50&#125; ==== %msg%n</span><br><span class="line">#   pattern.file : 指定文件中日志的输出格式</span><br><span class="line">logging.pattern.file= %d&#123;yyyy‐MM‐dd&#125; === [%thread] === %‐5level === %logger&#123;50&#125; ==== %msg%n</span><br></pre></td></tr></table></figure>
+<h4 id="4-2-指定配置"><a href="#4-2-指定配置" class="headerlink" title="4.2 指定配置"></a>4.2 指定配置</h4><table>
+<thead>
+<tr>
+<th>日志框架</th>
+<th>文件命名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Logback</td>
+<td><code>logback-spring.xml</code>, <code>logback-spring.groovy</code>, <code>logback.xml</code>, or <code>logback.groovy</code></td>
+</tr>
+<tr>
+<td>Log4j2</td>
+<td><code>log4j2-spring.xml</code> or <code>log4j2.xml</code></td>
+</tr>
+<tr>
+<td>JDK (Java Util Logging)</td>
+<td><code>logging.properties</code></td>
+</tr>
+</tbody>
+</table>
+<p>以上来自SpringBoot的<a href="https://docs.spring.io/spring-boot/docs/2.1.5.RELEASE/reference/htmlsingle/#boot-features-logging" target="_blank" rel="noopener">官方文档</a>, 上面是他要求的命名,SpringBoot会读取的</p>
+<ul>
+<li>logback-spring.xml : </li>
+</ul>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="hljs-comment">&lt;!--</span></span><br><span class="line"><span class="hljs-comment">scan：当此属性设置为true时，配置文件如果发生改变，将会被重新加载，默认值为true。</span></span><br><span class="line"><span class="hljs-comment">scanPeriod：设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒当scan为true时，此属性生效。默认的时间间隔为1分钟。</span></span><br><span class="line"><span class="hljs-comment">debug：当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false。</span></span><br><span class="line"><span class="hljs-comment">--&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">configuration</span> <span class="hljs-attr">scan</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">scanPeriod</span>=<span class="hljs-string">"60 seconds"</span> <span class="hljs-attr">debug</span>=<span class="hljs-string">"false"</span>&gt;</span></span><br><span class="line">    <span class="hljs-comment">&lt;!-- 定义日志的根目录 --&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"LOG_HOME"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"/app/log"</span> /&gt;</span></span><br><span class="line">    <span class="hljs-comment">&lt;!-- 定义日志文件名称 --&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"appName"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"atguigu-springboot"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span></span><br><span class="line">    <span class="hljs-comment">&lt;!-- ch.qos.logback.core.ConsoleAppender 表示控制台输出 --&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">appender</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"stdout"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ch.qos.logback.core.ConsoleAppender"</span>&gt;</span></span><br><span class="line">        <span class="hljs-comment">&lt;!--</span></span><br><span class="line"><span class="hljs-comment">        日志输出格式：</span></span><br><span class="line"><span class="hljs-comment">			%d表示日期时间，</span></span><br><span class="line"><span class="hljs-comment">			%thread表示线程名，</span></span><br><span class="line"><span class="hljs-comment">			%-5level：级别从左显示5个字符宽度</span></span><br><span class="line"><span class="hljs-comment">			%logger&#123;50&#125; 表示logger名字最长50个字符，否则按照句点分割。</span></span><br><span class="line"><span class="hljs-comment">			%msg：日志消息，</span></span><br><span class="line"><span class="hljs-comment">			%n是换行符</span></span><br><span class="line"><span class="hljs-comment">        --&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">layout</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ch.qos.logback.classic.PatternLayout"</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">springProfile</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"dev"</span>&gt;</span></span><br><span class="line">                <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125; ----&gt; [%thread] ---&gt; %-5level %logger&#123;50&#125; - %msg%n<span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;/<span class="hljs-name">springProfile</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">springProfile</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"!dev"</span>&gt;</span></span><br><span class="line">                <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125; ==== [%thread] ==== %-5level %logger&#123;50&#125; - %msg%n<span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;/<span class="hljs-name">springProfile</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;/<span class="hljs-name">layout</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">appender</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">&lt;!-- 滚动记录文件，先将日志记录到指定文件，当符合某个条件时，将日志记录到其他文件 --&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">appender</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"appLogAppender"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ch.qos.logback.core.rolling.RollingFileAppender"</span>&gt;</span></span><br><span class="line">        <span class="hljs-comment">&lt;!-- 指定日志文件的名称 --&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">file</span>&gt;</span>$&#123;LOG_HOME&#125;/$&#123;appName&#125;.log<span class="hljs-tag">&lt;/<span class="hljs-name">file</span>&gt;</span></span><br><span class="line">        <span class="hljs-comment">&lt;!--</span></span><br><span class="line"><span class="hljs-comment">        当发生滚动时，决定 RollingFileAppender 的行为，涉及文件移动和重命名</span></span><br><span class="line"><span class="hljs-comment">        TimeBasedRollingPolicy： 最常用的滚动策略，它根据时间来制定滚动策略，既负责滚动也负责出发滚动。</span></span><br><span class="line"><span class="hljs-comment">        --&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">rollingPolicy</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ch.qos.logback.core.rolling.TimeBasedRollingPolicy"</span>&gt;</span></span><br><span class="line">            <span class="hljs-comment">&lt;!--</span></span><br><span class="line"><span class="hljs-comment">            滚动时产生的文件的存放位置及文件名称 %d&#123;yyyy-MM-dd&#125;：按天进行日志滚动</span></span><br><span class="line"><span class="hljs-comment">            %i：当文件大小超过maxFileSize时，按照i进行文件滚动</span></span><br><span class="line"><span class="hljs-comment">            --&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">fileNamePattern</span>&gt;</span>$&#123;LOG_HOME&#125;/$&#123;appName&#125;-%d&#123;yyyy-MM-dd&#125;-%i.log<span class="hljs-tag">&lt;/<span class="hljs-name">fileNamePattern</span>&gt;</span></span><br><span class="line">            <span class="hljs-comment">&lt;!--</span></span><br><span class="line"><span class="hljs-comment">            可选节点，控制保留的归档文件的最大数量，超出数量就删除旧文件。假设设置每天滚动，</span></span><br><span class="line"><span class="hljs-comment">            且maxHistory是365，则只保存最近365天的文件，删除之前的旧文件。注意，删除旧文件是，</span></span><br><span class="line"><span class="hljs-comment">            那些为了归档而创建的目录也会被删除。</span></span><br><span class="line"><span class="hljs-comment">            --&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">MaxHistory</span>&gt;</span>365<span class="hljs-tag">&lt;/<span class="hljs-name">MaxHistory</span>&gt;</span></span><br><span class="line">            <span class="hljs-comment">&lt;!--</span></span><br><span class="line"><span class="hljs-comment">            当日志文件超过maxFileSize指定的大小是，根据上面提到的%i进行日志文件滚动 注意此处配置SizeBasedTriggeringPolicy是无法实现按文件大小进行滚动的，必须配置timeBasedFileNamingAndTriggeringPolicy</span></span><br><span class="line"><span class="hljs-comment">            --&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">timeBasedFileNamingAndTriggeringPolicy</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP"</span>&gt;</span></span><br><span class="line">                <span class="hljs-tag">&lt;<span class="hljs-name">maxFileSize</span>&gt;</span>100MB<span class="hljs-tag">&lt;/<span class="hljs-name">maxFileSize</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;/<span class="hljs-name">timeBasedFileNamingAndTriggeringPolicy</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;/<span class="hljs-name">rollingPolicy</span>&gt;</span></span><br><span class="line">        <span class="hljs-comment">&lt;!-- 日志输出格式： --&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">layout</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ch.qos.logback.classic.PatternLayout"</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125; [ %thread ] - [ %-5level ] [ %logger&#123;50&#125; : %line ] - %msg%n<span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;/<span class="hljs-name">layout</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">appender</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">&lt;!--</span></span><br><span class="line"><span class="hljs-comment">		logger主要用于存放日志对象，也可以定义日志类型、级别</span></span><br><span class="line"><span class="hljs-comment">		name：表示匹配的logger类型前缀，也就是包的前半部分</span></span><br><span class="line"><span class="hljs-comment">		level：要记录的日志级别，包括 TRACE &lt; DEBUG &lt; INFO &lt; WARN &lt; ERROR</span></span><br><span class="line"><span class="hljs-comment">		additivity：作用在于children-logger是否使用 rootLogger配置的appender进行输出，</span></span><br><span class="line"><span class="hljs-comment">		false：表示只用当前logger的appender-ref，true：</span></span><br><span class="line"><span class="hljs-comment">		表示当前logger的appender-ref和rootLogger的appender-ref都有效</span></span><br><span class="line"><span class="hljs-comment">    --&gt;</span></span><br><span class="line">    <span class="hljs-comment">&lt;!-- hibernate logger --&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"com.atguigu"</span> <span class="hljs-attr">level</span>=<span class="hljs-string">"debug"</span> /&gt;</span></span><br><span class="line">    <span class="hljs-comment">&lt;!-- Spring framework logger --&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"org.springframework"</span> <span class="hljs-attr">level</span>=<span class="hljs-string">"debug"</span> <span class="hljs-attr">additivity</span>=<span class="hljs-string">"false"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">logger</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">&lt;!--</span></span><br><span class="line"><span class="hljs-comment">    root与logger是父子关系，没有特别定义则默认为root，任何一个类只会和一个logger对应，</span></span><br><span class="line"><span class="hljs-comment">    要么是定义的logger，要么是root，判断的关键在于找到这个logger，然后判断这个logger的appender和level。</span></span><br><span class="line"><span class="hljs-comment">    --&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">root</span> <span class="hljs-attr">level</span>=<span class="hljs-string">"info"</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">appender-ref</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"stdout"</span> /&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">appender-ref</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"appLogAppender"</span> /&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">root</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>把上面配置复制一份,放到项目的 resources 里面,或者自定义配置,命名规范的区别:</p>
+<ul>
+<li><p>logback.xml: 直接被日志框架识别了</p>
+</li>
+<li><p><strong>但是如果你以 logback-spring.xml 命名(推荐)</strong>: 日志框架不直接加载日志的配置项了,由SpringBoot解析日志你就可以使用SpringBoot的一个高级功能</p>
+</li>
+</ul>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">springProfile</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"prod"</span>&gt;</span></span><br><span class="line">	<span class="hljs-comment">&lt;!-- 是不是 prod 环境 --&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">springProfile</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">springProfile</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"dev | prod"</span>&gt;</span></span><br><span class="line">	<span class="hljs-comment">&lt;!--  dev 和 prod 都会执行 --&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">springProfile</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">springProfile</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"!dev"</span>&gt;</span></span><br><span class="line">	<span class="hljs-comment">&lt;!-- 如果不是 dev环境 --&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">springProfile</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>也就是刚才的配置文件里的:</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">appender</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"stdout"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ch.qos.logback.core.ConsoleAppender"</span>&gt;</span></span><br><span class="line">        <span class="hljs-comment">&lt;!--</span></span><br><span class="line"><span class="hljs-comment">        日志输出格式：</span></span><br><span class="line"><span class="hljs-comment">			%d表示日期时间，</span></span><br><span class="line"><span class="hljs-comment">			%thread表示线程名，</span></span><br><span class="line"><span class="hljs-comment">			%-5level：级别从左显示5个字符宽度</span></span><br><span class="line"><span class="hljs-comment">			%logger&#123;50&#125; 表示logger名字最长50个字符，否则按照句点分割。</span></span><br><span class="line"><span class="hljs-comment">			%msg：日志消息，</span></span><br><span class="line"><span class="hljs-comment">			%n是换行符</span></span><br><span class="line"><span class="hljs-comment">        --&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">layout</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"ch.qos.logback.classic.PatternLayout"</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">springProfile</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"dev"</span>&gt;</span></span><br><span class="line">                <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125; ----&gt; [%thread] ---&gt; %-5level %logger&#123;50&#125; - %msg%n<span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;/<span class="hljs-name">springProfile</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">springProfile</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"!dev"</span>&gt;</span></span><br><span class="line">                <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>%d&#123;yyyy-MM-dd HH:mm:ss.SSS&#125; ==== [%thread] ==== %-5level %logger&#123;50&#125; - %msg%n<span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;/<span class="hljs-name">springProfile</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;/<span class="hljs-name">layout</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">appender</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>你可以在你的 yml或者properties里配置一条:</p>
+<blockquote>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; spring.profiles.active= prod</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>来设置运行环境</p>
+<h4 id="4-3-使用-log4j"><a href="#4-3-使用-log4j" class="headerlink" title="4.3 使用 log4j"></a>4.3 使用 log4j</h4><p><strong>其实SpringBoot官方为我们做了一些帮助</strong>: </p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Pom</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>spring-boot-starter-jetty</code></td>
+<td>Starter for using Jetty as the embedded servlet container. An alternative to <a href="https://docs.spring.io/spring-boot/docs/2.1.5.RELEASE/reference/htmlsingle/#spring-boot-starter-tomcat" target="_blank" rel="noopener"><code>spring-boot-starter-tomcat</code></a></td>
+<td><a href="https://github.com/spring-projects/spring-boot/tree/v2.1.5.RELEASE/spring-boot-project/spring-boot-starters/spring-boot-starter-jetty/pom.xml" target="_blank" rel="noopener">Pom</a></td>
+</tr>
+<tr>
+<td><code>spring-boot-starter-log4j2</code></td>
+<td>Starter for using Log4j2 for logging. An alternative to <a href="https://docs.spring.io/spring-boot/docs/2.1.5.RELEASE/reference/htmlsingle/#spring-boot-starter-logging" target="_blank" rel="noopener"><code>spring-boot-starter-logging</code></a></td>
+<td><a href="https://github.com/spring-projects/spring-boot/tree/v2.1.5.RELEASE/spring-boot-project/spring-boot-starters/spring-boot-starter-log4j2/pom.xml" target="_blank" rel="noopener">Pom</a></td>
+</tr>
+<tr>
+<td><code>spring-boot-starter-logging</code></td>
+<td>Starter for logging using Logback. Default logging starter</td>
+<td><a href="https://github.com/spring-projects/spring-boot/tree/v2.1.5.RELEASE/spring-boot-project/spring-boot-starters/spring-boot-starter-logging/pom.xml" target="_blank" rel="noopener">Pom</a></td>
+</tr>
+<tr>
+<td><code>spring-boot-starter-reactor-netty</code></td>
+<td>Starter for using Reactor Netty as the embedded reactive HTTP server.</td>
+<td><a href="https://github.com/spring-projects/spring-boot/tree/v2.1.5.RELEASE/spring-boot-project/spring-boot-starters/spring-boot-starter-reactor-netty/pom.xml" target="_blank" rel="noopener">Pom</a></td>
+</tr>
+<tr>
+<td><code>spring-boot-starter-tomcat</code></td>
+<td>Starter for using Tomcat as the embedded servlet container. Default servlet container starter used by <a href="https://docs.spring.io/spring-boot/docs/2.1.5.RELEASE/reference/htmlsingle/#spring-boot-starter-web" target="_blank" rel="noopener"><code>spring-boot-starter-web</code></a></td>
+<td><a href="https://github.com/spring-projects/spring-boot/tree/v2.1.5.RELEASE/spring-boot-project/spring-boot-starters/spring-boot-starter-tomcat/pom.xml" target="_blank" rel="noopener">Pom</a></td>
+</tr>
+<tr>
+<td><code>spring-boot-starter-undertow</code></td>
+<td>Starter for using Undertow as the embedded servlet container. An alternative to <a href="https://docs.spring.io/spring-boot/docs/2.1.5.RELEASE/reference/htmlsingle/#spring-boot-starter-tomcat" target="_blank" rel="noopener"><code>spring-boot-starter-tomcat</code></a></td>
+<td><a href="https://github.com/spring-projects/spring-boot/tree/v2.1.5.RELEASE/spring-boot-project/spring-boot-starters/spring-boot-starter-undertow/pom.xml" target="_blank" rel="noopener">Pom</a></td>
+</tr>
+</tbody>
+</table>
+<p>想使用哪个日志框架就直接导入哪个包就好了,  比如我想使用 log4j2 我先把默认的 <code>spring-boot-starter-logging</code> 排除掉 , 排除方法如下:</p>
+<p><img src="/2019/07/02/bootlog/paichu.png" alt="排除"></p>
+<ul>
+<li>然后再pom文件里:</li>
+</ul>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-log4j2<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.1.1.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>导入log4j2的包;</p>
+<ul>
+<li>然后在 resources 里 创建一个 log4j的配置文件,文件命名就以刚才说的:</li>
+</ul>
+<p>内容:</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">### set log levels ###</span><br><span class="line">log4j.rootLogger = debug ,  stdout ,  D ,  E</span><br><span class="line"></span><br><span class="line">### 输出到控制台 ###</span><br><span class="line">log4j.appender.stdout = org.apache.log4j.ConsoleAppender</span><br><span class="line">log4j.appender.stdout.Target = System.out</span><br><span class="line">log4j.appender.stdout.layout = org.apache.log4j.PatternLayout</span><br><span class="line">log4j.appender.stdout.layout.ConversionPattern =  %d&#123;ABSOLUTE&#125; ===== %5p %c&#123; 1 &#125;:%L - %m%n</span><br><span class="line"></span><br><span class="line">#### 输出到日志文件 ###</span><br><span class="line">#log4j.appender.D = org.apache.log4j.DailyRollingFileAppender</span><br><span class="line">#log4j.appender.D.File = logs/log.log</span><br><span class="line">#log4j.appender.D.Append = true</span><br><span class="line">#log4j.appender.D.Threshold = DEBUG ## 输出DEBUG级别以上的日志</span><br><span class="line">#log4j.appender.D.layout = org.apache.log4j.PatternLayout</span><br><span class="line">#log4j.appender.D.layout.ConversionPattern = %-d&#123;yyyy-MM-dd HH:mm:ss&#125;  [ %t:%r ] - [ %p ]  %m%n</span><br><span class="line">#</span><br><span class="line">#### 保存异常信息到单独文件 ###</span><br><span class="line">#log4j.appender.D = org.apache.log4j.DailyRollingFileAppender</span><br><span class="line">#log4j.appender.D.File = logs/error.log ## 异常日志文件名</span><br><span class="line">#log4j.appender.D.Append = true</span><br><span class="line">#log4j.appender.D.Threshold = ERROR ## 只输出ERROR级别以上的日志!!!</span><br><span class="line">#log4j.appender.D.layout = org.apache.log4j.PatternLayout</span><br><span class="line">#log4j.appender.D.layout.ConversionPattern = %-d&#123;yyyy-MM-dd HH:mm:ss&#125;  [ %t:%r ] - [ %p ]  %m%n</span><br></pre></td></tr></table></figure>
+<p>也就是说,如果像引入其他日志框架,只要把以前的框架排除,然后再引入新框架就ok了</p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Spring-Boot/">Spring Boot</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/zhifubao.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/weixin.jpg" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/07/03/bootweb1/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Spring Boot--Thymeleaf模板引擎(二)</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/06/30/boot2/">
+                <span class="level-item">Spring Boot深入系列--配置文件</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/images/1.png" alt="Yu Xiantao">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Yu Xiantao
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        热心的学习者 狂热的数码迷
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Beijing, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        22
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        11
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        16
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://www.zhihu.com/people/san-ji-nei-ku/activities" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/aaaTao66">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="https://twitter.com/iloveueason">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#版本">
+        <span class="has-mr-6">1</span>
+        <span>版本:</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#1-我选用的日志框架">
+        <span class="has-mr-6">1.1</span>
+        <span>1.我选用的日志框架:</span>
+        </a></li><li>
+        <a class="is-flex" href="#2-SLF4j使用">
+        <span class="has-mr-6">1.2</span>
+        <span>2. SLF4j使用</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#1-如何在系统中使用SLF4j">
+        <span class="has-mr-6">1.2.1</span>
+        <span>1) 如何在系统中使用SLF4j</span>
+        </a></li><li>
+        <a class="is-flex" href="#2-遗留问题">
+        <span class="has-mr-6">1.2.2</span>
+        <span>2) 遗留问题</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#3-Spring-Boot日志关系">
+        <span class="has-mr-6">1.3</span>
+        <span>3. Spring Boot日志关系</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#4-如果我们要引入其他的框架-一定要把这个框架默认日志依赖移除掉">
+        <span class="has-mr-6">1.3.1</span>
+        <span>4)  如果我们要引入其他的框架,一定要把这个框架默认日志依赖移除掉!</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#4-日志使用">
+        <span class="has-mr-6">1.4</span>
+        <span>4. 日志使用</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#4-1-配置文件详解">
+        <span class="has-mr-6">1.4.1</span>
+        <span>4.1 配置文件详解:</span>
+        </a></li><li>
+        <a class="is-flex" href="#4-2-指定配置">
+        <span class="has-mr-6">1.4.2</span>
+        <span>4.2 指定配置</span>
+        </a></li><li>
+        <a class="is-flex" href="#4-3-使用-log4j">
+        <span class="has-mr-6">1.4.3</span>
+        <span>4.3 使用 log4j</span>
+        </a></li></ul></li></ul></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://www.zhihu.com/people/san-ji-nei-ku/activities" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">知乎</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.zhihu.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Dubbo/">
+            <span class="level-start">
+                <span class="level-item">Dubbo</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Hadoop生态圈/">
+            <span class="level-start">
+                <span class="level-item">Hadoop生态圈</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/SSM整合/">
+            <span class="level-start">
+                <span class="level-item">SSM整合</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Scala/">
+            <span class="level-start">
+                <span class="level-item">Scala</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Spring/">
+            <span class="level-start">
+                <span class="level-item">Spring</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Spring-Boot/">
+            <span class="level-start">
+                <span class="level-item">Spring Boot</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/SpringMVC/">
+            <span class="level-start">
+                <span class="level-item">SpringMVC</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/《大话数据结构》/">
+            <span class="level-start">
+                <span class="level-item">《大话数据结构》</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/博客搭建/">
+            <span class="level-start">
+                <span class="level-item">博客搭建</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/浅谈ios-Android-非技术/">
+            <span class="level-start">
+                <span class="level-item">浅谈ios/Android(非技术)</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/黑科技/">
+            <span class="level-start">
+                <span class="level-item">黑科技</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/Druid/" style="font-size: 10px;">Druid</a> <a href="/tags/Hadoop/" style="font-size: 10px;">Hadoop</a> <a href="/tags/Hbase/" style="font-size: 10px;">Hbase</a> <a href="/tags/Interceptor/" style="font-size: 10px;">Interceptor</a> <a href="/tags/SSM/" style="font-size: 10px;">SSM</a> <a href="/tags/Scala/" style="font-size: 15px;">Scala</a> <a href="/tags/Servlet/" style="font-size: 10px;">Servlet</a> <a href="/tags/Spring-Boot/" style="font-size: 20px;">Spring Boot</a> <a href="/tags/Thymeleaf/" style="font-size: 15px;">Thymeleaf</a> <a href="/tags/WebFlow/" style="font-size: 10px;">WebFlow</a> <a href="/tags/微服务/" style="font-size: 10px;">微服务</a> <a href="/tags/我的博客搭建过程/" style="font-size: 10px;">我的博客搭建过程</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/闲聊/" style="font-size: 10px;">闲聊</a> <a href="/tags/黑科技/" style="font-size: 10px;">黑科技</a>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/10/17/dubbo/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot-整合Dubbo">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-16T16:00:00.000Z">2019-10-17</time></div>
+                    <a href="/2019/10/17/dubbo/" class="has-link-black-ter is-size-6">Spring Boot-整合Dubbo</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Dubbo/">Dubbo</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/08/springmvclogin/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="SpringMVC-拦截器-判断用户登录状态">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T16:00:00.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/springmvclogin/" class="has-link-black-ter is-size-6">SpringMVC-拦截器-判断用户登录状态</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/SpringMVC/">SpringMVC</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/01/btmybatis/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot-甜蜜的整合MyBatis&amp;注解方式&amp;配置方式">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-31T16:00:00.000Z">2019-08-01</time></div>
+                    <a href="/2019/08/01/btmybatis/" class="has-link-black-ter is-size-6">Spring Boot-甜蜜的整合MyBatis&amp;注解方式&amp;配置方式</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring-Boot/">Spring Boot</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/30/bootdruid/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot数据库-整合Druid数据源&amp;Druid监控">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-29T16:00:00.000Z">2019-07-30</time></div>
+                    <a href="/2019/07/30/bootdruid/" class="has-link-black-ter is-size-6">Spring Boot数据库-整合Druid数据源&amp;Druid监控</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring-Boot/">Spring Boot</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/23/SpringWebFlow/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Web Flow">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-22T16:00:00.000Z">2019-07-23</time></div>
+                    <a href="/2019/07/23/SpringWebFlow/" class="has-link-black-ter is-size-6">Spring Web Flow</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Druid/">
+                        <span class="tag">Druid</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hadoop/">
+                        <span class="tag">Hadoop</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hbase/">
+                        <span class="tag">Hbase</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Interceptor/">
+                        <span class="tag">Interceptor</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SSM/">
+                        <span class="tag">SSM</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Servlet/">
+                        <span class="tag">Servlet</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-Boot/">
+                        <span class="tag">Spring Boot</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Thymeleaf/">
+                        <span class="tag">Thymeleaf</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/WebFlow/">
+                        <span class="tag">WebFlow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微服务/">
+                        <span class="tag">微服务</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/我的博客搭建过程/">
+                        <span class="tag">我的博客搭建过程</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数据结构/">
+                        <span class="tag">数据结构</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/算法/">
+                        <span class="tag">算法</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/闲聊/">
+                        <span class="tag">闲聊</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/黑科技/">
+                        <span class="tag">黑科技</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/10/17/dubbo/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot-整合Dubbo">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-16T16:00:00.000Z">2019-10-17</time></div>
+                    <a href="/2019/10/17/dubbo/" class="has-link-black-ter is-size-6">Spring Boot-整合Dubbo</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Dubbo/">Dubbo</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/08/springmvclogin/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="SpringMVC-拦截器-判断用户登录状态">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T16:00:00.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/springmvclogin/" class="has-link-black-ter is-size-6">SpringMVC-拦截器-判断用户登录状态</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/SpringMVC/">SpringMVC</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/01/btmybatis/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot-甜蜜的整合MyBatis&amp;注解方式&amp;配置方式">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-31T16:00:00.000Z">2019-08-01</time></div>
+                    <a href="/2019/08/01/btmybatis/" class="has-link-black-ter is-size-6">Spring Boot-甜蜜的整合MyBatis&amp;注解方式&amp;配置方式</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring-Boot/">Spring Boot</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/30/bootdruid/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot数据库-整合Druid数据源&amp;Druid监控">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-29T16:00:00.000Z">2019-07-30</time></div>
+                    <a href="/2019/07/30/bootdruid/" class="has-link-black-ter is-size-6">Spring Boot数据库-整合Druid数据源&amp;Druid监控</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring-Boot/">Spring Boot</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/23/SpringWebFlow/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Web Flow">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-22T16:00:00.000Z">2019-07-23</time></div>
+                    <a href="/2019/07/23/SpringWebFlow/" class="has-link-black-ter is-size-6">Spring Web Flow</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Druid/">
+                        <span class="tag">Druid</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hadoop/">
+                        <span class="tag">Hadoop</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hbase/">
+                        <span class="tag">Hbase</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Interceptor/">
+                        <span class="tag">Interceptor</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SSM/">
+                        <span class="tag">SSM</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Servlet/">
+                        <span class="tag">Servlet</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-Boot/">
+                        <span class="tag">Spring Boot</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Thymeleaf/">
+                        <span class="tag">Thymeleaf</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/WebFlow/">
+                        <span class="tag">WebFlow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微服务/">
+                        <span class="tag">微服务</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/我的博客搭建过程/">
+                        <span class="tag">我的博客搭建过程</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数据结构/">
+                        <span class="tag">数据结构</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/算法/">
+                        <span class="tag">算法</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/闲聊/">
+                        <span class="tag">闲聊</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/黑科技/">
+                        <span class="tag">黑科技</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+	<div id="vcomments"></div>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="Spring Boot--日志框架的学习" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Yu Xiantao&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+    
+
+
+<script src="/js/main.js" defer></script>
+	
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+	
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'K2pfcRNJyLhhJISc7BaeYA88-gzGzoHsz',
+            appKey: 'gHHPTdGOoXqqMFw6YdRml785'
+        })
+    </script>
+</body>
+</html>

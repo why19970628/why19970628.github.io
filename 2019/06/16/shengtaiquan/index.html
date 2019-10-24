@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>浅谈ios/Android生态圈 - Carson&#39;s Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="keywords" content="闲聊">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈ios&#x2F;Android生态圈">
+<meta property="og:url" content="http://yoursite.com/2019/06/16/shengtaiquan/index.html">
+<meta property="og:site_name" content="Carson&#39;s Blog">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="og:updated_time" content="2019-06-16T10:34:35.807Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="浅谈ios&#x2F;Android生态圈">
+<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+	<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="浅谈ios/Android生态圈" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">主页</a>
+                
+                <a class="navbar-item" href="/archives">归纳</a>
+                
+                <a class="navbar-item" href="/categories">分类</a>
+                
+                <a class="navbar-item" href="/tags">标签</a>
+                
+                <a class="navbar-item" href="/about">关于我</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/aaaTao66">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+	
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-06-15T16:00:00.000Z">2019-06-16</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/浅谈ios-Android-非技术/">浅谈ios/Android(非技术)</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    21 分钟 读完 (大约 3122 个字)
+                </span>
+                
+                
+                阅读次数:
+				<span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+				
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                浅谈ios/Android生态圈
+            
+        </h1>
+        <div class="content">
+            <p><img src="/2019/06/16/shengtaiquan/kuke.png" alt="库克"></p>
+<a id="more"></a>
+<hr>
+<ul>
+<li><p>Hadoop生态圈</p>
+</li>
+<li><p>Spark生态圈</p>
+<p>我是一个正在学习的开发者,上面两个生态圈是我正在接触的东西</p>
+<blockquote>
+<h5 id="什么是生态圈"><a href="#什么是生态圈" class="headerlink" title="什么是生态圈?"></a>什么是生态圈?</h5></blockquote>
+<p>我理解的生态圈,好比我们地球,有水,空气,植物….等等,由这些东西组成的一个世界,就是一个大的生态圈,有这些东西我们会活下去,少一样东西都可能会造成整个地球的生态销毁</p>
+<p>今天我不聊开发,不聊大数据,不聊这个地球,我是一个数码爱好者,今天我来谈一谈,关于ios和Android之前的小琐事</p>
+<blockquote>
+<h5 id="阅读指南"><a href="#阅读指南" class="headerlink" title="阅读指南"></a>阅读指南</h5><p>1.你需要一首BGM,我推荐 《La Ciudad-ODESZA》</p>
+<p>2.如果你是专业人士,那我这篇文章可能并不适合你,因为我本身就不是专业人士,业余爱好者而已</p>
+<p>3.如果你也是数码爱好者(手机,电脑),那你可以花几分钟的时间来看完我的文章</p>
+<p>4.这篇文章没有专业术语,很适合爱好者来观看,通俗易懂,但比较片面</p>
+<p>5.如果你在上课,请你等下课再看,不要影响学习</p>
+<p>此片文章用时一个周末的整个下午</p>
+</blockquote>
+<hr>
+<h1 id="首先介绍几个老朋友👇"><a href="#首先介绍几个老朋友👇" class="headerlink" title="首先介绍几个老朋友👇"></a>首先介绍几个老朋友👇</h1></li>
+<li><h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2></li>
+</ul>
+<p><img src="/2019/06/16/shengtaiquan/weiruan.png" alt="Win"></p>
+<ul>
+<li><h2 id="Apple"><a href="#Apple" class="headerlink" title="Apple"></a>Apple</h2><p><img src="/2019/06/16/shengtaiquan/apple3.jpg" alt="apple"></p>
+</li>
+<li><h2 id="Google"><a href="#Google" class="headerlink" title="Google"></a>Google</h2><p><img src="/2019/06/16/shengtaiquan/google.png" alt="google"></p>
+</li>
+</ul>
+<hr>
+<h1 id="Apple生态"><a href="#Apple生态" class="headerlink" title="Apple生态"></a>Apple生态</h1><p>我们常说的苹果公司,都有哪些产品?</p>
+<hr>
+<ul>
+<li><h4 id="pc"><a href="#pc" class="headerlink" title="pc"></a>pc</h4></li>
+</ul>
+<p><img src="/2019/06/16/shengtaiquan/a1.png" alt="1"></p>
+<p>Mac Os是一个很受开发者喜欢的系统</p>
+<p>Mac系列的工业设计,我相信每个摸过的人,或者亲眼见过的的朋友,都会折服于苹果的这些优秀的工艺品</p>
+<p>再加上黑苹果技术,哪怕买一个Air你也能享受到极致的体验</p>
+<hr>
+<ul>
+<li><h4 id="ipad"><a href="#ipad" class="headerlink" title="ipad"></a>ipad</h4><p><img src="/2019/06/16/shengtaiquan/a2.png" alt="2"></p>
+</li>
+</ul>
+<p>我相信好多人觉得平板电脑是一个鸡肋(实际上是钱包太小),但是实际上还是有很多人购入的</p>
+<h5 id="我们打开电商网站搜一下平板电脑"><a href="#我们打开电商网站搜一下平板电脑" class="headerlink" title="我们打开电商网站搜一下平板电脑"></a>我们打开电商网站搜一下平板电脑</h5><p><img src="/2019/06/16/shengtaiquan/jd1.png" alt="jd"></p>
+<h5 id="然后点击销量排名"><a href="#然后点击销量排名" class="headerlink" title="然后点击销量排名"></a>然后点击销量排名</h5><h5 id><a href="#" class="headerlink" title></a><img src="/2019/06/16/shengtaiquan/jd2.png" alt="2"></h5><p>前十名的图片中全都印着Apple的图标标志,可以看出苹果公司在平板市场的占比了</p>
+<hr>
+<ul>
+<li><h4 id="iphone"><a href="#iphone" class="headerlink" title="iphone"></a>iphone</h4><p><img src="/2019/06/16/shengtaiquan/a3.png" alt="2"></p>
+</li>
+</ul>
+<p>穷人买iPhone,富人买Android,我们通常用这句话调侃自己,因为ios系统太稳定了,用3年不卡(不是绝对),但是至少我手里的iphone一直很稳定相比我用过的Android</p>
+<ul>
+<li><h5 id="App-Store"><a href="#App-Store" class="headerlink" title="App Store"></a>App Store</h5><p><img src="/2019/06/16/shengtaiquan/app.png" alt="app"></p>
+<p>为什么你的ios耐用?很大功劳来自于这个商城,对于一个苹果小白白,想通过App Store以外的方式下载应用难的很,不像安卓,直接浏览器搜索下载,这样安全性很低,你不知道你下载的应用是否安全,是不是病毒,但是ios的App Store有着严格的软件把控,如果你这个软件商想瞎搞,那对不起,我就把你从App Store里干掉</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><h4 id="Watch"><a href="#Watch" class="headerlink" title="Watch"></a>Watch</h4><p><img src="/2019/06/16/shengtaiquan/a4.png" alt="2"></p>
+</li>
+</ul>
+<p>穷玩车富玩表,不止适用于手表界,我们数码界也是可以用这句话来形容的,我一个穷学生,如果身边有人戴着Apple Watch, 我会投去羡慕嫉妒恨的眼光</p>
+<hr>
+<ul>
+<li><h4 id="Music"><a href="#Music" class="headerlink" title="Music"></a>Music</h4></li>
+</ul>
+<p><img src="/2019/06/16/shengtaiquan/a5.png" alt="music"></p>
+<p>大家可能拥有最多的产品就是Iphone的,我们有网易云,qq音乐….各种免费音乐软件,为什么还有人需要去用收费的Apple Music? 我也有这个疑问</p>
+<p>我们来看看知乎朋友是怎么说的:</p>
+<p><a href="https://www.zhihu.com/question/36072058" target="_blank" rel="noopener">你选择使用 Apple Music 而不是 QQ 音乐、网易云音乐、虾米音乐等的原因是什么?</a></p>
+<p>有人说:</p>
+<blockquote>
+<p>不会有各式各样的广告，不会到处显示小红点。我只想简简单单地听个歌。</p>
+</blockquote>
+<p>还有人说:</p>
+<blockquote>
+<ul>
+<li><strong>云端使用 iTunes 资料库</strong></li>
+<li><strong>曲库与听歌爱好重合大</strong></li>
+<li><strong>界面和功能比较简单</strong></li>
+<li><strong>学生价最低，收费体系简单</strong></li>
+</ul>
+<p>网易云：SVIP ¥12/M，VIP ¥8/M</p>
+<p>虾米：SVIP ¥12/M，VIP ¥8/M</p>
+<p>QQ：绿钻豪华版 ¥18/M，付费音乐包 ¥8/M（可能还有其他 VIP 档次，没找到）</p>
+<p>Apple Music：不分档次，只要是学生，每月5元，无限 acces</p>
+<p>链接：<a href="https://www.zhihu.com/question/36072058/answer/306595400" target="_blank" rel="noopener">https://www.zhihu.com/question/36072058/answer/306595400</a></p>
+</blockquote>
+<p>也有踩的声音:</p>
+<blockquote>
+<ul>
+<li><p><strong>网络状况不稳定</strong></p>
+</li>
+<li><p><strong>曲库小</strong></p>
+</li>
+<li><p><strong>歌手译名和英文名混乱</strong></p>
+</li>
+<li><p><strong>交互设计混乱</strong></p>
+</li>
+<li><p>作者：Bryan Liu</p>
+<p>链接：<a href="https://www.zhihu.com/question/36072058/answer/148406436" target="_blank" rel="noopener">https://www.zhihu.com/question/36072058/answer/148406436</a></p>
+</li>
+</ul>
+</blockquote>
+<p>我的网易云会员一直是连续包月,我用的很舒服,想听的歌基本都有,除了一小部分歌没有</p>
+<ul>
+<li><p>周杰伦版权事件</p>
+<p>我就不详细说了,没了解的朋友可以去搜一下,我当时是周杰伦的忠实粉丝,结果他的歌一下子全没了,我差点就卸载了网易云,后来一直听Eason的歌,也渐渐不计较了,毕竟我还有其他的音乐软件</p>
+</li>
+<li><p>NCM事件</p>
+</li>
+</ul>
+<p><img src="/2019/06/16/shengtaiquan/wy2.png" alt="wy"></p>
+<blockquote>
+<p>ncm是网易云独家格式,只能用网易云的播放器播放,手机铃声不兼容,不能放到mp3听</p>
+</blockquote>
+<p>所以我停止续费了会员,然后更离谱的地方又来了</p>
+<p><img src="/2019/06/16/shengtaiquan/wyy1.png" alt="wy"></p>
+<p>我的会员的歌全都没法听了,而且我下载到本地了,也不行</p>
+<p>不止网易云,还有其他音乐软件也这样干,以后国内没有mp3格式的,全是ncm,cnm,nmb格式的</p>
+<h5 id="所以我选择Apple-Music"><a href="#所以我选择Apple-Music" class="headerlink" title="所以我选择Apple Music"></a>所以我选择Apple Music</h5><hr>
+<p>我们看过了 PC&gt;ipad&gt;iphone&gt;iWatch  这4大产品</p>
+<p>问题来了,我介绍了苹果的几大产品,可是你们并没有感受到苹果的生态圈啊!没错,单说产品,谁也不会感受到,所以我给你介绍一个视频</p>
+<p>何同学的:</p>
+<p><a href="https://www.bilibili.com/video/av19205223" target="_blank" rel="noopener">使用苹果全家桶是什么体验?</a></p>
+<p><img src="/2019/06/16/shengtaiquan/he.png" alt="何"></p>
+<p>用文字你们是感受不到的,这个视频能让你感受到,并且是用羡慕嫉妒恨的眼光</p>
+<hr>
+<hr>
+<h1 id="Windows生态"><a href="#Windows生态" class="headerlink" title="Windows生态"></a>Windows生态</h1><p>Windowns我们大家并不陌生,如果你用过电脑,你就绝对用过Windows系统</p>
+<p>我们访问一下微软的官网,映入眼帘的是一张大图,大图里有一个游戏手柄,what?微软不就是个做系统的吗?xb&gt;win7&gt;win8&gt;win10,他居然还往游戏圈发展?(狗头滑稽)</p>
+<p><img src="/2019/06/16/shengtaiquan/win.png" alt="win"></p>
+<ul>
+<li><h4 id="Xbox-微软自家生产的游戏机-类似ps3-ps4"><a href="#Xbox-微软自家生产的游戏机-类似ps3-ps4" class="headerlink" title="Xbox (微软自家生产的游戏机,类似ps3,ps4)"></a>Xbox (微软自家生产的游戏机,类似ps3,ps4)</h4><p><img src="/2019/06/16/shengtaiquan/xbox1.png" alt="xbox"></p>
+<p><img src="/2019/06/16/shengtaiquan/xbox.png" alt="xbox One的主机"></p>
+</li>
+</ul>
+<ul>
+<li><h4 id="Surface-美国微软公司推出的全新硬件品牌"><a href="#Surface-美国微软公司推出的全新硬件品牌" class="headerlink" title="Surface (美国微软公司推出的全新硬件品牌)"></a>Surface (美国微软公司推出的全新硬件品牌)</h4><p>什么鬼,你完全不知道这是什么?让我把百科搬过来:</p>
+<blockquote>
+<p>Surface是美国微软公司推出的全新硬件品牌，微软公司于2012年6月19日发布了Surface系列平板电脑。这款平板电脑采用镁合金机身10.6<a href="https://baike.baidu.com/item/英寸" target="_blank" rel="noopener">英寸</a>显示屏，配备USB 2.0或3.0接口，使用<a href="https://baike.baidu.com/item/Windows" target="_blank" rel="noopener">Windows</a> 8操作系统。微软官网将其称为“全高清显示屏”，屏幕比例为16:9。这款产品分为两个版本：一个使用Windows 8专为ARM设计的版本Windows RT；另一个使用<a href="https://baike.baidu.com/item/英特尔" target="_blank" rel="noopener">英特尔</a>Core i5 Ivy Bridge<a href="https://baike.baidu.com/item/处理器" target="_blank" rel="noopener">处理器</a>，使用Windows 8 Pro 。2012年10月26日，中国市场由<a href="https://baike.baidu.com/item/苏宁/832" target="_blank" rel="noopener">苏宁</a>全球同步首发微软Surface。</p>
+</blockquote>
+</li>
+<li><p>微软Surface总经理帕诺斯·班乃介绍说:</p>
+<blockquote>
+<p>Surface2是个人用户兼顾娱乐与办公的首选平板电脑。它不仅提供用户希望从平板电脑中获得的娱乐和游戏功能，还能帮助用户轻松完成工作。Surface　Pro2是Surface　Pro的升级产品，与上一代产品一样，是真正的笔记本电脑的替代产品，能够运行几乎所有的Windows软件</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="/2019/06/16/shengtaiquan/sf.png" alt="sf"></p>
+<blockquote>
+<p>微软自家的的PC 和 平板</p>
+</blockquote>
+<ul>
+<li><h4 id="Windows系统"><a href="#Windows系统" class="headerlink" title="Windows系统"></a>Windows系统</h4></li>
+</ul>
+<p><img src="/2019/06/16/shengtaiquan/win10.png" alt="win"></p>
+<p>Mac Os最大的对手Win10,称他们为对手有点不妥,因为他们没法比,他们俩和ios与Android是一样的存在,谁都不能替代谁</p>
+<ul>
+<li><h4 id="Office办公软件"><a href="#Office办公软件" class="headerlink" title="Office办公软件"></a>Office办公软件</h4><p>微软主页的第二张大图,就是我们的 office 365 , 可以看出微软还是很重视的(可能主要原因就是win10根本不需要再宣传了)</p>
+<p><img src="/2019/06/16/shengtaiquan/office3.png" alt></p>
+<p><img src="/2019/06/16/shengtaiquan/office.png" alt="office"></p>
+</li>
+</ul>
+<p>Office365和Office201x的明显基本区别:</p>
+<blockquote>
+<p>365为订阅制，每年都需要支付订阅费用才能使用（可以实时更新Office新功能）。而后者为买断制，一次购买终身使用（买定离手，不会进行后续功能更新）。</p>
+</blockquote>
+<blockquote>
+<p>我这篇文章不详细介绍,如果你想了解具体,请利用搜索引擎</p>
+</blockquote>
+<hr>
+<p>看完微软家的几大产品,我们来看看微软的服务</p>
+<ul>
+<li>OneDrive</li>
+</ul>
+<blockquote>
+<p>014年2月19日，微软正式宣布OneDrive云存储服务上线，支持100多种语言，面向全球替代微软SkyDrive。</p>
+</blockquote>
+<p><img src="/2019/06/16/shengtaiquan/oned.png" alt="OneDrive"></p>
+<p>使用的是Microsoft账户</p>
+<p><img src="/2019/06/16/shengtaiquan/mic.png" alt></p>
+<p>对应苹果家的iCloud</p>
+<blockquote>
+<p>“给你一个好地方,来保存照片,文件等资料”这是iCloud,主页上宣传的一句话,同样也是一个云存储应用</p>
+</blockquote>
+<p><img src="/2019/06/16/shengtaiquan/ic.png" alt></p>
+<p>它使用AppleID</p>
+<p><img src="/2019/06/16/shengtaiquan/id.png" alt="id"></p>
+<hr>
+<blockquote>
+<p>苹果:”我们有iCloud,它可以在我们任何苹果设备上通用同步”;</p>
+<p>微软:”我们也有OneDrive,它可以在我们的win系统上进行通用同步”;</p>
+</blockquote>
+<p>可以看出来,两家在打造自己生态上,非常重视,一个账号可以通用我们所有产品,这是他们的理念</p>
+<hr>
+<blockquote>
+<p>然后让我们看看跟我们中国没什么关系,但是又不得不提的一个公司</p>
+</blockquote>
+<h1 id="Google生态"><a href="#Google生态" class="headerlink" title="Google生态"></a>Google生态</h1><p>我的码字突然停了下来,因为我不知道Google生态有什么,好吧,我去搜一下</p>
+<blockquote>
+<ul>
+<li><p>优质的生态服务</p>
+</li>
+<li><p>极致体验</p>
+</li>
+<li><p><strong>体验相当好！！好到如果没有谷歌服务答主就不会再用安卓的地步！</strong></p>
+</li>
+</ul>
+</blockquote>
+<p>这是我看到的几个句子,无疑都是在说Google的安卓手机上的服务,不低于ios生态体验</p>
+<p>我确实对google的服务孤陋寡闻了,我今年18岁,从我熟练使用电脑之后,google已经退出了中国市场,具体什么原因,我这里就不谈了</p>
+<p>知乎链:<a href="https://www.zhihu.com/question/26428867" target="_blank" rel="noopener">Android 中 Google 服务包含什么，在国内的体验如何？</a></p>
+<p>我常用的除了google邮箱接受一下注册验证,就是搜索引擎了</p>
+<ul>
+<li><h4 id="baidu的搜索引擎"><a href="#baidu的搜索引擎" class="headerlink" title="baidu的搜索引擎"></a>baidu的搜索引擎</h4></li>
+</ul>
+<blockquote>
+<p>让我们搜索一下 Java 学习 </p>
+</blockquote>
+<p><img src="/2019/06/16/shengtaiquan/bd.png" alt></p>
+<blockquote>
+<p>看看结果</p>
+</blockquote>
+<p><img src="/2019/06/16/shengtaiquan/baidu.png" alt></p>
+<ul>
+<li><h4 id="Google-搜索"><a href="#Google-搜索" class="headerlink" title="Google 搜索"></a>Google 搜索</h4></li>
+</ul>
+<blockquote>
+<p>同样输入 Java 学习</p>
+</blockquote>
+<p><img src="/2019/06/16/shengtaiquan/go1.png" alt></p>
+<blockquote>
+<p>结果</p>
+</blockquote>
+<p><img src="/2019/06/16/shengtaiquan/go.png" alt></p>
+<p>谷歌总感觉有些时候懂我们想要什么</p>
+<p>但百度抛去广告不谈,他可能有时候不知道我们需要什么</p>
+<hr>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结:"></a>总结:</h1><p>大概了解了每个厂的生态圈了,基本只有一个理念,就是全方位服务,而不是依靠第三方软件,比如win10自带的Windows Defender杀毒软件</p>
+<p>Android手机现在慢慢的,无论配置还是工艺,绝对能跟iphone持平,并且Android有更大的电池,更快的充电,更狠的骁龙处理器,几乎所有的手机商都在配置上进行堆积</p>
+<h5 id="我买Android手机看的是什么"><a href="#我买Android手机看的是什么" class="headerlink" title="我买Android手机看的是什么?"></a>我买Android手机看的是什么?</h5><ul>
+<li>配置</li>
+<li>美观度</li>
+<li>品牌</li>
+</ul>
+<p>几乎就这3大类,可能还会有 <strong>像素</strong>,以及系统美观度</p>
+<h5 id="那我那买iPhone会看什么"><a href="#那我那买iPhone会看什么" class="headerlink" title="那我那买iPhone会看什么?"></a>那我那买iPhone会看什么?</h5><ul>
+<li>美观度</li>
+<li>内存</li>
+</ul>
+<blockquote>
+<p>  iphone就是这样,总是给用户更好的体验,包括选手机,只有一个系列,并且系统UI也很ok</p>
+</blockquote>
+<p>Android急需一个想Google全家桶那样的服务出现,当然可能咱们的厂商已经有了,可是我希望更优秀一点,现在整个Android市场都乱糟糟的,各种国产品牌摆在你眼前,还有各种高大上的配置,眼花缭乱</p>
+<h5 id="再说说软件方面"><a href="#再说说软件方面" class="headerlink" title="再说说软件方面"></a>再说说软件方面</h5><h5 id="作为一个软件应该老实一点-你询问我是否可以访问通讯录-我说不行就是不行-可是Android这边的软件都是爷-但是ios这边的软件一个个就成孙子的-我说点了不允许访问通讯录-软件就访问不到-这点ios做到了-我希望Android也尽量把控一下"><a href="#作为一个软件应该老实一点-你询问我是否可以访问通讯录-我说不行就是不行-可是Android这边的软件都是爷-但是ios这边的软件一个个就成孙子的-我说点了不允许访问通讯录-软件就访问不到-这点ios做到了-我希望Android也尽量把控一下" class="headerlink" title="作为一个软件应该老实一点,你询问我是否可以访问通讯录,我说不行就是不行,可是Android这边的软件都是爷,但是ios这边的软件一个个就成孙子的,我说点了不允许访问通讯录 ,软件就访问不到,这点ios做到了,我希望Android也尽量把控一下"></a>作为一个软件应该老实一点,你询问我是否可以访问通讯录,我说不行就是不行,可是Android这边的软件都是爷,但是ios这边的软件一个个就成孙子的,我说点了不允许访问通讯录 ,软件就访问不到,这点ios做到了,我希望Android也尽量把控一下</h5><hr>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/闲聊/">闲聊</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/zhifubao.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/weixin.jpg" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/06/22/scala1/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">scala 入门</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/06/15/Hadoop生态圈一文概览/">
+                <span class="level-item">Hadoop生态圈一文概览</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/images/1.png" alt="Yu Xiantao">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Yu Xiantao
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        热心的学习者 狂热的数码迷
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Beijing, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        22
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        11
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        16
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://www.zhihu.com/people/san-ji-nei-ku/activities" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/aaaTao66">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="https://twitter.com/iloveueason">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://www.zhihu.com/people/san-ji-nei-ku/activities" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">知乎</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.zhihu.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Dubbo/">
+            <span class="level-start">
+                <span class="level-item">Dubbo</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Hadoop生态圈/">
+            <span class="level-start">
+                <span class="level-item">Hadoop生态圈</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/SSM整合/">
+            <span class="level-start">
+                <span class="level-item">SSM整合</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Scala/">
+            <span class="level-start">
+                <span class="level-item">Scala</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Spring/">
+            <span class="level-start">
+                <span class="level-item">Spring</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Spring-Boot/">
+            <span class="level-start">
+                <span class="level-item">Spring Boot</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/SpringMVC/">
+            <span class="level-start">
+                <span class="level-item">SpringMVC</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/《大话数据结构》/">
+            <span class="level-start">
+                <span class="level-item">《大话数据结构》</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/博客搭建/">
+            <span class="level-start">
+                <span class="level-item">博客搭建</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/浅谈ios-Android-非技术/">
+            <span class="level-start">
+                <span class="level-item">浅谈ios/Android(非技术)</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/黑科技/">
+            <span class="level-start">
+                <span class="level-item">黑科技</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/Druid/" style="font-size: 10px;">Druid</a> <a href="/tags/Hadoop/" style="font-size: 10px;">Hadoop</a> <a href="/tags/Hbase/" style="font-size: 10px;">Hbase</a> <a href="/tags/Interceptor/" style="font-size: 10px;">Interceptor</a> <a href="/tags/SSM/" style="font-size: 10px;">SSM</a> <a href="/tags/Scala/" style="font-size: 15px;">Scala</a> <a href="/tags/Servlet/" style="font-size: 10px;">Servlet</a> <a href="/tags/Spring-Boot/" style="font-size: 20px;">Spring Boot</a> <a href="/tags/Thymeleaf/" style="font-size: 15px;">Thymeleaf</a> <a href="/tags/WebFlow/" style="font-size: 10px;">WebFlow</a> <a href="/tags/微服务/" style="font-size: 10px;">微服务</a> <a href="/tags/我的博客搭建过程/" style="font-size: 10px;">我的博客搭建过程</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/闲聊/" style="font-size: 10px;">闲聊</a> <a href="/tags/黑科技/" style="font-size: 10px;">黑科技</a>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/10/17/dubbo/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot-整合Dubbo">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-16T16:00:00.000Z">2019-10-17</time></div>
+                    <a href="/2019/10/17/dubbo/" class="has-link-black-ter is-size-6">Spring Boot-整合Dubbo</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Dubbo/">Dubbo</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/08/springmvclogin/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="SpringMVC-拦截器-判断用户登录状态">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T16:00:00.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/springmvclogin/" class="has-link-black-ter is-size-6">SpringMVC-拦截器-判断用户登录状态</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/SpringMVC/">SpringMVC</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/01/btmybatis/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot-甜蜜的整合MyBatis&amp;注解方式&amp;配置方式">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-31T16:00:00.000Z">2019-08-01</time></div>
+                    <a href="/2019/08/01/btmybatis/" class="has-link-black-ter is-size-6">Spring Boot-甜蜜的整合MyBatis&amp;注解方式&amp;配置方式</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring-Boot/">Spring Boot</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/30/bootdruid/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot数据库-整合Druid数据源&amp;Druid监控">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-29T16:00:00.000Z">2019-07-30</time></div>
+                    <a href="/2019/07/30/bootdruid/" class="has-link-black-ter is-size-6">Spring Boot数据库-整合Druid数据源&amp;Druid监控</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring-Boot/">Spring Boot</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/23/SpringWebFlow/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Web Flow">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-22T16:00:00.000Z">2019-07-23</time></div>
+                    <a href="/2019/07/23/SpringWebFlow/" class="has-link-black-ter is-size-6">Spring Web Flow</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Druid/">
+                        <span class="tag">Druid</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hadoop/">
+                        <span class="tag">Hadoop</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hbase/">
+                        <span class="tag">Hbase</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Interceptor/">
+                        <span class="tag">Interceptor</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SSM/">
+                        <span class="tag">SSM</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Servlet/">
+                        <span class="tag">Servlet</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-Boot/">
+                        <span class="tag">Spring Boot</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Thymeleaf/">
+                        <span class="tag">Thymeleaf</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/WebFlow/">
+                        <span class="tag">WebFlow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微服务/">
+                        <span class="tag">微服务</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/我的博客搭建过程/">
+                        <span class="tag">我的博客搭建过程</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数据结构/">
+                        <span class="tag">数据结构</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/算法/">
+                        <span class="tag">算法</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/闲聊/">
+                        <span class="tag">闲聊</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/黑科技/">
+                        <span class="tag">黑科技</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/10/17/dubbo/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot-整合Dubbo">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-16T16:00:00.000Z">2019-10-17</time></div>
+                    <a href="/2019/10/17/dubbo/" class="has-link-black-ter is-size-6">Spring Boot-整合Dubbo</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Dubbo/">Dubbo</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/08/springmvclogin/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="SpringMVC-拦截器-判断用户登录状态">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T16:00:00.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/springmvclogin/" class="has-link-black-ter is-size-6">SpringMVC-拦截器-判断用户登录状态</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/SpringMVC/">SpringMVC</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/01/btmybatis/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot-甜蜜的整合MyBatis&amp;注解方式&amp;配置方式">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-31T16:00:00.000Z">2019-08-01</time></div>
+                    <a href="/2019/08/01/btmybatis/" class="has-link-black-ter is-size-6">Spring Boot-甜蜜的整合MyBatis&amp;注解方式&amp;配置方式</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring-Boot/">Spring Boot</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/30/bootdruid/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot数据库-整合Druid数据源&amp;Druid监控">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-29T16:00:00.000Z">2019-07-30</time></div>
+                    <a href="/2019/07/30/bootdruid/" class="has-link-black-ter is-size-6">Spring Boot数据库-整合Druid数据源&amp;Druid监控</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring-Boot/">Spring Boot</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/23/SpringWebFlow/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Web Flow">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-22T16:00:00.000Z">2019-07-23</time></div>
+                    <a href="/2019/07/23/SpringWebFlow/" class="has-link-black-ter is-size-6">Spring Web Flow</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Druid/">
+                        <span class="tag">Druid</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hadoop/">
+                        <span class="tag">Hadoop</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hbase/">
+                        <span class="tag">Hbase</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Interceptor/">
+                        <span class="tag">Interceptor</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SSM/">
+                        <span class="tag">SSM</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Servlet/">
+                        <span class="tag">Servlet</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-Boot/">
+                        <span class="tag">Spring Boot</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Thymeleaf/">
+                        <span class="tag">Thymeleaf</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/WebFlow/">
+                        <span class="tag">WebFlow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微服务/">
+                        <span class="tag">微服务</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/我的博客搭建过程/">
+                        <span class="tag">我的博客搭建过程</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数据结构/">
+                        <span class="tag">数据结构</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/算法/">
+                        <span class="tag">算法</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/闲聊/">
+                        <span class="tag">闲聊</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/黑科技/">
+                        <span class="tag">黑科技</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+	<div id="vcomments"></div>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="浅谈ios/Android生态圈" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Yu Xiantao&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+    
+
+
+<script src="/js/main.js" defer></script>
+	
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+	
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'K2pfcRNJyLhhJISc7BaeYA88-gzGzoHsz',
+            appKey: 'gHHPTdGOoXqqMFw6YdRml785'
+        })
+    </script>
+</body>
+</html>

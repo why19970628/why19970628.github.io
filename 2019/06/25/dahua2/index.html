@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>《大话数据结构》学习笔记-day02-算法 - Carson&#39;s Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="算法: 算法是解决特定问题求解步骤的描述,在计算机中表现为指令的有限序列,并且每条指令表示一个或多个操作">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《大话数据结构》学习笔记-day02-算法">
+<meta property="og:url" content="http://yoursite.com/2019/06/25/dahua2/index.html">
+<meta property="og:site_name" content="Carson&#39;s Blog">
+<meta property="og:description" content="算法: 算法是解决特定问题求解步骤的描述,在计算机中表现为指令的有限序列,并且每条指令表示一个或多个操作">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="og:updated_time" content="2019-06-25T14:35:59.086Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《大话数据结构》学习笔记-day02-算法">
+<meta name="twitter:description" content="算法: 算法是解决特定问题求解步骤的描述,在计算机中表现为指令的有限序列,并且每条指令表示一个或多个操作">
+<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+	<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="《大话数据结构》学习笔记-day02-算法" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">主页</a>
+                
+                <a class="navbar-item" href="/archives">归纳</a>
+                
+                <a class="navbar-item" href="/categories">分类</a>
+                
+                <a class="navbar-item" href="/tags">标签</a>
+                
+                <a class="navbar-item" href="/about">关于我</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/aaaTao66">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+	
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-06-24T16:00:00.000Z">2019-06-25</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/《大话数据结构》/">《大话数据结构》</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    33 分钟 读完 (大约 4983 个字)
+                </span>
+                
+                
+                阅读次数:
+				<span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+				
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                《大话数据结构》学习笔记-day02-算法
+            
+        </h1>
+        <div class="content">
+            <blockquote>
+<p><strong>算法:</strong></p>
+<p>算法是解决特定问题求解步骤的描述,在计算机中表现为指令的有限序列,并且每条指令表示一个或多个操作</p>
+</blockquote>
+<a id="more"></a>
+<hr>
+<h2 id="一-两种算法的比较"><a href="#一-两种算法的比较" class="headerlink" title="一, 两种算法的比较"></a>一, 两种算法的比较</h2><p>计算 1+2+3+4….+100 我们第一之间想到的写法是:</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>;</span><br><span class="line"><span class="hljs-keyword">int</span> n = <span class="hljs-number">100</span>;</span><br><span class="line"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt;= n; i++)</span><br><span class="line">&#123;</span><br><span class="line">	sum = sum + i;</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(sum);</span><br></pre></td></tr></table></figure>
+<h3 id="1-1-高斯算法"><a href="#1-1-高斯算法" class="headerlink" title="1.1 高斯算法"></a>1.1 高斯算法</h3><blockquote>
+<p>sum = 1+2+3+4+…+100</p>
+<p>sum = 100+99+98+…+2+1</p>
+<p>2xsum = 101+101+101+…+101+101</p>
+<p><strong>所以 sum = 5050</strong></p>
+</blockquote>
+<p>代码实现:</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">int</span> i,sum = <span class="hljs-number">0</span>,n = <span class="hljs-number">100</span></span><br><span class="line">sum = (<span class="hljs-number">1</span> + n) * n / <span class="hljs-number">2</span></span><br><span class="line">println(sum)<span class="hljs-comment">// 5050</span></span><br></pre></td></tr></table></figure>
+<p>​        高斯算法相当于另一种求等差数列的算法,不仅仅可以用 1 加到100,就是 一千,一万,也就是瞬间的事,如果用刚才的程序,就要循环 一千,一万次</p>
+<hr>
+<h3 id="1-3-算法定义"><a href="#1-3-算法定义" class="headerlink" title="1.3 算法定义"></a>1.3 算法定义</h3><p>如今普遍认可的对算法的定义事:</p>
+<blockquote>
+<p><strong>算法是解决特定问题求解步骤的描述,在计算机中表现为指令的有限序列,并且每条指令表示一个或多个操作</strong></p>
+</blockquote>
+<p>​        为了解决某个 或 某类问题, 需要把指令表示成一定的操作序列,操作序列包括一组操作,每一个操作都完成特定的功能,这就是算法了</p>
+<hr>
+<h3 id="1-4-算法的特性"><a href="#1-4-算法的特性" class="headerlink" title="1.4 算法的特性"></a>1.4 算法的特性</h3><blockquote>
+<pre><code>算法的五个基本特性: **输入,输出,有穷性,确定性 和 可行性**
+</code></pre></blockquote>
+<h4 id="1-4-1-输入输出"><a href="#1-4-1-输入输出" class="headerlink" title="1.4.1 输入输出"></a>1.4.1 输入输出</h4><p>​        <strong>算法具有零个或多个输入</strong>,大多数算法来说,输入参数都是必要的,但对于个别情况,比如打印<code>Hello,World!</code>这样的代码不需要任何输入参数,因此算法的输入可以是零个</p>
+<p>​        <strong>算法至少有一个或多个输出</strong>,算法一定需要输出的,不需要输出,用算法的意义是什么?输出的形式可以是打印输出,也可以是返回一个或多个值等..</p>
+<h4 id="1-4-2-有穷性"><a href="#1-4-2-有穷性" class="headerlink" title="1.4.2 有穷性"></a>1.4.2 有穷性</h4><blockquote>
+<pre><code>**有穷性: 指算法在执行完有限步骤之后,自动结束而不会出现死循环,并且每一个步骤在可接受的时间内完成**
+</code></pre></blockquote>
+<p>​        现实中经常写出死循环代码,这就是不满足穷性,这里的穷的概念并不是纯数学意义,而是在实际应用当中合理的,可以接受的 “有边界”,你说你写的算法,计算机需要运行二十年,一定会结束,它在数学意义上是有穷了,可是媳妇熬成婆了,算法意义就不大了</p>
+<h4 id="1-4-3-确定性"><a href="#1-4-3-确定性" class="headerlink" title="1.4.3 确定性"></a>1.4.3 确定性</h4><blockquote>
+<p>确定性:  <strong>算法的每一步骤具有确定的含义,不会出现二义性</strong></p>
+</blockquote>
+<p>​        算法的每个步骤被精确定义而无歧义</p>
+<h4 id="1-4-4-可行性"><a href="#1-4-4-可行性" class="headerlink" title="1.4.4 可行性"></a>1.4.4 可行性</h4><blockquote>
+<p>可行性: <strong>算法的每一步都必须是可行的,也就是说,每一步都能够通过执行有限次数完成</strong></p>
+</blockquote>
+<p>​        意味着算法可以转换为程序上机运行,并得到正确结果</p>
+<hr>
+<h2 id="二-算法设计的要求"><a href="#二-算法设计的要求" class="headerlink" title="二, 算法设计的要求"></a>二, 算法设计的要求</h2><blockquote>
+<p>​        <strong>算法不是唯一的,同一个问题,可以有多个解决问题的算法,尽管算法不唯一,但是相对好的算法是存在的,那么什么是好的算法?</strong></p>
+<p>​        <strong>起码要正确,如果正确都谈不上,还谈什么性能</strong></p>
+</blockquote>
+<hr>
+<h3 id="2-1-正确性"><a href="#2-1-正确性" class="headerlink" title="2.1 正确性"></a>2.1 正确性</h3><blockquote>
+<p>​        <strong>正确性: 算法的正确性是指算法至少应该具有输入,输出和加工处理无歧义性,能正确反映问题的需求,能够得到问题的正确答案</strong></p>
+</blockquote>
+<p>​        好的算法是容易理解的</p>
+<h3 id="2-2-可读性"><a href="#2-2-可读性" class="headerlink" title="2.2 可读性"></a>2.2 可读性</h3><blockquote>
+<p>​        <strong>可读性: 算法设计的另一目的是为了便于阅读,理解和交流</strong></p>
+</blockquote>
+<p>​        如果可读性不好,时间长了可能自己都不知道再写些什么,可读性是算法(也包括实现它的代码) 好坏很重要的标志</p>
+<h3 id="2-3-健壮性"><a href="#2-3-健壮性" class="headerlink" title="2.3 健壮性"></a>2.3 健壮性</h3><blockquote>
+<p>​        <strong>健壮性: 但输入的数据不合法的时候,算法也能做出相关的处理,而不是产生异常或莫名其妙的结果</strong></p>
+</blockquote>
+<p>​        比如输入的时间或者距离不应该是负数等</p>
+<h3 id="2-4-时间效率高-和存储量低"><a href="#2-4-时间效率高-和存储量低" class="headerlink" title="2.4 时间效率高,和存储量低"></a>2.4 时间效率高,和存储量低</h3><blockquote>
+<p><strong>对于同一个问题,如果有多个算法能够解决: </strong></p>
+<p><strong>时间效率上 &gt; 执行时间最短的算法效率高,执行时间长的效率低</strong></p>
+<p><strong>存储量 &gt; 算法在执行的过程中需要最大的存储空间,主要指程序运行时所占用的内存或外部硬盘存储空间</strong></p>
+</blockquote>
+<p>​        <strong>设计算法应尽量满足书简效率高,存储量低的需求</strong></p>
+<p>​        综上,好的算法,应该具有 正确性,可读性,健壮性,高效率和低存储量的特征</p>
+<hr>
+<h2 id="三-算法效率的度量方法"><a href="#三-算法效率的度量方法" class="headerlink" title="三, 算法效率的度量方法"></a>三, 算法效率的度量方法</h2><blockquote>
+<p><strong>我们通过对算法的数据测试,利用计算机的计时功能,来计算不同算法的效率高低</strong></p>
+</blockquote>
+<h3 id="3-1-事后统计方法"><a href="#3-1-事后统计方法" class="headerlink" title="3.1 事后统计方法"></a>3.1 事后统计方法</h3><blockquote>
+<pre><code>**事后统计方法:  这种方法主要是通过设计好的测试程序和数据,利用计算机计时,对不同算法编制的程序的运行时间进行比较,从而确定算法效率的高低**
+</code></pre></blockquote>
+<p>这种方法有很大的缺陷:</p>
+<ul>
+<li>需要花费时间和精力去编写程序,如果写出来的是很糟糕的算法,那就是浪费时间了</li>
+<li>比较依赖计算机硬件和软件等环境因素,有时候会掩盖算法本身的优劣</li>
+<li>测试的数据的大小,比如10个和100万个数据,数据的多少会影响算法的优势,有可能A算法计算小数据的时候比B快,有可能到了100万个数据的话,B又比A快</li>
+</ul>
+<h3 id="3-2-事前分析估算方法"><a href="#3-2-事前分析估算方法" class="headerlink" title="3.2 事前分析估算方法"></a>3.2 事前分析估算方法</h3><p>​        计算机前辈们为了对算法评判更加科学,研究了一种 事前分析估算的方法 </p>
+<blockquote>
+<p>​    <strong>事前分析估算方法:  程序编制前,依据统计方法对算法进行估算</strong></p>
+</blockquote>
+<ul>
+<li><p>算法采用的策略 , 方法 (算法好坏的根本)</p>
+</li>
+<li><p>编译产生的代码质量 (软件来支持)</p>
+</li>
+<li><p>问题输入的规模 </p>
+</li>
+<li><p>机器执行指令的速度 (硬件性能)</p>
+<p>​    <strong>程序的运行时间,依赖于算法的好坏和问题输入的规模,所谓问题输入规模是指输入量的多少</strong></p>
+</li>
+</ul>
+<p>再来看看刚才的两个例子:</p>
+<ul>
+<li>第一种算法</li>
+</ul>
+<p><img src="/2019/06/25/dahua2/1.png" alt="例子1"></p>
+<ul>
+<li>第二种算法:</li>
+</ul>
+<p><img src="/2019/06/25/dahua2/2.png" alt="例子2"></p>
+<p>​        第一种算法执行了 1+(n+1) + n+1刺 = 2n+3 次;</p>
+<p>​        第二种算法是 1+1+1=3次</p>
+<p>​        两个算法其实是 n 次 与 1次的差距,算法的好坏显而易见</p>
+<ul>
+<li>延伸一下</li>
+</ul>
+<p><img src="/2019/06/25/dahua2/3.png" alt="例子3"></p>
+<p>​        i 从 1 到 100 ,每次都让 j 循环 100 次, 而当中的 x++和 sum = sum + x; </p>
+<p>​        其实就是 1+2+3…+10000,也就是100²次,所以这个算法当中,循环部分的代码整体需要执行 n² (忽略循环体头尾的开销)次</p>
+<p>​        测试运行时间最可靠的方法就是计算对运行时间有小号的基本操作的执行次数,运行时间于这个计数成正比</p>
+<p>​        <strong>最终,在分析程序的运行时间时,最重要的是把程序看成是独立于程序设计语言的算法或一系列步骤</strong></p>
+<blockquote>
+<p>​        同样输入规模 n :</p>
+<ul>
+<li>第一种算法 就是 1+2+3…+n, 那么这个问题的输入规模使得操作数量是f(n) = n, 100次同一段代码规模,是运算10次的10倍;</li>
+<li>而第二种算法,无论n为多少,运行次数都为 1 ,即 f(n) = 1;</li>
+<li>第三种,运算 100 次 是运算10次的100倍, 因为他是 f(n) = n²;</li>
+</ul>
+</blockquote>
+<p>​        <strong>我们在分析一个算法的运行时间时,重要的是把基本操作的数量与输入规模关联起来,即基本操作的数量必须表示成输入规模的函数</strong></p>
+<p><img src="/2019/06/25/dahua2/4.png" alt="例子3"></p>
+<hr>
+<h2 id="四-函数的渐近增长"><a href="#四-函数的渐近增长" class="headerlink" title="四, 函数的渐近增长"></a>四, 函数的渐近增长</h2><ul>
+<li>(1) 判断算法A 和 算法B 哪个好,假设两个算法的输入规模都是 n </li>
+</ul>
+<p>​        算法A 要做 2n + 3 次操作,可以理解成先有一个 n 次循环,执行完成后,再有一个 n 次循环 , 最后有三次赋值或运算,共 2n+3次操作,</p>
+<p>​        算法B 要做 3n+1次操作, 请问它们谁更快</p>
+<p>​        准确来说,答案是不一定的 </p>
+<table>
+<thead>
+<tr>
+<th>次数</th>
+<th>算法A (2n + 3)</th>
+<th>算法A ‘(2n)</th>
+<th>算法B (3n+1)</th>
+<th>算法B’(3n)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>n = 1</td>
+<td>5</td>
+<td>2</td>
+<td>4</td>
+<td>3</td>
+</tr>
+<tr>
+<td>n = 2</td>
+<td>7</td>
+<td>4</td>
+<td>7</td>
+<td>6</td>
+</tr>
+<tr>
+<td>n = 3</td>
+<td>9</td>
+<td>6</td>
+<td>10</td>
+<td>9</td>
+</tr>
+<tr>
+<td>n = 10</td>
+<td>23</td>
+<td>20</td>
+<td>31</td>
+<td>30</td>
+</tr>
+<tr>
+<td>n = 100</td>
+<td>203</td>
+<td>200</td>
+<td>301</td>
+<td>300</td>
+</tr>
+</tbody>
+</table>
+<p>​        n = 1 时,算法A效率不如B (次数比算法B要多一次),而当 n=2时,两者效率相同;当 n&gt;2时,算法A就开始优于算法B了,随着n增加,算法A比 B越来越好了(执行的次数比B要少),结论是算法A总体比B好</p>
+<p>​        此时我们给出这样的定义,输入规模n在没有限制的情况下,只要超过一个数值N,这个函数就总是大于另一个函数,我们称函数是渐近增长的</p>
+<blockquote>
+<p><strong>函数的渐近增长: 给定两个函数f(n)和g(n),如果存在一个整数N,使得对于所有的n&gt;N,f(n)总是比g(n)大,那么,我们说f(n)的增长渐近快于 g(n)</strong></p>
+</blockquote>
+<p>​        从中可以发现,随着 n 的增大,后面的+3 还是 +1 其实是不影响最终的算法变化的,例如算法A 与 算法B , 所以, <strong>我们可以忽略这些加法常数</strong>,后面的例子会更加明显</p>
+<ul>
+<li>(2) 算法C 是 4n + 8, 算法D是 2n²+1   // n=3时,n²=9,9+9=18,18+1=19</li>
+</ul>
+<p><img src="/2019/06/25/dahua2/5.png" alt="cd"></p>
+<p>​        当 n &lt;= 3 的时候,算法C要差于D (因为算法C次数比较多),但当 n&gt;3后,算法C的优势越来越大于D了,后面更是远远胜过,而把后面常数去掉后,我们发现结果没有变化,甚至再观察发现,哪怕去掉与n相乘的常数,这样的结果也没发生改变, 算法C’的次数随着从n 的增长,还是远小于算法D’,也就是说,<strong>与最高次项相乘的常数并不重要</strong></p>
+<ul>
+<li>(3) 算法E 是 2n² + 3n + 1, 算法F是 2n³ + 3n + 1</li>
+</ul>
+<p><img src="/2019/06/25/dahua2/6.png" alt="ef"></p>
+<p>​        n = 1的时候, 算法E 与 算法F 的结果相同 , 但当 n&gt;1后,算法E的优势就要开始优于算法F,随着n的增大,差异非常明显, 通过观察发现, <strong>最高次项的指数大的,函数随着n的增长,结果也会变得增长的特别快</strong></p>
+<ul>
+<li>(4) 算法 G 是 2n²,算法H 是 3n + 1 , 算法I 是2n² + 3n + 1</li>
+</ul>
+<p><img src="/2019/06/25/dahua2/7.png" alt="EHI"></p>
+<p>​        根据这个例子,我们得出结论,<strong>判断一个算法的效率时,函数中的常数和其他次要项常常可以忽略,而更应该关注主项(最高阶项)的阶数</strong></p>
+<p>​        判断一个算法好不好,通过前几个例子,可以对比这几个算法的渐近增长性,基本可以分析出:<strong>某个算法,随着n的增大,它会越来越优于另一算法,或越来越差于另一算法,</strong>这其实就是事前估算方法的理论依据,通过算法的时间复杂度来估算算法时间效率</p>
+<hr>
+<h2 id="五-算法时间复杂度"><a href="#五-算法时间复杂度" class="headerlink" title="五, 算法时间复杂度"></a>五, 算法时间复杂度</h2><h3 id="5-1-算法时间复杂度定义"><a href="#5-1-算法时间复杂度定义" class="headerlink" title="5.1 算法时间复杂度定义"></a>5.1 算法时间复杂度定义</h3><blockquote>
+<p><strong>算法分析时,语句执行次数T(n) 是 关于问题规模 n 的函数,进而分析T(n) 随 n 的变化情况并确定T(n)的数量级,算法时间复杂度,也就是算法的时间量度,记作: T(n) = O(f(n)),他表示随问题规模n的增大,算法时间增长率和 f(n)的增长率相同,称作算法的渐近时间复杂度,简称为时间复杂度,其中 f(n)是问题规模n的某个函数</strong></p>
+</blockquote>
+<p>​        用大写的 O() 来体现算法时间复杂度的记法,我们称为 大O记法</p>
+<p>​        一般来说,随着n的增大,T(n)增长最慢的算法成为最优算法</p>
+<p>​        非官方名称: O(1)常数阶 , O(n)线性阶 , O(n²)平方阶 等等..</p>
+<h3 id="5-2-推导大-O-阶方法"><a href="#5-2-推导大-O-阶方法" class="headerlink" title="5.2 推导大 O 阶方法"></a>5.2 推导大 O 阶方法</h3><blockquote>
+<p>推导大O阶:</p>
+<ul>
+<li><p>用常数 1 取代运行时间所有的加法常数</p>
+</li>
+<li><p>再修改后的运行次数函数中,只保留最高阶项</p>
+</li>
+<li><p>如果最高阶项存在且不是 1 , 则去除这个项相乘的常数</p>
+<p>得到的结果就是大O阶</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="5-3-常数阶"><a href="#5-3-常数阶" class="headerlink" title="5.3 常数阶"></a>5.3 常数阶</h3><p>高斯算法:</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>,n=<span class="hljs-number">100</span>; <span class="hljs-comment">//执行一次</span></span><br><span class="line">sum = (<span class="hljs-number">1</span>+n)* n/<span class="hljs-number">2</span>;<span class="hljs-comment">//执行一次</span></span><br><span class="line">print(sum)<span class="hljs-comment">//执行一次</span></span><br></pre></td></tr></table></figure>
+<p>​        f(n) = 3, 根据推导大O阶的方法, 把 3 改为 1, 保留最高阶项时发现,它没有最高阶项,所以这个算法时间复杂度为  O(1)</p>
+<p>​        如果  <code>sum = (1+n)* n/2;</code>有10句:</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">int</span> sum = <span class="hljs-number">0</span>,n=<span class="hljs-number">100</span>; 	<span class="hljs-comment">//执行一次</span></span><br><span class="line">sum = (<span class="hljs-number">1</span>+n)* n/<span class="hljs-number">2</span>;<span class="hljs-comment">//执行一次</span></span><br><span class="line">sum = (<span class="hljs-number">1</span>+n)* n/<span class="hljs-number">2</span>;<span class="hljs-comment">//执行一次</span></span><br><span class="line">sum = (<span class="hljs-number">1</span>+n)* n/<span class="hljs-number">2</span>;<span class="hljs-comment">//执行一次</span></span><br><span class="line">sum = (<span class="hljs-number">1</span>+n)* n/<span class="hljs-number">2</span>;<span class="hljs-comment">//执行一次</span></span><br><span class="line">sum = (<span class="hljs-number">1</span>+n)* n/<span class="hljs-number">2</span>;<span class="hljs-comment">//执行一次</span></span><br><span class="line">sum = (<span class="hljs-number">1</span>+n)* n/<span class="hljs-number">2</span>;<span class="hljs-comment">//执行一次</span></span><br><span class="line">sum = (<span class="hljs-number">1</span>+n)* n/<span class="hljs-number">2</span>;<span class="hljs-comment">//执行一次</span></span><br><span class="line">sum = (<span class="hljs-number">1</span>+n)* n/<span class="hljs-number">2</span>;<span class="hljs-comment">//执行一次</span></span><br><span class="line">sum = (<span class="hljs-number">1</span>+n)* n/<span class="hljs-number">2</span>;<span class="hljs-comment">//执行一次</span></span><br><span class="line">sum = (<span class="hljs-number">1</span>+n)* n/<span class="hljs-number">2</span>;<span class="hljs-comment">//执行一次</span></span><br><span class="line">print(sum)			<span class="hljs-comment">//执行一次</span></span><br></pre></td></tr></table></figure>
+<p>​        时间复杂度还是 O(1) , 因为他俩的区别就是 3次 和 12次执行的差异,这种与问题的大小无关(n 的多少),执行时间恒定的算法,我们称之为具有 O(1)的时间复杂度,又叫常数阶</p>
+<p>​        <strong>注意: 不能计为 O(3),O(12)等其他任何数字,只能是 O(1)</strong></p>
+<p><img src="/2019/06/25/dahua2/8.png" alt="EHI"></p>
+<h3 id="5-4-线性阶"><a href="#5-4-线性阶" class="headerlink" title="5.4 线性阶"></a>5.4 线性阶</h3><p>​        线性阶循环结构要复杂很多,要确定某个算法的阶次,我们长长需要确定某个特定语句或某个语句集运行的次数,因此,我们要分析<strong>算法的复杂度,关键要分析循环结构的运行情况</strong></p>
+<p>​        O(n)的算法:</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">int</span> i;</span><br><span class="line"><span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">	<span class="hljs-comment">// 时间复杂度为 O(1)的程序步骤序列</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="5-5-对数阶"><a href="#5-5-对数阶" class="headerlink" title="5.5 对数阶"></a>5.5 对数阶</h3><p><img src="/2019/06/25/dahua2/9.png" alt="EHI"></p>
+<p>​        由于每次 count 乘以2之后,就距离n更近了一分,也就是说,有多少个 2 相乘后大于 n,则退出循环,由 2^x = n 得到 x = log^2 n,所以这个算法时间复杂度为 O(logn)</p>
+<h3 id="5-6-平方阶"><a href="#5-6-平方阶" class="headerlink" title="5.6 平方阶"></a>5.6 平方阶</h3><p><img src="/2019/06/25/dahua2/10.png" alt="EHI"></p>
+<p>​        对于外循环,内循环这个时间复杂度为O(n)的语句,再循环n次,所有这段代码时间复杂度为O(n²)</p>
+<p>​        如果外循环的循环次数改为了 m,时间复杂度就变为了O(m ✖ n)</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>;i &lt; m; i ++)&#123;</span><br><span class="line">	<span class="hljs-keyword">for</span> (j = <span class="hljs-number">0</span>;j &lt; n; i ++)&#123;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​        <strong>总结出: 循环的时间复杂度等于循环体的复杂度乘以该循环运行的次数</strong></p>
+<p><img src="/2019/06/25/dahua2/11.png" alt="EHI"></p>
+<p><img src="/2019/06/25/dahua2/12.png" alt="EHI"></p>
+<p>​        <strong>对于方法调用的时间复杂度该如何分析</strong>:</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">int</span> i,j;</span><br><span class="line"><span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; n; i++)</span><br><span class="line">&#123;</span><br><span class="line">    function(i)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​        上面代码调用了 一个函数 function</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">function</span> <span class="hljs-params">(<span class="hljs-keyword">int</span> count)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">	print(count)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​        函数体就是打印这个参数,其实这很好理解,function 函数的时间浮躁度是 O(1),所以整体的时间复杂度为O(n)</p>
+<p>​        假如 function 是下面这样的:</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">function</span><span class="hljs-params">(<span class="hljs-keyword">int</span> count)</span></span></span><br><span class="line"><span class="hljs-function"></span>&#123;</span><br><span class="line">	<span class="hljs-keyword">int</span> j;</span><br><span class="line">	<span class="hljs-keyword">for</span>(j = count; j &lt; n; j++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="hljs-comment">// 时间复杂度为 O(1)的程序步骤序列</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>​        这和刚才的例子一样,只不过把嵌套内循环放到了函数中,所以最终的时间复杂度为O(n²)</p>
+<p>​        下面这段相对复杂的语句:</p>
+<figure class="highlight c hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">n++;					<span class="hljs-comment">// 执行次数为 1</span></span><br><span class="line">function(n);			<span class="hljs-comment">// 执行次数为 n</span></span><br><span class="line"><span class="hljs-keyword">int</span> i,j					</span><br><span class="line"><span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>;i &lt; n; i++)	<span class="hljs-comment">// 执行次数为 n²</span></span><br><span class="line">   &#123;</span><br><span class="line">       function(i)</span><br><span class="line">   &#125;</span><br><span class="line"><span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>;i &lt; n; j++)	<span class="hljs-comment">// 执行次数为 n(n+1)/2 </span></span><br><span class="line">   &#123;</span><br><span class="line">       <span class="hljs-keyword">for</span> ( j = i; j &lt; n; j++)</span><br><span class="line">       &#123;</span><br><span class="line">           <span class="hljs-comment">// 时间复杂度为O(1)的程序步骤序列</span></span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>​        它的执行次数:</p>
+<p><img src="/2019/06/25/dahua2/13.png" alt="carson"></p>
+<p>​        根据推导大O阶的方法,最终这段代码的时间复杂度为O(n²)</p>
+<hr>
+<h2 id="六-常见的时间复杂度"><a href="#六-常见的时间复杂度" class="headerlink" title="六, 常见的时间复杂度"></a>六, 常见的时间复杂度</h2><p><img src="/2019/06/25/dahua2/14.png" alt="carson"></p>
+<p><img src="/2019/06/25/dahua2/15.png" alt="carson"></p>
+<hr>
+<h2 id="七-最坏情况与平均情况"><a href="#七-最坏情况与平均情况" class="headerlink" title="七, 最坏情况与平均情况"></a>七, 最坏情况与平均情况</h2><p>​        如果我们想要查找 n 个元素的数组中某个数字,最好的情况第一个数字就是,那么算法的时间复杂度O(1),但也有可能这个数字在最后一个位置上待着,那么算法的时间复杂度就是O(n),这是最坏的一种情况了</p>
+<p>​        <strong>最坏情况运行时间: 是一种保证,那就是运行时间不会再坏了,在应用中,这是一种最重要的需求,通常,除非特别指定,我们提到的运行时间都是基于最坏情况的运行时间</strong></p>
+<p>​        <strong>平均运行时间: 是所有情况中最有意义的,因为它是期望的运行时间</strong></p>
+<blockquote>
+<p><strong>但是在没有特殊说明的情况下,都是指最坏时间复杂度</strong></p>
+</blockquote>
+<hr>
+<h2 id="八-算法空间复杂度"><a href="#八-算法空间复杂度" class="headerlink" title="八, 算法空间复杂度"></a>八, 算法空间复杂度</h2><p>​        <strong>算法的空间复杂度通过计算算法所需的存储空间实现,算法空间复杂度的计算公式记作 : </strong></p>
+<p><strong>S(n)= O(f(n)), 其中 ,n为问题的规模,f(n)为语句关于 n 所占存储空间的函数</strong></p>
+<p>​        一般情况下,一个程序执行时,除了需要存储程序本身的指令,常数,变量和输入数据外,还需要存储对数据操作的存储单元,若输入数据所占空间只取决于问题本身,和算法无关,这样只需要分析该算法在时间时所需的辅助单元即可,若算法执行时所需的辅助空间相对于输入数据量而言是个常数,则称此算法为原地工作,空间复杂度为 O(1)</p>
+<p>​        通常我们都用 “时间复杂度” 来指运行时间的需求,使用”空间复杂度”指空间需求,当不用限定词地使用”复杂度”时,通常都是指时间复杂度</p>
+<hr>
+<h2 id="九-总结"><a href="#九-总结" class="headerlink" title="九, 总结"></a>九, 总结</h2><p>​        数据结构与算法关系是相互依赖不可分割的</p>
+<p>​        算法的定义: </p>
+<blockquote>
+<p>​        算法是解决特定问题求解步骤的描述,在计算机中为指令的有限序列,并且每条指令表示一个或多个操作</p>
+<ul>
+<li>算法的特性: 有穷性,确定性,可行性,输入,输出</li>
+<li>算法的设计的要求: 正确性,可读性,健壮性,高效率和低存储量需求</li>
+<li>算法特性与算法设计容易混,需要对比记忆</li>
+<li>算法的度量方法: 事后统计方法(不科学,不准确),事前分析估算方法</li>
+</ul>
+</blockquote>
+<p>​        在说如何用事前分析估算方法以前,我们先给出了函数渐近增长的定义</p>
+<ul>
+<li><p>函数的渐近增长 :  给定两个函数 f(n) ,g(n), 如果存在一个整数N,使得对于所有的n&gt;N,f(n)总是比g(n)大,那么,我们说 f(n) 的增长渐近快于g(n), 判断算法的好不好,只通过少量的数据是不能做出准确判断的,如果我们可以对比算法的关键执行次数函数的渐近增长行,基本可以分析出:<strong>某个算法,随着问题规模n的扩大,越来越优于另一个算法,或者越来越差于另一个算法</strong></p>
+<p>​    </p>
+<p>然后给出了算法时间复杂度的定义和推导大O阶的步骤</p>
+<p>推导大O阶:</p>
+<ul>
+<li>用常数 1 取代运行时间中的所有加法常数</li>
+<li>在修改后的运行次数函数中,只保留最高阶项</li>
+<li>如果最高阶项存在且不是1,则去除与这个项相乘的常数</li>
+</ul>
+<p>得到的结果就是大O阶</p>
+<p>通过这个步骤,我们可以在得到算法的运行次数表达式后,很快得到它的时间复杂度,即大O阶,其实推导大O阶很容易,但如何得到运行次数的表达式却是需要数学功底的</p>
+<p>常见时间复杂度所耗时间的大小排列:</p>
+<p><img src="/2019/06/25/dahua2/16.png" alt="carson"></p>
+<p>最后,给出了算法最坏情况和平均情况的概念,以及空间复杂度的概念</p>
+</li>
+</ul>
+<hr>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/算法/">算法</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/zhifubao.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/weixin.jpg" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/06/30/boot2/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Spring Boot深入系列--配置文件</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/06/24/dahua1/">
+                <span class="level-item">《大话数据结构》学习笔记-day01-数据结构</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/images/1.png" alt="Yu Xiantao">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Yu Xiantao
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        热心的学习者 狂热的数码迷
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Beijing, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        22
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        11
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        16
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://www.zhihu.com/people/san-ji-nei-ku/activities" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/aaaTao66">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="https://twitter.com/iloveueason">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://www.zhihu.com/people/san-ji-nei-ku/activities" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">知乎</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.zhihu.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Dubbo/">
+            <span class="level-start">
+                <span class="level-item">Dubbo</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Hadoop生态圈/">
+            <span class="level-start">
+                <span class="level-item">Hadoop生态圈</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/SSM整合/">
+            <span class="level-start">
+                <span class="level-item">SSM整合</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Scala/">
+            <span class="level-start">
+                <span class="level-item">Scala</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Spring/">
+            <span class="level-start">
+                <span class="level-item">Spring</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Spring-Boot/">
+            <span class="level-start">
+                <span class="level-item">Spring Boot</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/SpringMVC/">
+            <span class="level-start">
+                <span class="level-item">SpringMVC</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/《大话数据结构》/">
+            <span class="level-start">
+                <span class="level-item">《大话数据结构》</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/博客搭建/">
+            <span class="level-start">
+                <span class="level-item">博客搭建</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/浅谈ios-Android-非技术/">
+            <span class="level-start">
+                <span class="level-item">浅谈ios/Android(非技术)</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/黑科技/">
+            <span class="level-start">
+                <span class="level-item">黑科技</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/Druid/" style="font-size: 10px;">Druid</a> <a href="/tags/Hadoop/" style="font-size: 10px;">Hadoop</a> <a href="/tags/Hbase/" style="font-size: 10px;">Hbase</a> <a href="/tags/Interceptor/" style="font-size: 10px;">Interceptor</a> <a href="/tags/SSM/" style="font-size: 10px;">SSM</a> <a href="/tags/Scala/" style="font-size: 15px;">Scala</a> <a href="/tags/Servlet/" style="font-size: 10px;">Servlet</a> <a href="/tags/Spring-Boot/" style="font-size: 20px;">Spring Boot</a> <a href="/tags/Thymeleaf/" style="font-size: 15px;">Thymeleaf</a> <a href="/tags/WebFlow/" style="font-size: 10px;">WebFlow</a> <a href="/tags/微服务/" style="font-size: 10px;">微服务</a> <a href="/tags/我的博客搭建过程/" style="font-size: 10px;">我的博客搭建过程</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/闲聊/" style="font-size: 10px;">闲聊</a> <a href="/tags/黑科技/" style="font-size: 10px;">黑科技</a>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/10/17/dubbo/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot-整合Dubbo">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-16T16:00:00.000Z">2019-10-17</time></div>
+                    <a href="/2019/10/17/dubbo/" class="has-link-black-ter is-size-6">Spring Boot-整合Dubbo</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Dubbo/">Dubbo</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/08/springmvclogin/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="SpringMVC-拦截器-判断用户登录状态">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T16:00:00.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/springmvclogin/" class="has-link-black-ter is-size-6">SpringMVC-拦截器-判断用户登录状态</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/SpringMVC/">SpringMVC</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/01/btmybatis/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot-甜蜜的整合MyBatis&amp;注解方式&amp;配置方式">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-31T16:00:00.000Z">2019-08-01</time></div>
+                    <a href="/2019/08/01/btmybatis/" class="has-link-black-ter is-size-6">Spring Boot-甜蜜的整合MyBatis&amp;注解方式&amp;配置方式</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring-Boot/">Spring Boot</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/30/bootdruid/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot数据库-整合Druid数据源&amp;Druid监控">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-29T16:00:00.000Z">2019-07-30</time></div>
+                    <a href="/2019/07/30/bootdruid/" class="has-link-black-ter is-size-6">Spring Boot数据库-整合Druid数据源&amp;Druid监控</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring-Boot/">Spring Boot</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/23/SpringWebFlow/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Web Flow">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-22T16:00:00.000Z">2019-07-23</time></div>
+                    <a href="/2019/07/23/SpringWebFlow/" class="has-link-black-ter is-size-6">Spring Web Flow</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Druid/">
+                        <span class="tag">Druid</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hadoop/">
+                        <span class="tag">Hadoop</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hbase/">
+                        <span class="tag">Hbase</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Interceptor/">
+                        <span class="tag">Interceptor</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SSM/">
+                        <span class="tag">SSM</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Servlet/">
+                        <span class="tag">Servlet</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-Boot/">
+                        <span class="tag">Spring Boot</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Thymeleaf/">
+                        <span class="tag">Thymeleaf</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/WebFlow/">
+                        <span class="tag">WebFlow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微服务/">
+                        <span class="tag">微服务</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/我的博客搭建过程/">
+                        <span class="tag">我的博客搭建过程</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数据结构/">
+                        <span class="tag">数据结构</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/算法/">
+                        <span class="tag">算法</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/闲聊/">
+                        <span class="tag">闲聊</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/黑科技/">
+                        <span class="tag">黑科技</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/10/17/dubbo/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot-整合Dubbo">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-16T16:00:00.000Z">2019-10-17</time></div>
+                    <a href="/2019/10/17/dubbo/" class="has-link-black-ter is-size-6">Spring Boot-整合Dubbo</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Dubbo/">Dubbo</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/08/springmvclogin/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="SpringMVC-拦截器-判断用户登录状态">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T16:00:00.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/springmvclogin/" class="has-link-black-ter is-size-6">SpringMVC-拦截器-判断用户登录状态</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/SpringMVC/">SpringMVC</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/01/btmybatis/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot-甜蜜的整合MyBatis&amp;注解方式&amp;配置方式">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-31T16:00:00.000Z">2019-08-01</time></div>
+                    <a href="/2019/08/01/btmybatis/" class="has-link-black-ter is-size-6">Spring Boot-甜蜜的整合MyBatis&amp;注解方式&amp;配置方式</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring-Boot/">Spring Boot</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/30/bootdruid/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot数据库-整合Druid数据源&amp;Druid监控">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-29T16:00:00.000Z">2019-07-30</time></div>
+                    <a href="/2019/07/30/bootdruid/" class="has-link-black-ter is-size-6">Spring Boot数据库-整合Druid数据源&amp;Druid监控</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring-Boot/">Spring Boot</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/23/SpringWebFlow/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Web Flow">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-22T16:00:00.000Z">2019-07-23</time></div>
+                    <a href="/2019/07/23/SpringWebFlow/" class="has-link-black-ter is-size-6">Spring Web Flow</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Druid/">
+                        <span class="tag">Druid</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hadoop/">
+                        <span class="tag">Hadoop</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hbase/">
+                        <span class="tag">Hbase</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Interceptor/">
+                        <span class="tag">Interceptor</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SSM/">
+                        <span class="tag">SSM</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Servlet/">
+                        <span class="tag">Servlet</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-Boot/">
+                        <span class="tag">Spring Boot</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Thymeleaf/">
+                        <span class="tag">Thymeleaf</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/WebFlow/">
+                        <span class="tag">WebFlow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微服务/">
+                        <span class="tag">微服务</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/我的博客搭建过程/">
+                        <span class="tag">我的博客搭建过程</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数据结构/">
+                        <span class="tag">数据结构</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/算法/">
+                        <span class="tag">算法</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/闲聊/">
+                        <span class="tag">闲聊</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/黑科技/">
+                        <span class="tag">黑科技</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+	<div id="vcomments"></div>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="《大话数据结构》学习笔记-day02-算法" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Yu Xiantao&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+    
+
+
+<script src="/js/main.js" defer></script>
+	
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+	
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'K2pfcRNJyLhhJISc7BaeYA88-gzGzoHsz',
+            appKey: 'gHHPTdGOoXqqMFw6YdRml785'
+        })
+    </script>
+</body>
+</html>

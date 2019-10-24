@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>Spring Web Flow - Carson&#39;s Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="图片与内容无关">
+<meta name="keywords" content="WebFlow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Web Flow">
+<meta property="og:url" content="http://yoursite.com/2019/07/23/SpringWebFlow/index.html">
+<meta property="og:site_name" content="Carson&#39;s Blog">
+<meta property="og:description" content="图片与内容无关">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="og:updated_time" content="2019-07-23T10:45:02.257Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring Web Flow">
+<meta name="twitter:description" content="图片与内容无关">
+<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+	<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="Spring Web Flow" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">主页</a>
+                
+                <a class="navbar-item" href="/archives">归纳</a>
+                
+                <a class="navbar-item" href="/categories">分类</a>
+                
+                <a class="navbar-item" href="/tags">标签</a>
+                
+                <a class="navbar-item" href="/about">关于我</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/aaaTao66">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+	
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-07-22T16:00:00.000Z">2019-07-23</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    29 分钟 读完 (大约 4410 个字)
+                </span>
+                
+                
+                阅读次数:
+				<span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+				
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Spring Web Flow
+            
+        </h1>
+        <div class="content">
+            <p><img src="/2019/07/23/SpringWebFlow/123123.jpg" alt="Jack Ma"></p>
+<blockquote>
+<p>图片与内容无关<br><a id="more"></a></p>
+</blockquote>
+<h2 id="What-is-Spring-Web-Flow"><a href="#What-is-Spring-Web-Flow" class="headerlink" title="What is Spring-Web-Flow?"></a>What is Spring-Web-Flow?</h2><blockquote>
+<p>Spring Web Flow builds on Spring MVC and allows implementing the “flows” of a web application. A flow encapsulates a sequence of steps that guide a user through the execution of some business task. It spans multiple HTTP requests, has state, deals with transactional data, is reusable, and may be dynamic and long-running in nature..</p>
+</blockquote>
+<p>机翻:</p>
+<blockquote>
+<p>Spring Web Flow构建于Spring MVC之上，允许实现Web应用程序的“<strong>流程</strong>”。流程封装了一系列步骤，指导用户执行某些业务任务。它跨越多个HTTP请求，具有状态，处理事务数据，可重用，并且可能是动态的，并且本质上是长期运行的。</p>
+</blockquote>
+<p>Spring Web Flow的Web应用程序，例如办理登机手续，申请贷款，购物车结帐，甚至向表单添加确认步骤。这些场景的共同点是以下一个或多个特征：</p>
+<ul>
+<li>有一个明确的开始和结束点。</li>
+<li>用户必须按特定顺序浏览一组屏幕。</li>
+<li>直到最后一步，更改才会完成。</li>
+<li>一旦完成，就不可能意外地重复交易</li>
+</ul>
+<p>这是官方给出的 maven 依赖:</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.webflow<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-webflow<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.5.0.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>和 Gradle:</p>
+<figure class="highlight groovy hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    compile <span class="hljs-string">'org.springframework.webflow:spring-webflow:2.5.0.RELEASE'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上, 来自 : <a href="https://projects.spring.io/spring-webflow/" target="_blank" rel="noopener">https://projects.spring.io/spring-webflow/</a></p>
+<p>官方API 2.5.0 版本: <a href="https://docs.spring.io/spring-webflow/docs/2.5.0.RELEASE/api/" target="_blank" rel="noopener">https://docs.spring.io/spring-webflow/docs/2.5.0.RELEASE/api/</a></p>
+<hr>
+<p>有时候，Web应用程序需要控制网络冲浪者的方向，引导他们一步步地访问应用。比较典型的例子就是电子商务站点的结账流程，从购物车开始，应用程序会引导你依次经过派送详情、账单信息以及最终的订单确认流程。</p>
+<hr>
+<h2 id="在Spring中配置Web-Flow"><a href="#在Spring中配置Web-Flow" class="headerlink" title="在Spring中配置Web Flow"></a>在Spring中配置Web Flow</h2><p>设置好 webflow 的命名空间 :</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">beans</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://www.springframework.org/schema/beans"</span></span></span><br><span class="line"><span class="hljs-tag">       <span class="hljs-attr">xmlns:flow</span>=<span class="hljs-string">"http://www.springframework.org/schema/webflow-config"</span></span></span><br><span class="line"><span class="hljs-tag">       <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="hljs-tag">       <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">"</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">       http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">       http://www.springframework.org/schema/beans/spring-beans.xsd</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">       http://www.springframework.org/schema/webflow-config</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string">       http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd</span></span></span><br><span class="line"><span class="hljs-tag"><span class="hljs-string"> "</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="装配流程执行器-flow-executor"><a href="#装配流程执行器-flow-executor" class="headerlink" title="装配流程执行器 (flow executor)"></a>装配流程执行器 (flow executor)</h3><p>流程执行器会为用户创建并启动一个流程执行实例。当流程暂停的时候（如为用户展示视图时），流程执行器会在用户执行操作后恢复流程。</p>
+<blockquote>
+<p>就像汽车,你踩油门才会前进,当你停下来看风景的时候,它会停下,当你再次踩油门,它会恢复启动</p>
+</blockquote>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">flow:flow-executor</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"flowExecutor"</span>/&gt;</span></span><br><span class="line">这个标签就是流程控制器</span><br></pre></td></tr></table></figure>
+<h3 id="配置流程注册表-flow-registry"><a href="#配置流程注册表-flow-registry" class="headerlink" title="配置流程注册表 (flow registry)"></a>配置流程注册表 (flow registry)</h3><p>流程执行器负责创建和执行流程，但它并不负责加载流程定义。所以我们需要注册表。</p>
+<p>通过下面的标签(稍后会说id的事情)</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">flow:flow-registry</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"flowRegistry"</span> <span class="hljs-attr">base-path</span>=<span class="hljs-string">"/WEB-INF/flows"</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">flow:flow-location-pattern</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"/**/*-flow.xml"</span>/&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">flow:flow-registry</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>base-path属性指明流程注册表会在“/WEB-INF/flows”目录下查找流程定义</p>
+</li>
+<li><p><code>&lt;flow:flowlocation-pattern&gt;</code>元素的值表示:任何文件名以“-flow.xml”结尾的XML文件都将视为流程定义。</p>
+</li>
+</ul>
+<p>当然, 这个路径可以写死, 看你需要什么了 <strong>示例</strong>:</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">flow:flow-registry</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"flowRegistry"</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">flow:flow-location</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/WEB-INF/flows/carson.xml"</span>/&gt;</span></span><br><span class="line">    <span class="hljs-comment">&lt;!-- 这个id是通过文件名, 也就是说 carson 就是id --&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">flow:flow-registry</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">		 <span class="hljs-comment">&lt;!-- 也可以指定id👇 通过&lt;flow:flow-location&gt;元素的id属性来进行设置 --&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">flow:flow-location</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"haha"</span> <span class="hljs-attr">path</span>=<span class="hljs-string">"/WEB-INF/flows/carson.xml"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意中间的 标签 , 他们俩是不一样的</strong></p>
+<p>所有的流程都是通过其ID来进行引用的。流程的ID就是相对于base-path的路径——或者双星号所代表的路径 : </p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/WEB-INF/flows/order/order-flow.xml</span><br><span class="line">这个路径里 order 就是我们的id</span><br></pre></td></tr></table></figure>
+<p>我们来解析一下: </p>
+<ul>
+<li><code>/WEB-INF/flows</code>:是基本路径</li>
+<li><code>order</code>: 流程 ID</li>
+<li><code>order-flow.xml</code>: 流程定义</li>
+</ul>
+<h3 id="处理流程请求"><a href="#处理流程请求" class="headerlink" title="处理流程请求"></a>处理流程请求</h3><p>DispatcherServlet一般将请求分发给控制器。但是对于流程而言，我们需要一个lowHandlerMapping来帮助DispatcherServlet将流程请求发送给Spring Web Flow。在Spring应用上下文中，FlowHandlerMapping的配置如下：</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"org.springframework.webflow.mvc.servlet.FlowHandlerMapping"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"flowRegistry"</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"flowRegistry"</span>/&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>FlowHandlerMapping装配了流程注册表的引用，这样它就能知道如何将请求的URL匹配到流程上。例如，如果我们有一个ID为pizza的流程，FlowHandlerMapping就会知道如果请求的URL模式（相对于应用程序的上下文路径）是“/pizza”的话，就要将其匹配到这个流程上。</p>
+<p>然而，FlowHandlerMapping的工作仅仅是将流程请求定向到Spring Web Flow上，响应请求的<br>是FlowHandlerAdapter。FlowHandlerAdapter等同于Spring MVC的控制器，它会响应发送的流程请求并对其进行处理。FlowHandlerAdapter可以像下面这样装配成一个Spring bean，如下所示：</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"org.springframework.webflow.mvc.servlet.FlowHandlerAdapter"</span>&gt;</span></span><br><span class="line">       <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"flowExecutor"</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"flowExecutor"</span>/&gt;</span></span><br><span class="line">   <span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这个处理适配器是DispatcherServlet和Spring Web Flow之间的桥梁。它会处理流程请求并管理基于这些请求的流程。在这里，它装配了流程执行器的引用，而后者是为所处理的请求执行流程的。</p>
+<h2 id="流程的组件"><a href="#流程的组件" class="headerlink" title="流程的组件"></a>流程的组件</h2><blockquote>
+<p>流程是由三个主要元素定义的：状态、转移和流程数据。</p>
+</blockquote>
+<ul>
+<li><p>状态(State): 是流程中事件发生的地点。如果你将流程想象成公路旅行，那状态就是路途上的城镇、路边饭店以及风景点。流程中的状态是业务逻辑执行、做出决策或将页面展现给用户的地方，而不是在公路旅行中买乐事薯片和可口可乐的所在。</p>
+</li>
+<li><p>转移 (transition): 如果流程状态就像公路旅行中停下来的地点，那转移（transition）就是连接这些点的公路。在流程中，你通过转移的方式从北京到上海，也就是从一个状态到另一个<br>状态。</p>
+</li>
+<li>流程数据： 当你行走在伊拉克的公路上，你可能会捡到一把AK-47，你通常要把它带上，以便于防身，这就是流程数据。</li>
+</ul>
+<p>通俗一点:</p>
+<p><strong>比如PUBG吃鸡类游戏, 状态就是你跟人对枪打架, 转移就是开车跑圈, 而流程数据就是你身上的M4+kar98k+手榴弹+平底锅……</strong></p>
+<h3 id="状态"><a href="#状态" class="headerlink" title="状态"></a>状态</h3><p>Spring Web Flow定义了五种不同类型的状态，通过选择Spring Web Flow的状态几乎可以把任意的安排功能构造成会话式的Web应用。尽管并不是所有的流程都需要下面的表所描述的状态，但最终你可能会经常使用它们中的大多数。</p>
+<table>
+<thead>
+<tr>
+<th>状态类型</th>
+<th>它是用来做什么的</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行为（Action）</td>
+<td>行为状态是流程逻辑发生的地方</td>
+</tr>
+<tr>
+<td>决策（Decision）</td>
+<td>决策状态将流程分成两个方向,它会基于流程数据的评估结果确定流程方向</td>
+</tr>
+<tr>
+<td>结束（End）</td>
+<td>结束状态是流程的最后一站。一旦进入End状态,流程就会终止</td>
+</tr>
+<tr>
+<td>子流程（Subflow）</td>
+<td>子流程状态会在当前正在运行的流程上下文中启动一个新的流程</td>
+</tr>
+<tr>
+<td>视图（View）</td>
+<td>视图状态会暂停流程并邀请用户参与流程</td>
+</tr>
+</tbody>
+</table>
+<p>稍后我们将会看到如何将这些不同类型的状态组合起来形成一个完整的流程。但首先，让我们了解一下这些流程元素在Spring Web Flow定义中是如何表现的。</p>
+<h4 id="视图状态"><a href="#视图状态" class="headerlink" title="视图状态"></a>视图状态</h4><p>视图状态用于为用户展现信息并使用户在流程中发挥作用。实际的视图实现可以是Spring支持的任意视图类型，但通常是用JSP来实现的。</p>
+<p>在流程定义的XML文件中，<code>&lt;view-state&gt;</code>用于定义视图状态：</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">view-state</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"welcome"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在这个简单的示例中，id属性有两个含义。它在流程内标示这个状态。除此以外，因为在这里没有在其他地方指定视图，所以它也指定了流程到达这个状态时要展现的逻辑视图名为welcome。<br>如果你愿意显式指定另外一个视图名，那可以使用view属性做到这一点：</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">view-state</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"welcome"</span> <span class="hljs-attr">view</span>=<span class="hljs-string">"greeting"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如果流程为用户展现了一个表单，你可能希望指明表单所绑定的对象。为了做到这一点，可以设置model属性：</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">view-state</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"takePayment"</span> <span class="hljs-attr">model</span>=<span class="hljs-string">"flowScope.paymentDetails"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这里我们指定takePayment视图中的表单将绑定流程作用域内的paymentDetails对象。（稍后，我们将会更详细地介绍流程作用域和数据。</p>
+<h4 id="行为状态"><a href="#行为状态" class="headerlink" title="行为状态"></a>行为状态</h4><p>视图状态会涉及到流程应用程序的用户，而行为状态则是应用程序自身在执行任务。行为状态一般会触发Spring所管理bean的一些方法并根据方法调用的执行结果转移到另一个状态。<br>在流程定义XML中，行为状态使用<code>&lt;action-state&gt;</code>元素来声明。这里是一个例子:</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">action-state</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"saveOrder"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">evaluate</span> <span class="hljs-attr">expression</span>=<span class="hljs-string">"pizzaFlowActions.saveOrder(order)"</span>/&gt;</span></span><br><span class="line">	<span class="hljs-tag">&lt;<span class="hljs-name">transition</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"thankYou"</span> /&gt;</span></span><br><span class="line"> <span class="hljs-tag">&lt;/<span class="hljs-name">action-state</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>尽管不是严格需要的，但是<code>&lt;action-state&gt;</code>元素一般都会有一个<code>&lt;evaluate&gt;</code>作为子元素。<code>&lt;evaluate&gt;</code>元素给出了行为状态要做的事情。expression属性指定了进入这个状态时要评估的表达式。在本示例中，给出的expression是SpEL表达式，它表明将会找到ID为pizzaFlowActions的bean并调用其saveOrder()方法。</p>
+<p><strong>Spring Web Flow与表达式语言</strong></p>
+<p>在1.0版本的时候，Spring Web Flow使用的是对象图导航语言（Object-Graph Navigation Language ，OGNL）。</p>
+<p>随后的2.0版本又换成了统一表达式语言（Unified Expression Language ，Unified EL）。在2.1版本中，Spring Web Flow使用的是SpEL。<br>尽管可以使用上述的任意表达式语言来配置Spring Web Flow，但SpEL是默认和推荐使用的表达式语言。因此，当定义流程的时候，我们会选择使用SpEL，忽略掉其他的可选方案</p>
+<h4 id="决策状态"><a href="#决策状态" class="headerlink" title="决策状态"></a>决策状态</h4><blockquote>
+<p>有可能流程会完全按照线性执行，从一个状态进入另一个状态，没有其他的替代路线。但是更常见的情况是流程在某一个点根据流程的当前情况进入不同的分支。</p>
+</blockquote>
+<p>决策状态能够在流程执行时产生两个分支。决策状态将评估一个Boolean类型的表达式，然后在两个状态转移中选择一个，这要取决于表达式会计算出true还是false。在XML流程定义中，决策状态通过<code>&lt;decision-state&gt;</code>元素进行定义。典型的决策状态示例如下所示:</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">decision-state</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"checkDeliveryArea"</span>&gt;</span></span><br><span class="line">       <span class="hljs-tag">&lt;<span class="hljs-name">if</span> <span class="hljs-attr">test</span>=<span class="hljs-string">"pizzaFlowActions.checkDeliveryArea(customer.zipCode)"</span></span></span><br><span class="line"><span class="hljs-tag">           <span class="hljs-attr">then</span>=<span class="hljs-string">"addCustomer"</span></span></span><br><span class="line"><span class="hljs-tag">           <span class="hljs-attr">else</span>=<span class="hljs-string">"deliveryWarning"</span>/&gt;</span></span><br><span class="line">   <span class="hljs-tag">&lt;/<span class="hljs-name">decision-state</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>你可以看到，<code>&lt;decision-state&gt;</code>并不是独立完成工作的。<code>&lt;if&gt;</code>元素是决策状态的核心。这是表达式进行评估的地方，如果表达式结果为true，流程将转移到then属性指定的状态中，如果结果为false，流程将会转移到else属性指定的状态中。</p>
+<h4 id="子流程状态"><a href="#子流程状态" class="headerlink" title="子流程状态"></a>子流程状态</h4><blockquote>
+<p>你可能不会将应用程序的所有逻辑写在一个方法中，而是将其分散到多个类、方法以及其他结构中</p>
+</blockquote>
+<p><code>&lt;subflow-state&gt;</code>允许在一个正在执行的流程中调用另一个流程。这类似于在一个方法中<br>调用另一个方法。</p>
+<p><code>&lt;subflow-state&gt;</code>可以这样声明：</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">subflow-state</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"order"</span> <span class="hljs-attr">subflow</span>=<span class="hljs-string">"pizza/order"</span>&gt;</span></span><br><span class="line">       <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"order"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"order"</span>/&gt;</span></span><br><span class="line">       <span class="hljs-tag">&lt;<span class="hljs-name">transition</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"orderCreated"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"payment"</span>/&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">subflow-state</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>&lt;input&gt;</code>元素用于传递订单对象作为子流程的输入。如果子流程结束的<code>&lt;end-state&gt;</code>状态ID为orderCreated，那么流程将会转移到名为payment的状态。<br>在这里，我有点超出进度了，我们还没有讨论到<code>&lt;end-state&gt;</code>元素和转移。我们很快就会下面介绍转移。对于结束状态，这正是接下来要介绍的</p>
+<h4 id="结束状态"><a href="#结束状态" class="headerlink" title="结束状态"></a>结束状态</h4><p>最后，所有的流程都要结束。这就是当流程转移到结束状态时所做的。<code>&lt;end-state&gt;</code>元素指定了流程的结束，它一般会是这样声明的：</p>
+<p>当到达<code>&lt;end-state&gt;</code>状态，流程会结束。接下来会发生什么取决于几个因素：</p>
+<ul>
+<li>如果结束的流程是一个子流程，那调用它的流程将会从<code>&lt;subflow-state&gt;</code>处继续执行。<code>&lt;end-state&gt;</code>的ID将会用作事件触发从<code>&lt;subflow-state&gt;</code>开始的转移。</li>
+<li>如果<code>&lt;end-state&gt;</code>设置了view属性，指定的视图将会被渲染。视图可以是相对于流程路径的视图模板，如果添加“externalRedirect:”前缀的话，将会重定向到流程外部的页面，如果添加“flowRedirect:”将重定向到另一个流程中。</li>
+<li>如果结束的流程不是子流程，也没有指定view属性，那这个流程只是会结束而已。浏览器最后将会加载流程的基本URL地址，当前已没有活动的流程，所以会开始一个新的流程实例。</li>
+</ul>
+<h3 id="转移"><a href="#转移" class="headerlink" title="转移"></a>转移</h3><p>转移连接了流程中的状态。流程中除结束状态之外的每个状态，<strong>至少都需要一个转移</strong>，这样就能够知道一旦这个状态完成时流程要去向哪里。状态可以有多个转移，分别对应于当前状态结束时可以执行的不同的路径。</p>
+<p>转移使用<code>&lt;transition&gt;</code>元素来进行定义;</p>
+<p>属性to用于指定流程的下一个状态。如果<code>&lt;transition&gt;</code>只使用了to属性，那这个转移就会是当前状态的默认转移选项，如果没有其他可用转移的话，就会使用它;</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">transition</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"customerReady"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>更常见的转移定义是基于事件的触发来进行的。在视图状态，事件通常会是用户采取的动作。在行为状态，事件是评估表达式得到的结果。而在子流程状态，事件取决于子流程结束状态的ID。在任意的事件中（这里没有任何歧义），你可以使用on属性来指定触发转移的事件</p>
+<p><strong>如果触发了phoneEntered事件</strong>，流程将会进入lookupCustomer状态:</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">transition</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"phoneEntered"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"customerReady"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>在抛出异常时，</strong>流程也可以进入另一个状态。例如，如果顾客的账号未存在，你可能希望流程转移到一个展现注册表单的视图状态。以下的 代码片段显示了这种类型的转移</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">transition</span> </span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">on-exception</span>=<span class="hljs-string">"com.carson.taobao.service.CustomerNotFoundException"</span></span></span><br><span class="line"><span class="hljs-tag">        <span class="hljs-attr">to</span>=<span class="hljs-string">"registrationForm"</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<p>属性on-exception类似于on属性，只不过它指定了要发生转移的异常而不是一个事件。在本示例<br>中，CustomerNotFoundException异常将导致流程转移到registrationForm状态。</p>
+<h4 id="全局转移"><a href="#全局转移" class="headerlink" title="全局转移"></a>全局转移</h4><p>在进入购买流程的时候，无论你有多少的子流程，都避免不了<code>取消订单</code>这个转移；</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">transition</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"cancel"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"endState"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>与其在多个状态中都重复通用的转移，我们可以将<code>&lt;transition&gt;</code>元素作为<code>&lt;global-transitions&gt;</code>的子元素，把它们定义为全局转移。<br>例如：</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">global-transitions</span>&gt;</span></span><br><span class="line">       <span class="hljs-tag">&lt;<span class="hljs-name">transition</span> <span class="hljs-attr">on</span>=<span class="hljs-string">"cancel"</span> <span class="hljs-attr">to</span>=<span class="hljs-string">"endState"</span>/&gt;</span></span><br><span class="line">   <span class="hljs-tag">&lt;/<span class="hljs-name">global-transitions</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>定义完这个全局转移后，流程中的所有状态都会默认拥有这个cancel转移。</p>
+<h3 id="流程数据"><a href="#流程数据" class="headerlink" title="流程数据"></a>流程数据</h3><p>再举个例子:</p>
+<p>当你PUBG或者APEX的时候,转移就是跑圈,而你捡到的装备,都是属于流程数据;</p>
+<p>在很多方面，流程与这些游戏是很类似的。当流程从一个状态进行到另一个状态时，它会带走一些数据。有时候，这些数据只需要很短的时间（可能只要展现页面给用户）。有时候，这些数据会在整个流程中传递并在流程结束的时候使用。</p>
+<h4 id="声明变量"><a href="#声明变量" class="headerlink" title="声明变量"></a>声明变量</h4><p>流程数据保存在变量中，而变量可以在流程的各个地方进行引用。它能够以多种方式创建。在流程中创建变量的最简单形式是使用<code>&lt;var&gt;</code>元素:</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">var</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"customer"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"com.carson.pizza.domain.Customer"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这里，创建了一个新的Customer实例并将其放在名为customer的变量中。这个变量可以在流程的任意状态进行访问。</p>
+<p>另外, </p>
+<p>也可以使用 <code>&lt;evaluate&gt;</code>标签创建变量</p>
+<p>还有<code>&lt;set&gt;</code>标签也可以</p>
+<h4 id="定义流程数据的作用域"><a href="#定义流程数据的作用域" class="headerlink" title="定义流程数据的作用域"></a>定义流程数据的作用域</h4><p>流程中携带的数据会拥有不同的生命作用域和可见性，这取决于保存数据的变量本身的作用域。Spring Web Flow定义了五种不同作用域，如:</p>
+<table>
+<thead>
+<tr>
+<th>范 围</th>
+<th style="text-align:left">生命作用域 和 可见性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Conversation</td>
+<td style="text-align:left">最高层级的流程开始时创建，在最高层级的流程结束时销毁。被最高层级的流程和其所有的子流程所共享</td>
+</tr>
+<tr>
+<td>Flow</td>
+<td style="text-align:left">当流程开始时创建，在流程结束时销毁。只有在创建它的流程中是可见的</td>
+</tr>
+<tr>
+<td>Request</td>
+<td style="text-align:left">当一个请求进入流程时创建，在流程返回时销毁</td>
+</tr>
+<tr>
+<td>Flash</td>
+<td style="text-align:left">当流程开始时创建，在流程结束时销毁。在视图状态渲染后，它也会被清除</td>
+</tr>
+<tr>
+<td>View</td>
+<td style="text-align:left">当进入视图状态时创建，当这个状态退出时销毁。只在视图状态内是可见的</td>
+</tr>
+</tbody>
+</table>
+<p>当使用<code>&lt;var&gt;</code>元素声明变量时，变量始终是流程作用域的，也就是在定义变量的流程内有效。当使用<code>&lt;set&gt;</code>或<code>&lt;evaluate&gt;</code>的时候，作用域通过name或result属性的前缀指定。例如，将一个值赋给流程作用域的theAnswer变量：</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">set</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"flowScope.theAnswer"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"42"</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>我的掘金: <a href="https://juejin.im/post/5d36db1f6fb9a07eb55f9ce1" target="_blank" rel="noopener">https://juejin.im/post/5d36db1f6fb9a07eb55f9ce1</a></p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/WebFlow/">WebFlow</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/zhifubao.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/weixin.jpg" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/07/30/bootdruid/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Spring Boot数据库-整合Druid数据源&amp;Druid监控</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/07/11/bootservlet/">
+                <span class="level-item">Spring Boot-嵌入式Servlet容器&amp;三大组件</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/images/1.png" alt="Yu Xiantao">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Yu Xiantao
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        热心的学习者 狂热的数码迷
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Beijing, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        22
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        11
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        16
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://www.zhihu.com/people/san-ji-nei-ku/activities" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/aaaTao66">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="https://twitter.com/iloveueason">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#What-is-Spring-Web-Flow">
+        <span class="has-mr-6">1</span>
+        <span>What is Spring-Web-Flow?</span>
+        </a></li><li>
+        <a class="is-flex" href="#在Spring中配置Web-Flow">
+        <span class="has-mr-6">2</span>
+        <span>在Spring中配置Web Flow</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#装配流程执行器-flow-executor">
+        <span class="has-mr-6">2.1</span>
+        <span>装配流程执行器 (flow executor)</span>
+        </a></li><li>
+        <a class="is-flex" href="#配置流程注册表-flow-registry">
+        <span class="has-mr-6">2.2</span>
+        <span>配置流程注册表 (flow registry)</span>
+        </a></li><li>
+        <a class="is-flex" href="#处理流程请求">
+        <span class="has-mr-6">2.3</span>
+        <span>处理流程请求</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#流程的组件">
+        <span class="has-mr-6">3</span>
+        <span>流程的组件</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#状态">
+        <span class="has-mr-6">3.1</span>
+        <span>状态</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#视图状态">
+        <span class="has-mr-6">3.1.1</span>
+        <span>视图状态</span>
+        </a></li><li>
+        <a class="is-flex" href="#行为状态">
+        <span class="has-mr-6">3.1.2</span>
+        <span>行为状态</span>
+        </a></li><li>
+        <a class="is-flex" href="#决策状态">
+        <span class="has-mr-6">3.1.3</span>
+        <span>决策状态</span>
+        </a></li><li>
+        <a class="is-flex" href="#子流程状态">
+        <span class="has-mr-6">3.1.4</span>
+        <span>子流程状态</span>
+        </a></li><li>
+        <a class="is-flex" href="#结束状态">
+        <span class="has-mr-6">3.1.5</span>
+        <span>结束状态</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#转移">
+        <span class="has-mr-6">3.2</span>
+        <span>转移</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#全局转移">
+        <span class="has-mr-6">3.2.1</span>
+        <span>全局转移</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#流程数据">
+        <span class="has-mr-6">3.3</span>
+        <span>流程数据</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#声明变量">
+        <span class="has-mr-6">3.3.1</span>
+        <span>声明变量</span>
+        </a></li><li>
+        <a class="is-flex" href="#定义流程数据的作用域">
+        <span class="has-mr-6">3.3.2</span>
+        <span>定义流程数据的作用域</span>
+        </a></li></ul></li></ul></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://www.zhihu.com/people/san-ji-nei-ku/activities" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">知乎</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.zhihu.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Dubbo/">
+            <span class="level-start">
+                <span class="level-item">Dubbo</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Hadoop生态圈/">
+            <span class="level-start">
+                <span class="level-item">Hadoop生态圈</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/SSM整合/">
+            <span class="level-start">
+                <span class="level-item">SSM整合</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Scala/">
+            <span class="level-start">
+                <span class="level-item">Scala</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Spring/">
+            <span class="level-start">
+                <span class="level-item">Spring</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Spring-Boot/">
+            <span class="level-start">
+                <span class="level-item">Spring Boot</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/SpringMVC/">
+            <span class="level-start">
+                <span class="level-item">SpringMVC</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/《大话数据结构》/">
+            <span class="level-start">
+                <span class="level-item">《大话数据结构》</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/博客搭建/">
+            <span class="level-start">
+                <span class="level-item">博客搭建</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/浅谈ios-Android-非技术/">
+            <span class="level-start">
+                <span class="level-item">浅谈ios/Android(非技术)</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/黑科技/">
+            <span class="level-start">
+                <span class="level-item">黑科技</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/Druid/" style="font-size: 10px;">Druid</a> <a href="/tags/Hadoop/" style="font-size: 10px;">Hadoop</a> <a href="/tags/Hbase/" style="font-size: 10px;">Hbase</a> <a href="/tags/Interceptor/" style="font-size: 10px;">Interceptor</a> <a href="/tags/SSM/" style="font-size: 10px;">SSM</a> <a href="/tags/Scala/" style="font-size: 15px;">Scala</a> <a href="/tags/Servlet/" style="font-size: 10px;">Servlet</a> <a href="/tags/Spring-Boot/" style="font-size: 20px;">Spring Boot</a> <a href="/tags/Thymeleaf/" style="font-size: 15px;">Thymeleaf</a> <a href="/tags/WebFlow/" style="font-size: 10px;">WebFlow</a> <a href="/tags/微服务/" style="font-size: 10px;">微服务</a> <a href="/tags/我的博客搭建过程/" style="font-size: 10px;">我的博客搭建过程</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/闲聊/" style="font-size: 10px;">闲聊</a> <a href="/tags/黑科技/" style="font-size: 10px;">黑科技</a>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/10/17/dubbo/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot-整合Dubbo">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-16T16:00:00.000Z">2019-10-17</time></div>
+                    <a href="/2019/10/17/dubbo/" class="has-link-black-ter is-size-6">Spring Boot-整合Dubbo</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Dubbo/">Dubbo</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/08/springmvclogin/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="SpringMVC-拦截器-判断用户登录状态">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T16:00:00.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/springmvclogin/" class="has-link-black-ter is-size-6">SpringMVC-拦截器-判断用户登录状态</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/SpringMVC/">SpringMVC</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/01/btmybatis/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot-甜蜜的整合MyBatis&amp;注解方式&amp;配置方式">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-31T16:00:00.000Z">2019-08-01</time></div>
+                    <a href="/2019/08/01/btmybatis/" class="has-link-black-ter is-size-6">Spring Boot-甜蜜的整合MyBatis&amp;注解方式&amp;配置方式</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring-Boot/">Spring Boot</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/30/bootdruid/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot数据库-整合Druid数据源&amp;Druid监控">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-29T16:00:00.000Z">2019-07-30</time></div>
+                    <a href="/2019/07/30/bootdruid/" class="has-link-black-ter is-size-6">Spring Boot数据库-整合Druid数据源&amp;Druid监控</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring-Boot/">Spring Boot</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/23/SpringWebFlow/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Web Flow">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-22T16:00:00.000Z">2019-07-23</time></div>
+                    <a href="/2019/07/23/SpringWebFlow/" class="has-link-black-ter is-size-6">Spring Web Flow</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Druid/">
+                        <span class="tag">Druid</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hadoop/">
+                        <span class="tag">Hadoop</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hbase/">
+                        <span class="tag">Hbase</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Interceptor/">
+                        <span class="tag">Interceptor</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SSM/">
+                        <span class="tag">SSM</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Servlet/">
+                        <span class="tag">Servlet</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-Boot/">
+                        <span class="tag">Spring Boot</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Thymeleaf/">
+                        <span class="tag">Thymeleaf</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/WebFlow/">
+                        <span class="tag">WebFlow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微服务/">
+                        <span class="tag">微服务</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/我的博客搭建过程/">
+                        <span class="tag">我的博客搭建过程</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数据结构/">
+                        <span class="tag">数据结构</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/算法/">
+                        <span class="tag">算法</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/闲聊/">
+                        <span class="tag">闲聊</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/黑科技/">
+                        <span class="tag">黑科技</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/10/17/dubbo/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot-整合Dubbo">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-16T16:00:00.000Z">2019-10-17</time></div>
+                    <a href="/2019/10/17/dubbo/" class="has-link-black-ter is-size-6">Spring Boot-整合Dubbo</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Dubbo/">Dubbo</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/08/springmvclogin/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="SpringMVC-拦截器-判断用户登录状态">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T16:00:00.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/springmvclogin/" class="has-link-black-ter is-size-6">SpringMVC-拦截器-判断用户登录状态</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/SpringMVC/">SpringMVC</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/01/btmybatis/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot-甜蜜的整合MyBatis&amp;注解方式&amp;配置方式">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-31T16:00:00.000Z">2019-08-01</time></div>
+                    <a href="/2019/08/01/btmybatis/" class="has-link-black-ter is-size-6">Spring Boot-甜蜜的整合MyBatis&amp;注解方式&amp;配置方式</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring-Boot/">Spring Boot</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/30/bootdruid/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot数据库-整合Druid数据源&amp;Druid监控">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-29T16:00:00.000Z">2019-07-30</time></div>
+                    <a href="/2019/07/30/bootdruid/" class="has-link-black-ter is-size-6">Spring Boot数据库-整合Druid数据源&amp;Druid监控</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring-Boot/">Spring Boot</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/23/SpringWebFlow/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Web Flow">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-22T16:00:00.000Z">2019-07-23</time></div>
+                    <a href="/2019/07/23/SpringWebFlow/" class="has-link-black-ter is-size-6">Spring Web Flow</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Druid/">
+                        <span class="tag">Druid</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hadoop/">
+                        <span class="tag">Hadoop</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hbase/">
+                        <span class="tag">Hbase</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Interceptor/">
+                        <span class="tag">Interceptor</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SSM/">
+                        <span class="tag">SSM</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Servlet/">
+                        <span class="tag">Servlet</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-Boot/">
+                        <span class="tag">Spring Boot</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Thymeleaf/">
+                        <span class="tag">Thymeleaf</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/WebFlow/">
+                        <span class="tag">WebFlow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微服务/">
+                        <span class="tag">微服务</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/我的博客搭建过程/">
+                        <span class="tag">我的博客搭建过程</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数据结构/">
+                        <span class="tag">数据结构</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/算法/">
+                        <span class="tag">算法</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/闲聊/">
+                        <span class="tag">闲聊</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/黑科技/">
+                        <span class="tag">黑科技</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+	<div id="vcomments"></div>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="Spring Web Flow" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Yu Xiantao&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+    
+
+
+<script src="/js/main.js" defer></script>
+	
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+	
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'K2pfcRNJyLhhJISc7BaeYA88-gzGzoHsz',
+            appKey: 'gHHPTdGOoXqqMFw6YdRml785'
+        })
+    </script>
+</body>
+</html>

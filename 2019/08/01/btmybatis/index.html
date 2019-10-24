@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>Spring Boot-甜蜜的整合MyBatis&amp;注解方式&amp;配置方式 - Carson&#39;s Blog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="keywords" content="Spring Boot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring Boot-甜蜜的整合MyBatis&amp;注解方式&amp;配置方式">
+<meta property="og:url" content="http://yoursite.com/2019/08/01/btmybatis/index.html">
+<meta property="og:site_name" content="Carson&#39;s Blog">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="og:updated_time" content="2019-08-01T03:31:06.458Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring Boot-甜蜜的整合MyBatis&amp;注解方式&amp;配置方式">
+<meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+	<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="Spring Boot-甜蜜的整合MyBatis&amp;注解方式&amp;配置方式" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">主页</a>
+                
+                <a class="navbar-item" href="/archives">归纳</a>
+                
+                <a class="navbar-item" href="/categories">分类</a>
+                
+                <a class="navbar-item" href="/tags">标签</a>
+                
+                <a class="navbar-item" href="/about">关于我</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/aaaTao66">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                <a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;">
+                    <i class="fas fa-list-ul"></i>
+                </a>
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+	
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-07-31T16:00:00.000Z">2019-08-01</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Spring-Boot/">Spring Boot</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    16 分钟 读完 (大约 2451 个字)
+                </span>
+                
+                
+                阅读次数:
+				<span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+				
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Spring Boot-甜蜜的整合MyBatis&amp;注解方式&amp;配置方式
+            
+        </h1>
+        <div class="content">
+            <p><img src="/2019/08/01/btmybatis/home.jpg" alt="美剧 《硅谷》"></p>
+<a id="more"></a>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>个人博客: <a href="https://aaatao66.github.io/" target="_blank" rel="noopener">https://aaatao66.github.io/</a></p>
+<p>掘金:  <a href="https://juejin.im/user/5d187331f265da1bc5527953" target="_blank" rel="noopener">https://juejin.im/user/5d187331f265da1bc5527953</a></p>
+<p>优先更新个人博客, 其次是掘金。</p>
+<p>整合Mybtis对于Spring Boot来说,是非常简单的, 通过这一篇文章, 你可以无压力快速入门,不过开始之前我要说一下我的版本信息:</p>
+<ul>
+<li>maven 3.2.5</li>
+<li>jdk 1.8</li>
+<li>Spring Boot 2.1.6</li>
+</ul>
+<h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><p>依然是使用idea的自动化配置, 不过这里,我们需要勾选以下依赖:</p>
+<p><img src="/2019/08/01/btmybatis/1.png" alt></p>
+<p>如果你勾选了 MyBatis , 你会发现你的pom文件里有 :</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span></span><br><span class="line">          <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.mybatis.spring.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span></span><br><span class="line">          <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mybatis-spring-boot-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span></span><br><span class="line">          <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.1.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span></span><br><span class="line">      <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这条依赖</p>
+<p>只要是带 *-spring-boot-starter的,都是Spring Boot官方推荐的, 这里的mybatis就是, 让我们来看一下mybatis包下的所有包:</p>
+<p><img src="/2019/08/01/btmybatis/2.png" alt></p>
+<p>我们发现它引入了, mybatis-spring 的包等等,以及还有mybatis-spring-boot-autoconfigure, 这个是自动配置的意思, 对于Spring Boot来说,自动配置是一大特点</p>
+<h3 id="配置Druid数据源"><a href="#配置Druid数据源" class="headerlink" title="配置Druid数据源"></a>配置Druid数据源</h3><blockquote>
+<p>Spring Boot2.x的数据源 hikari 的, 而1.x则是 Tomcat的, 所以我们要配置以下自己的数据源 </p>
+</blockquote>
+<p>我的上一篇文章介绍了Druid: <a href="https://aaatao66.github.io/2019/07/30/bootdruid/" target="_blank" rel="noopener">https://aaatao66.github.io/2019/07/30/bootdruid/</a></p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.alibaba<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>druid<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.1.16<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>引入这个依赖就好了</p>
+<p>然后在 application.yml 配置文件下:</p>
+<figure class="highlight yaml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-attr">spring:</span></span><br><span class="line"><span class="hljs-attr">  datasource:</span></span><br><span class="line"><span class="hljs-attr">    password:</span> <span class="hljs-string">root</span></span><br><span class="line"><span class="hljs-attr">    username:</span> <span class="hljs-string">root</span></span><br><span class="line"><span class="hljs-attr">    url:</span> <span class="hljs-attr">jdbc:mysql://localhost:3306/mybatis?serverTimezone=UTC</span></span><br><span class="line"><span class="hljs-attr">    driver-class-name:</span> <span class="hljs-string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line"><span class="hljs-attr">    type:</span> <span class="hljs-string">com.alibaba.druid.pool.DruidDataSource</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-attr">    initialSize:</span> <span class="hljs-number">5</span></span><br><span class="line"><span class="hljs-attr">    minIdle:</span> <span class="hljs-number">5</span></span><br><span class="line"><span class="hljs-attr">    maxActive:</span> <span class="hljs-number">20</span></span><br><span class="line"><span class="hljs-attr">    maxWait:</span> <span class="hljs-number">60000</span></span><br><span class="line"><span class="hljs-attr">    timeBetweenEvictionRunsMillis:</span> <span class="hljs-number">60000</span></span><br><span class="line"><span class="hljs-attr">    minEvictableIdleTimeMillis:</span> <span class="hljs-number">300000</span></span><br><span class="line"><span class="hljs-attr">    validationQuery:</span> <span class="hljs-string">SELECT</span> <span class="hljs-number">1</span> <span class="hljs-string">FROM</span> <span class="hljs-string">DUAL</span></span><br><span class="line"><span class="hljs-attr">    testWhileIdle:</span> <span class="hljs-literal">true</span></span><br><span class="line"><span class="hljs-attr">    testOnBorrow:</span> <span class="hljs-literal">false</span></span><br><span class="line"><span class="hljs-attr">    testOnReturn:</span> <span class="hljs-literal">false</span></span><br><span class="line"><span class="hljs-attr">    poolPreparedStatements:</span> <span class="hljs-literal">true</span></span><br><span class="line">    <span class="hljs-comment">#   配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙</span></span><br><span class="line"><span class="hljs-attr">    filters:</span> <span class="hljs-string">stat,wall,log4j</span></span><br><span class="line"><span class="hljs-attr">    maxPoolPreparedStatementPerConnectionSize:</span> <span class="hljs-number">20</span></span><br><span class="line"><span class="hljs-attr">    useGlobalDataSourceStat:</span> <span class="hljs-literal">true</span></span><br><span class="line"><span class="hljs-attr">    connectionProperties:</span> <span class="hljs-string">druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500</span></span><br></pre></td></tr></table></figure>
+<p>我在上一篇文章说过, 下面这一堆的属性是不生效的, 如果想要生效, 需要特殊配置一下, 并且我把上一章说的 Druid监控也配置了:</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">package</span> com.carson.config;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">import</span> com.alibaba.druid.pool.DruidDataSource;</span><br><span class="line"><span class="hljs-keyword">import</span> com.alibaba.druid.support.http.StatViewServlet;</span><br><span class="line"><span class="hljs-keyword">import</span> com.alibaba.druid.support.http.WebStatFilter;</span><br><span class="line"><span class="hljs-keyword">import</span> org.springframework.boot.context.properties.ConfigurationProperties;</span><br><span class="line"><span class="hljs-keyword">import</span> org.springframework.boot.web.servlet.FilterRegistrationBean;</span><br><span class="line"><span class="hljs-keyword">import</span> org.springframework.boot.web.servlet.ServletRegistrationBean;</span><br><span class="line"><span class="hljs-keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="hljs-keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">import</span> javax.sql.DataSource;</span><br><span class="line"><span class="hljs-keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="hljs-keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="hljs-keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">@Configuration</span></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DruidConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@ConfigurationProperties</span>(prefix = <span class="hljs-string">"spring.datasource"</span>)</span><br><span class="line">    <span class="hljs-meta">@Bean</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> DataSource <span class="hljs-title">druid</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> DruidDataSource();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">// 配置 Druid 监控</span></span><br><span class="line">    <span class="hljs-comment">//1) 配置一个管理后台的Servlet</span></span><br><span class="line">    <span class="hljs-meta">@Bean</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> ServletRegistrationBean <span class="hljs-title">statViewServlet</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        ServletRegistrationBean bean = <span class="hljs-keyword">new</span> ServletRegistrationBean(<span class="hljs-keyword">new</span> StatViewServlet(), <span class="hljs-string">"/druid/*"</span>);</span><br><span class="line">        Map&lt;String, String&gt; initParams = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="hljs-comment">// 这里是 druid monitor(监视器)的 账号密码, 可以任意设置</span></span><br><span class="line">        initParams.put(<span class="hljs-string">"loginUsername"</span>, <span class="hljs-string">"admin"</span>);</span><br><span class="line">        initParams.put(<span class="hljs-string">"loginPassword"</span>, <span class="hljs-string">"123456"</span>);</span><br><span class="line">        initParams.put(<span class="hljs-string">"allow"</span>, <span class="hljs-string">""</span>);</span><br><span class="line">        initParams.put(<span class="hljs-string">"deny"</span>, <span class="hljs-string">"192.123.11.11"</span>);</span><br><span class="line">        <span class="hljs-comment">// 设置初始化参数</span></span><br><span class="line">        bean.setInitParameters(initParams);</span><br><span class="line">        <span class="hljs-keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-comment">// 2)配置一个监控的 filter</span></span><br><span class="line">    <span class="hljs-meta">@Bean</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> FilterRegistrationBean <span class="hljs-title">webStatFilter</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        FilterRegistrationBean bean = <span class="hljs-keyword">new</span> FilterRegistrationBean();</span><br><span class="line">        bean.setFilter(<span class="hljs-keyword">new</span> WebStatFilter());</span><br><span class="line"></span><br><span class="line">        Map&lt;String, String&gt; initParams = <span class="hljs-keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        initParams.put(<span class="hljs-string">"exclusions"</span>,<span class="hljs-string">"*.js,*.css,/druid/*"</span>);</span><br><span class="line"></span><br><span class="line">        bean.setInitParameters(initParams);</span><br><span class="line"></span><br><span class="line">        bean.setUrlPatterns(Arrays.asList(<span class="hljs-string">"/*"</span>));</span><br><span class="line">        <span class="hljs-keyword">return</span> bean;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>启动主类, 查看是否可以进入到 <strong>德鲁伊监视器</strong>, 如果你报错了请添加 log4j 依赖:</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>log4j<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>log4j<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>1.2.17<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></span><br><span class="line"><span class="hljs-comment">&lt;!--我也不清楚为什么, 不加log4j的话就会报错--&gt;</span></span><br></pre></td></tr></table></figure>
+<p>查看效果:</p>
+<p><img src="/2019/08/01/btmybatis/3.png" alt="Druid 监视器"></p>
+<h3 id="利用SpringBoot建表"><a href="#利用SpringBoot建表" class="headerlink" title="利用SpringBoot建表"></a>利用SpringBoot建表</h3><p>然后在 resources/sql 下引入两个建表的sql文件:</p>
+<p><img src="/2019/08/01/btmybatis/sql1.png" alt="sql"></p>
+<ul>
+<li><strong>department.sql</strong>:</li>
+</ul>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">SET</span> FOREIGN_KEY_CHECKS = <span class="hljs-number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- ----------------------------</span></span><br><span class="line"><span class="hljs-comment">-- Table structure for department</span></span><br><span class="line"><span class="hljs-comment">-- ----------------------------</span></span><br><span class="line"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">IF</span> <span class="hljs-keyword">EXISTS</span> <span class="hljs-string">`department`</span>;</span><br><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-string">`department`</span> (</span><br><span class="line">  <span class="hljs-string">`id`</span>             <span class="hljs-built_in">INT</span>(<span class="hljs-number">11</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  <span class="hljs-string">`departmentName`</span> <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">255</span>)     <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span>,</span><br><span class="line">  PRIMARY <span class="hljs-keyword">KEY</span> (<span class="hljs-string">`id`</span>)</span><br><span class="line">)</span><br><span class="line">  <span class="hljs-keyword">ENGINE</span> = <span class="hljs-keyword">InnoDB</span></span><br><span class="line">  AUTO_INCREMENT = <span class="hljs-number">1</span></span><br><span class="line">  <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CHARSET</span> = utf8;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>employee.sql:</strong></li>
+</ul>
+<figure class="highlight sql hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">SET</span> FOREIGN_KEY_CHECKS = <span class="hljs-number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">-- ----------------------------</span></span><br><span class="line"><span class="hljs-comment">-- Table structure for employee</span></span><br><span class="line"><span class="hljs-comment">-- ----------------------------</span></span><br><span class="line"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">IF</span> <span class="hljs-keyword">EXISTS</span> <span class="hljs-string">`employee`</span>;</span><br><span class="line"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-string">`employee`</span> (</span><br><span class="line">  <span class="hljs-string">`id`</span>       <span class="hljs-built_in">INT</span>(<span class="hljs-number">11</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> AUTO_INCREMENT,</span><br><span class="line">  <span class="hljs-string">`lastName`</span> <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">255</span>)     <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span>,</span><br><span class="line">  <span class="hljs-string">`email`</span>    <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">255</span>)     <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span>,</span><br><span class="line">  <span class="hljs-string">`gender`</span>   <span class="hljs-built_in">INT</span>(<span class="hljs-number">2</span>)           <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span>,</span><br><span class="line">  <span class="hljs-string">`d_id`</span>     <span class="hljs-built_in">INT</span>(<span class="hljs-number">11</span>)          <span class="hljs-keyword">DEFAULT</span> <span class="hljs-literal">NULL</span>,</span><br><span class="line">  PRIMARY <span class="hljs-keyword">KEY</span> (<span class="hljs-string">`id`</span>)</span><br><span class="line">)</span><br><span class="line">  <span class="hljs-keyword">ENGINE</span> = <span class="hljs-keyword">InnoDB</span></span><br><span class="line">  AUTO_INCREMENT = <span class="hljs-number">1</span></span><br><span class="line">  <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CHARSET</span> = utf8;</span><br></pre></td></tr></table></figure>
+<p>并且在 application.yml 文件下写入:</p>
+<figure class="highlight yaml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-attr">schema:</span></span><br><span class="line"><span class="hljs-attr">  - classpath:</span><span class="hljs-string">sql/department.sql</span></span><br><span class="line"><span class="hljs-attr">  - classpath:</span><span class="hljs-string">sql/employee.sql</span></span><br><span class="line"><span class="hljs-attr">initialization-mode:</span> <span class="hljs-string">always</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2019/08/01/btmybatis/4.png" alt></p>
+<p>schema`是与 password/username 等等同级的, 如果你不懂yml文件与properties的区别, 那么你可以看我以前的文章: <a href="https://aaatao66.github.io/2019/06/30/boot2/" target="_blank" rel="noopener">https://aaatao66.github.io/2019/06/30/boot2/</a></p>
+<p>哦对了, 如果你是 springboot 2.x版本以上的, 你可能需要加上<code>initialization-mode</code>这个属性。</p>
+<p>运行主类, 查看是否建表成功, <strong>我的数据库中已经生成了这两张表</strong>,这里我就不截图了</p>
+<blockquote>
+<p>如果你的程序在设置sql文件后 启动报错了:</p>
+<ul>
+<li><p>重启 idea (重启大法好啊!)</p>
+</li>
+<li><p>查看 <code>schema</code>是否配置对了 sql文件的名字</p>
+</li>
+<li><p>schema:</p>
+<p>​    -(空格)classpath:sql/xxx.sql</p>
+<p>注意格式</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="对应数据库实体类"><a href="#对应数据库实体类" class="headerlink" title="对应数据库实体类"></a>对应数据库实体类</h3><ul>
+<li><strong>Employee.java</strong></li>
+</ul>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">package</span> com.carson.domain;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Employee</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-keyword">private</span> Integer id;</span><br><span class="line">    <span class="hljs-keyword">private</span> String lastName;</span><br><span class="line">    <span class="hljs-keyword">private</span> Integer gender;</span><br><span class="line">    <span class="hljs-keyword">private</span> String email;</span><br><span class="line">    <span class="hljs-keyword">private</span> Integer dId;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">getId</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setId</span><span class="hljs-params">(Integer id)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.id = id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getLastName</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> lastName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setLastName</span><span class="hljs-params">(String lastName)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.lastName = lastName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">getGender</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> gender;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setGender</span><span class="hljs-params">(Integer gender)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.gender = gender;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getEmail</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> email;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setEmail</span><span class="hljs-params">(String email)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.email = email;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">getdId</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> dId;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setdId</span><span class="hljs-params">(Integer dId)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.dId = dId;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>Department.java</strong></li>
+</ul>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">package</span> com.carson.domain;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Department</span> </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">private</span> Integer id;</span><br><span class="line">    <span class="hljs-keyword">private</span> String departmentName;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">getId</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setId</span><span class="hljs-params">(Integer id)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.id = id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getDepartmentName</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> departmentName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setDepartmentName</span><span class="hljs-params">(String departmentName)</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.departmentName = departmentName;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>记得把刚才我配置文件的 <code>schema</code>属性全部注释掉, 我们不希望下次运行的时候会再次创建表</strong></p>
+<h2 id="数据库交互"><a href="#数据库交互" class="headerlink" title="数据库交互"></a>数据库交互</h2><h3 id="注解版"><a href="#注解版" class="headerlink" title="- 注解版"></a>- 注解版</h3><ul>
+<li>建立一个 Mapper, 把sql语句直接写在上面</li>
+</ul>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">package</span> com.carson.mapper;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">import</span> com.carson.domain.Department;</span><br><span class="line"><span class="hljs-keyword">import</span> org.apache.ibatis.annotations.*;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 指定这是一个 mapper</span></span><br><span class="line"><span class="hljs-meta">@Mapper</span></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">DepartmentMapper</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Select</span>(<span class="hljs-string">"select * from department where id=#&#123;id&#125;"</span>)</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> Department <span class="hljs-title">getDepById</span><span class="hljs-params">(Integer id)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Delete</span>(<span class="hljs-string">"delete from department where id=#&#123;id&#125;"</span>)</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">deleteDepById</span><span class="hljs-params">(Integer id)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Insert</span>(<span class="hljs-string">"insert into department(departmentName) values(#&#123;departmentName&#125;)"</span>)</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">insertDept</span><span class="hljs-params">(Department department)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Update</span>(<span class="hljs-string">"update department set departmentName=#&#123;departmentName&#125; where id=#&#123;id&#125;"</span>)</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">updateDept</span><span class="hljs-params">(Department department)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后写一个Controller :</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">package</span> com.carson.controller;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">import</span> com.carson.domain.Department;</span><br><span class="line"><span class="hljs-keyword">import</span> com.carson.mapper.DepartmentMapper;</span><br><span class="line"><span class="hljs-keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.GetMapping;</span><br><span class="line"><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.PathVariable;</span><br><span class="line"><span class="hljs-keyword">import</span> org.springframework.web.bind.annotation.RestController;</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">@RestController</span> <span class="hljs-comment">// 代表返回 json 数据的 controller</span></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DeptController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Autowired</span></span><br><span class="line">    DepartmentMapper departmentMapper;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">"/dept/&#123;id&#125;"</span>)</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> Department <span class="hljs-title">getDept</span><span class="hljs-params">(@PathVariable(<span class="hljs-string">"id"</span>)</span> Integer id) </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> departmentMapper.getDepById(id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@GetMapping</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> Department <span class="hljs-title">inserDept</span><span class="hljs-params">(Department department)</span> </span>&#123;</span><br><span class="line">        departmentMapper.insertDept(department);</span><br><span class="line">        <span class="hljs-keyword">return</span> department;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>通过 <strong>@PathVariable</strong> 可以将 <strong>URL</strong> 中占位符参数绑定到控制器处理方法的入参中：URL 中的 {<strong>xxx</strong>} 占位符可以通过@PathVariable(“<strong>xxx</strong>“) 绑定到操作方法的入参中。</li>
+</ul>
+<p>启动主类, 输入这个: localhost:8080/dept?departmentName=AA , 这是往数据库增加一条数据:</p>
+<p><img src="/2019/08/01/btmybatis/5.png" alt>然后查询: localhost:8080/dept/3 , 我数据库id是3, 所以我要查询3:</p>
+<p><img src="/2019/08/01/btmybatis/6.png" alt></p>
+<p>不过发现一个问题, 在插入数据的时候获取不到 id:</p>
+<p><img src="/2019/08/01/btmybatis/7.png" alt></p>
+<p>所以我们要使用一个<code>@Options</code>注解:</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">@Options</span>(useGeneratedKeys = <span class="hljs-keyword">true</span>,keyProperty = <span class="hljs-string">"id"</span>)</span><br><span class="line"><span class="hljs-meta">@Insert</span>(<span class="hljs-string">"insert into department(departmentName) values(#&#123;departmentName&#125;)"</span>)</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">insertDept</span><span class="hljs-params">(Department department)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>添加到刚才 mapper中insert 的 <code>@value</code>注解上面 </p>
+<ul>
+<li><code>useGeneratedKeys</code> : 使用生成的主键</li>
+<li><code>keyProperty</code>: 意思是 Department 里面的哪个属性是主键, 就是我们的 <code>id</code></li>
+</ul>
+<p>试着插入一条数据:</p>
+<p><img src="/2019/08/01/btmybatis/8.png" alt></p>
+<blockquote>
+<p>我之前在文章里写了,但是实际忘记注释掉 schema , 导致每次运行都会重新创建数据库, 各位要注意</p>
+</blockquote>
+<p><strong>还有一个问题</strong></p>
+<p>我们把数据库的字段名改成 <code>department_name</code> 而实体类是<code>departmentName</code>;</p>
+<p>并且把sql语句也改正</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">@Options</span>(useGeneratedKeys = <span class="hljs-keyword">true</span>,keyProperty = <span class="hljs-string">"id"</span>)</span><br><span class="line"><span class="hljs-meta">@Insert</span>(<span class="hljs-string">"insert into department(department_name) values(#&#123;departmentName&#125;)"</span>)</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">insertDept</span><span class="hljs-params">(Department department)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">@Update</span>(<span class="hljs-string">"update department set department_name=#&#123;departmentName&#125; where id=#&#123;id&#125;"</span>)</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">updateDept</span><span class="hljs-params">(Department department)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>然后在进行查询操作的话:</p>
+<p><img src="/2019/08/01/btmybatis/9.png" alt></p>
+<p>我们发现获取不到 departmentName 了, 以前Spring 我们是使用配置文件来应对这种情况的, 但是我们现在没有了xml文件,我们该怎么办呢?</p>
+<p>世上无难事</p>
+<h4 id="创建自定义配置类"><a href="#创建自定义配置类" class="headerlink" title="创建自定义配置类:"></a>创建自定义配置类:</h4><figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">package</span> com.carson.config;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">import</span> org.mybatis.spring.boot.autoconfigure.ConfigurationCustomizer;</span><br><span class="line"><span class="hljs-keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="hljs-keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">@Configuration</span></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyBatisConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-meta">@Bean</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> ConfigurationCustomizer <span class="hljs-title">configurationCustomizer</span><span class="hljs-params">()</span> </span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ConfigurationCustomizer() &#123;</span><br><span class="line">            <span class="hljs-meta">@Override</span></span><br><span class="line">            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">customize</span><span class="hljs-params">(org.apache.ibatis.session.Configuration configuration)</span> 			 </span>&#123;</span><br><span class="line">                configuration.setMapUnderscoreToCamelCase(<span class="hljs-keyword">true</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意这里面的 <code>setMapUnderscoreToCamelCase</code>,意思是:</p>
+<p><img src="/2019/08/01/btmybatis/10.png" alt></p>
+<p>翻译大法好啊, 我的英文太差了, 再次访问 <a href="http://localhost:8080/dept/1" target="_blank" rel="noopener">http://localhost:8080/dept/1</a> 查询操作, 我发现已经不是 null了:</p>
+<figure class="highlight json hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="hljs-attr">"id"</span>:<span class="hljs-number">1</span>,<span class="hljs-attr">"departmentName"</span>:<span class="hljs-string">"jackMa"</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>马总正确的展现出来了!</p>
+<h3 id="MapperScan注解"><a href="#MapperScan注解" class="headerlink" title="MapperScan注解"></a><code>MapperScan</code>注解</h3><p>扫描器, 用来扫描mapper接口的</p>
+<p>我把它标记到 启动类 上(你可以标记在任何地方):</p>
+<p><img src="/2019/08/01/btmybatis/11.png" alt></p>
+<p>指定一个包,它会扫描这个包下所有的 mapper 接口, 防止你的mapper文件太多, 并且忘记加 @mapper 注解, 这样可以提高正确性</p>
+<h3 id="配置文件版"><a href="#配置文件版" class="headerlink" title="- 配置文件版"></a>- 配置文件版</h3><blockquote>
+<p><strong>注解版貌似很方便, 但是如果遇到复杂的sql , 比如动态sql等等, 还是需要用 xml 配置文件的;</strong></p>
+</blockquote>
+<p>创建一个 Employee 的Mapper接口:</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">package</span> com.carson.mapper;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">import</span> com.carson.domain.Employee;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">EmployeeMapper</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> Employee <span class="hljs-title">getEmpById</span><span class="hljs-params">(Integer id)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">insertEmp</span><span class="hljs-params">(Employee employee)</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在 resources/mybatis 下创建一个 mybatis-config.xml 全局配置文件:</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line">        <span class="hljs-meta">&lt;!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"</span></span><br><span class="line"><span class="hljs-meta">                "http://mybatis.org/dtd/mybatis-3-config.dtd"&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在 resources/mybatis/mapper 包下创建 EmployeeMapper.xml 映射文件:</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"><span class="hljs-meta">&lt;!DOCTYPE mapper</span></span><br><span class="line"><span class="hljs-meta">        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"</span></span><br><span class="line"><span class="hljs-meta">        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">&lt;!-- 绑定接口 并且写两条 SQL 语句--&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">mapper</span> <span class="hljs-attr">namespace</span>=<span class="hljs-string">"com.carson.mapper.EmployeeMapper"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"getEmpById"</span> <span class="hljs-attr">resultType</span>=<span class="hljs-string">"com.carson.domain.Employee"</span>&gt;</span></span><br><span class="line">    select * from employee where id = #&#123;id&#125;</span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">insert</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"insertEmp"</span>&gt;</span></span><br><span class="line">        insert into employee(lastName,email,gender,d_id) values (#&#123;lastName&#125;,	  		#&#123;email&#125;,#&#123;gender&#125;,#&#123;d_id&#125;)</span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">insert</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>然后再 application.yml 配置文件下添加一条配置:</p>
+<figure class="highlight yaml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># mybatis属性是跟 spring 属性平级的, 千万不要把格式搞错</span></span><br><span class="line"><span class="hljs-attr">mybatis:</span></span><br><span class="line"><span class="hljs-comment"># 指定全局配置文件</span></span><br><span class="line"><span class="hljs-attr">  config-location:</span> <span class="hljs-attr">classpath:mybatis/mybatis-config.xml</span></span><br><span class="line"><span class="hljs-comment"># 指定 mapper 映射文件, * 代表所有  </span></span><br><span class="line"><span class="hljs-attr">  mapper-locations:</span> <span class="hljs-attr">classpath:mybatis/mapper/*.xml</span></span><br></pre></td></tr></table></figure>
+<p>让我们在刚才的DeptController类里添加一段 Controller :</p>
+<figure class="highlight java hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">@Autowired</span></span><br><span class="line">EmployeeMapper employeeMapper</span><br><span class="line"></span><br><span class="line"><span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">"emp/&#123;id&#125;"</span>)</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">public</span> Employee <span class="hljs-title">getEmp</span><span class="hljs-params">(@PathVariable(<span class="hljs-string">"id"</span>)</span> Integer id) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> employeeMapper.getEmpById(id);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>启动主类访问一下 localhost:8080/emp/1 , 查看结果:</p>
+<p><img src="/2019/08/01/btmybatis/12.png" alt></p>
+<p>我们发现 dId没有查询出来, 这是因为 数据库字段是 d_id , 而java里是 dId , 所以我们要像刚才注解版一样, 配置一样东西, 让我们打开 mapper全局配置文件添加:</p>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line">        <span class="hljs-meta">&lt;!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"</span></span><br><span class="line"><span class="hljs-meta">                "http://mybatis.org/dtd/mybatis-3-config.dtd"&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">settings</span>&gt;</span></span><br><span class="line">        <span class="hljs-tag">&lt;<span class="hljs-name">setting</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"mapUnderscoreToCamelCase"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"true"</span>/&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;/<span class="hljs-name">settings</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>mapUnderscoreToCamelCase</code> : 是否开启自动驼峰命名规则（camel case）映射，即从经典数据库列名 A_COLUMN 到经典 Java 属性名 aColumn 的类似映射。</p>
+<p>再次试验:</p>
+<p><img src="/2019/08/01/btmybatis/13.png" alt></p>
+<p>可以看出已经成功了</p>
+<p>无论是哪种版本. 要根据自己的实际情况来定, 注解虽然方便, 但是复杂业务的就不行了</p>
+<hr>
+<p>再见，谢谢~</p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Spring-Boot/">Spring Boot</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/zhifubao.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/weixin.jpg" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/08/08/springmvclogin/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">SpringMVC-拦截器-判断用户登录状态</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/07/30/bootdruid/">
+                <span class="level-item">Spring Boot数据库-整合Druid数据源&amp;Druid监控</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/images/1.png" alt="Yu Xiantao">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Yu Xiantao
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        热心的学习者 狂热的数码迷
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Beijing, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        22
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        11
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        16
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://www.zhihu.com/people/san-ji-nei-ku/activities" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="https://github.com/aaaTao66">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Twitter" href="https://twitter.com/iloveueason">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+<div class="card widget" id="toc">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                目录
+            </h3>
+            <ul class="menu-list"><li>
+        <a class="is-flex" href="#前言">
+        <span class="has-mr-6">1</span>
+        <span>前言</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#创建项目">
+        <span class="has-mr-6">1.1</span>
+        <span>创建项目</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#配置Druid数据源">
+        <span class="has-mr-6">1.1.1</span>
+        <span>配置Druid数据源</span>
+        </a></li><li>
+        <a class="is-flex" href="#利用SpringBoot建表">
+        <span class="has-mr-6">1.1.2</span>
+        <span>利用SpringBoot建表</span>
+        </a></li><li>
+        <a class="is-flex" href="#对应数据库实体类">
+        <span class="has-mr-6">1.1.3</span>
+        <span>对应数据库实体类</span>
+        </a></li></ul></li><li>
+        <a class="is-flex" href="#数据库交互">
+        <span class="has-mr-6">1.2</span>
+        <span>数据库交互</span>
+        </a><ul class="menu-list"><li>
+        <a class="is-flex" href="#注解版">
+        <span class="has-mr-6">1.2.1</span>
+        <span>- 注解版</span>
+        </a></li><li>
+        <a class="is-flex" href="#MapperScan注解">
+        <span class="has-mr-6">1.2.2</span>
+        <span>MapperScan注解</span>
+        </a></li><li>
+        <a class="is-flex" href="#配置文件版">
+        <span class="has-mr-6">1.2.3</span>
+        <span>- 配置文件版</span>
+        </a></li></ul></li></ul></li></ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://www.zhihu.com/people/san-ji-nei-ku/activities" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">知乎</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.zhihu.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Dubbo/">
+            <span class="level-start">
+                <span class="level-item">Dubbo</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Hadoop生态圈/">
+            <span class="level-start">
+                <span class="level-item">Hadoop生态圈</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/SSM整合/">
+            <span class="level-start">
+                <span class="level-item">SSM整合</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Scala/">
+            <span class="level-start">
+                <span class="level-item">Scala</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Spring/">
+            <span class="level-start">
+                <span class="level-item">Spring</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Spring-Boot/">
+            <span class="level-start">
+                <span class="level-item">Spring Boot</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/SpringMVC/">
+            <span class="level-start">
+                <span class="level-item">SpringMVC</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/《大话数据结构》/">
+            <span class="level-start">
+                <span class="level-item">《大话数据结构》</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/博客搭建/">
+            <span class="level-start">
+                <span class="level-item">博客搭建</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/浅谈ios-Android-非技术/">
+            <span class="level-start">
+                <span class="level-item">浅谈ios/Android(非技术)</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/黑科技/">
+            <span class="level-start">
+                <span class="level-item">黑科技</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            标签云
+        </h3>
+        <a href="/tags/Druid/" style="font-size: 10px;">Druid</a> <a href="/tags/Hadoop/" style="font-size: 10px;">Hadoop</a> <a href="/tags/Hbase/" style="font-size: 10px;">Hbase</a> <a href="/tags/Interceptor/" style="font-size: 10px;">Interceptor</a> <a href="/tags/SSM/" style="font-size: 10px;">SSM</a> <a href="/tags/Scala/" style="font-size: 15px;">Scala</a> <a href="/tags/Servlet/" style="font-size: 10px;">Servlet</a> <a href="/tags/Spring-Boot/" style="font-size: 20px;">Spring Boot</a> <a href="/tags/Thymeleaf/" style="font-size: 15px;">Thymeleaf</a> <a href="/tags/WebFlow/" style="font-size: 10px;">WebFlow</a> <a href="/tags/微服务/" style="font-size: 10px;">微服务</a> <a href="/tags/我的博客搭建过程/" style="font-size: 10px;">我的博客搭建过程</a> <a href="/tags/数据结构/" style="font-size: 10px;">数据结构</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/闲聊/" style="font-size: 10px;">闲聊</a> <a href="/tags/黑科技/" style="font-size: 10px;">黑科技</a>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/10/17/dubbo/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot-整合Dubbo">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-16T16:00:00.000Z">2019-10-17</time></div>
+                    <a href="/2019/10/17/dubbo/" class="has-link-black-ter is-size-6">Spring Boot-整合Dubbo</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Dubbo/">Dubbo</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/08/springmvclogin/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="SpringMVC-拦截器-判断用户登录状态">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T16:00:00.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/springmvclogin/" class="has-link-black-ter is-size-6">SpringMVC-拦截器-判断用户登录状态</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/SpringMVC/">SpringMVC</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/01/btmybatis/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot-甜蜜的整合MyBatis&amp;注解方式&amp;配置方式">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-31T16:00:00.000Z">2019-08-01</time></div>
+                    <a href="/2019/08/01/btmybatis/" class="has-link-black-ter is-size-6">Spring Boot-甜蜜的整合MyBatis&amp;注解方式&amp;配置方式</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring-Boot/">Spring Boot</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/30/bootdruid/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot数据库-整合Druid数据源&amp;Druid监控">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-29T16:00:00.000Z">2019-07-30</time></div>
+                    <a href="/2019/07/30/bootdruid/" class="has-link-black-ter is-size-6">Spring Boot数据库-整合Druid数据源&amp;Druid监控</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring-Boot/">Spring Boot</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/23/SpringWebFlow/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Web Flow">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-22T16:00:00.000Z">2019-07-23</time></div>
+                    <a href="/2019/07/23/SpringWebFlow/" class="has-link-black-ter is-size-6">Spring Web Flow</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Druid/">
+                        <span class="tag">Druid</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hadoop/">
+                        <span class="tag">Hadoop</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hbase/">
+                        <span class="tag">Hbase</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Interceptor/">
+                        <span class="tag">Interceptor</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SSM/">
+                        <span class="tag">SSM</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Servlet/">
+                        <span class="tag">Servlet</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-Boot/">
+                        <span class="tag">Spring Boot</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Thymeleaf/">
+                        <span class="tag">Thymeleaf</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/WebFlow/">
+                        <span class="tag">WebFlow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微服务/">
+                        <span class="tag">微服务</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/我的博客搭建过程/">
+                        <span class="tag">我的博客搭建过程</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数据结构/">
+                        <span class="tag">数据结构</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/算法/">
+                        <span class="tag">算法</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/闲聊/">
+                        <span class="tag">闲聊</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/黑科技/">
+                        <span class="tag">黑科技</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/10/17/dubbo/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot-整合Dubbo">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-16T16:00:00.000Z">2019-10-17</time></div>
+                    <a href="/2019/10/17/dubbo/" class="has-link-black-ter is-size-6">Spring Boot-整合Dubbo</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Dubbo/">Dubbo</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/08/springmvclogin/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="SpringMVC-拦截器-判断用户登录状态">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-08-07T16:00:00.000Z">2019-08-08</time></div>
+                    <a href="/2019/08/08/springmvclogin/" class="has-link-black-ter is-size-6">SpringMVC-拦截器-判断用户登录状态</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/SpringMVC/">SpringMVC</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/08/01/btmybatis/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot-甜蜜的整合MyBatis&amp;注解方式&amp;配置方式">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-31T16:00:00.000Z">2019-08-01</time></div>
+                    <a href="/2019/08/01/btmybatis/" class="has-link-black-ter is-size-6">Spring Boot-甜蜜的整合MyBatis&amp;注解方式&amp;配置方式</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring-Boot/">Spring Boot</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/30/bootdruid/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Boot数据库-整合Druid数据源&amp;Druid监控">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-29T16:00:00.000Z">2019-07-30</time></div>
+                    <a href="/2019/07/30/bootdruid/" class="has-link-black-ter is-size-6">Spring Boot数据库-整合Druid数据源&amp;Druid监控</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring-Boot/">Spring Boot</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/07/23/SpringWebFlow/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Spring Web Flow">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-07-22T16:00:00.000Z">2019-07-23</time></div>
+                    <a href="/2019/07/23/SpringWebFlow/" class="has-link-black-ter is-size-6">Spring Web Flow</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Spring/">Spring</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/08/">
+                <span class="level-start">
+                    <span class="level-item">八月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/07/">
+                <span class="level-start">
+                    <span class="level-item">七月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">六月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/05/">
+                <span class="level-start">
+                    <span class="level-item">五月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Druid/">
+                        <span class="tag">Druid</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hadoop/">
+                        <span class="tag">Hadoop</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Hbase/">
+                        <span class="tag">Hbase</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Interceptor/">
+                        <span class="tag">Interceptor</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/SSM/">
+                        <span class="tag">SSM</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Scala/">
+                        <span class="tag">Scala</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Servlet/">
+                        <span class="tag">Servlet</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Spring-Boot/">
+                        <span class="tag">Spring Boot</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Thymeleaf/">
+                        <span class="tag">Thymeleaf</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/WebFlow/">
+                        <span class="tag">WebFlow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/微服务/">
+                        <span class="tag">微服务</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/我的博客搭建过程/">
+                        <span class="tag">我的博客搭建过程</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/数据结构/">
+                        <span class="tag">数据结构</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/算法/">
+                        <span class="tag">算法</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/闲聊/">
+                        <span class="tag">闲聊</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/黑科技/">
+                        <span class="tag">黑科技</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+	<div id="vcomments"></div>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="Spring Boot-甜蜜的整合MyBatis&amp;注解方式&amp;配置方式" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Yu Xiantao&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                <br>
+                <span id="busuanzi_container_site_uv">
+                共<span id="busuanzi_value_site_uv">0</span>个访客
+                </span>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+    
+
+
+<script src="/js/main.js" defer></script>
+	
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+	
+    <script>
+        new Valine({
+            el: '#vcomments',
+            appId: 'K2pfcRNJyLhhJISc7BaeYA88-gzGzoHsz',
+            appKey: 'gHHPTdGOoXqqMFw6YdRml785'
+        })
+    </script>
+</body>
+</html>
