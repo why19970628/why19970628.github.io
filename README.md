@@ -2,7 +2,8 @@
 
 技术栈主要为:
 
-- Pyton
-- go
+- Python
+- Go
+- Web
 
 欢迎关注
